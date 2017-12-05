@@ -1,1 +1,6 @@
-.home-page-container hello
+.home_page_container
+  .top_nav_bar
+    = link_to 'Sign Up', new_user_registration_path
+    = link_to 'Login', new_user_session_path
+    = link_to 'Log Out', destroy_user_session_path, method: :delete
+  .main_body

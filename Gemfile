@@ -12,6 +12,10 @@ gem 'rails', '~> 5.1.4'
 gem 'sqlite3'
 # Use devise for authentication
 gem 'devise'
+# Use mailgun for mailer
+gem 'mailgun_rails'
+# Use figaro to manage environment variables
+gem 'figaro'
 # Use Haml instead of ERb
 gem 'haml-rails'
 # Linter for haml
