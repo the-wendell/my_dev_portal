@@ -1,3 +1,7 @@
 %h1 Dashboard#index
 %p Find me in app/views/dashboard/index.html.haml
+= form_for Portfolio.new do |f|
+  = f.label :url, 'Portfolio URL'
+  = f.text_field :url
+  = submit_tag 'Create'
 = link_to 'Log Out', destroy_user_session_path, method: :delete

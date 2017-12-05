@@ -6,5 +6,6 @@ class CreatePortfolios < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    add_index :portfolios, :url, unique: true
   end
 end
