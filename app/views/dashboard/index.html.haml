@@ -15,9 +15,9 @@
         %p User Name
     .sidebar-menu
       .menu-item{ class: params[:menu_action] ? 'not-active' : 'active' }
-        = link_to 'Home', '/dashboard/index'
+        = link_to 'Home', dashboard_index_path
       .menu-item{ class: params[:menu_action] == 'change_portfolio_url' ? 'active' : 'not-active' }
-        = link_to 'Change URL', '/dashboard/index/change_portfolio_url'
+        = link_to 'Change URL', dashboard_index_path(menu_action: 'change_portfolio_url')
       .menu-item
         menue item 2
       .menu-item
