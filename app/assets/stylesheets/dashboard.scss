@@ -4,7 +4,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
 }
 
 p {
@@ -70,13 +69,34 @@ p {
 }
 
 .sidebar-menu {
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin: 10px;
-  padding: 10px;
   background-color: #323472;
   display: grid;
   grid-auto-rows: 30px;
+  box-shadow: 1px 1px 1px 1px #1F2047;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: white;
+}
+
+.menu-item:hover {
+  background-color: #1F2047;
 }
 
 .main-content {
   background-color: #f7fbff;
+}
+
+.active {
+  background-color: #1F2047;
 }

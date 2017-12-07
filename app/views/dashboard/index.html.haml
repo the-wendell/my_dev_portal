@@ -14,13 +14,15 @@
       .sidebar-name
         %p User Name
     .sidebar-menu
-      .menu-item-1
-        menue item 1
-      .menu-item-2
+      .menu-item{ class: params[:menu_action] ? 'not-active' : 'active' }
+        = link_to 'Home', '/dashboard/index'
+      .menu-item{ class: params[:menu_action] == 'change_portfolio_url' ? 'active' : 'not-active' }
+        = link_to 'Change URL', '/dashboard/index/change_portfolio_url'
+      .menu-item
         menue item 2
-      .menu-item-3
+      .menu-item
         menue item 3
-      .menu-item-4
+      .menu-item
         menue item 4
   .main-content
-    maincontent
+    = render partial: @current_dashboard_action

@@ -9,6 +9,10 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def update
+    @portfolio = current_user.portfolios.first
+  end
+
   def show
     @portfolio = Portfolio.find_by(url: params[:portfolio]) || raise('not found')
   end

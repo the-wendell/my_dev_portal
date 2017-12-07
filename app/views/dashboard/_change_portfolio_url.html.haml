@@ -1,4 +1,10 @@
-= form_for Portfolio.new do |f|
-  = f.label :url, 'Portfolio URL'
-  = f.text_field :url
-  = submit_tag 'Create'
+%link{ rel: 'stylesheet', href: '/assets/change_portfolio_url' }
+
+.main
+  .form-container
+    %h4 Select
+    = current_user.portfolios.first.url
+    = form_for Portfolio.new do |f|
+      = f.label :url, 'Portfolio URL'
+      = f.text_field :url
+      = submit_tag 'Create'

@@ -1,0 +1,13 @@
+.main {
+  margin-top: 75px;
+  display: grid;
+  grid-template-columns: auto 300px auto;
+  grid-template-rows: 300px;
+}
+
+.form-container {
+  grid-column: 2 / 3;
+  background-color: #00A6FB;
+  box-shadow: 3px 4px 1px 0px black;
+  border-radius: 25px;
+}
