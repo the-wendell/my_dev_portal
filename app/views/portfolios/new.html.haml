@@ -1,4 +1,5 @@
 = form_for Portfolio.new do |f|
   = f.label :url, 'Portfolio URL'
   = f.text_field :url
+  = hidden_field_tag 'user_id', current_user.id
   = submit_tag 'Create'

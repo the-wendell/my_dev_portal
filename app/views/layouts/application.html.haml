@@ -8,9 +8,9 @@
     %link{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto' }
 
   %body
-    %p.notice
+    .alert.alert-success
       = notice
-    %p.alert
+    .alert.alert-warning
       = alert
     -# - if current_user
     -#   = link_to 'Log Out', destroy_user_session_path, method: :delete

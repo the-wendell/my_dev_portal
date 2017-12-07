@@ -1,11 +1,16 @@
 class PortfoliosController < ApplicationController
+  before_action :authenticate_user!
+
   def new
   end
 
   def create
     @portfolio = current_user.portfolios.new
     @portfolio.url = params[:portfolio][:url]
-    if @portfolio.save
+    if current_user.portfolios
+      flash[:alert] = 'Only one portfolio allowed per user at this time'
+      render 'new'
+    elsif @portfolio.save
       flash[:notice] = 'New Portfolio Created'
       redirect_to dashboard_index_path
     else
