@@ -1,4 +1,7 @@
 class PortfoliosController < ApplicationController
+  def new
+  end
+
   def create
     @portfolio = current_user.portfolios.new
     @portfolio.url = params[:portfolio][:url]
