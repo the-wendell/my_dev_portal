@@ -1,3 +1,82 @@
 // Place all the styles related to the Dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template: 50px 100vh
+  / 200px auto;
+}
+
+.dev-portal-logo {
+  background-color: #70acd1;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dev-portal-logo p {
+  font-size: 28px;
+}
+
+.header {
+  background-color: #83c9f4;
+  color: white;
+  display: grid;
+  grid-template-columns: auto 200px 50px;
+}
+
+.current-user-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings {
+  background-image: image-url("settings.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.sidebar {
+  background-color: #0a0d72;
+  color: white;
+}
+
+.current-user-sidebar {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 75px 125px;
+}
+
+.sidebar-gravatar {
+  padding: 5px;
+}
+
+.sidebar-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-menu {
+  margin: 10px;
+  padding: 10px;
+  background-color: #323472;
+  display: grid;
+  grid-auto-rows: 30px;
+}
+
+.main-content {
+  background-color: #f7fbff;
+}

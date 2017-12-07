@@ -80,6 +80,7 @@ GEM
       thor (~> 0.14)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gravtastic (3.2.6)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -259,6 +260,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   figaro
+  gravtastic
   haml-lint
   haml-rails
   jbuilder (~> 2.5)

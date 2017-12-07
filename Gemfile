@@ -16,6 +16,8 @@ gem 'devise'
 gem 'mailgun_rails'
 # Use figaro to manage environment variables
 gem 'figaro'
+# Gravitar API
+gem 'gravtastic'
 # Use Haml instead of ERb
 gem 'haml-rails'
 # Linter for haml

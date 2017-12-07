@@ -1,7 +1,26 @@
-%h1 Dashboard#index
-%p Find me in app/views/dashboard/index.html.haml
-= form_for Portfolio.new do |f|
-  = f.label :url, 'Portfolio URL'
-  = f.text_field :url
-  = submit_tag 'Create'
-= link_to 'Log Out', destroy_user_session_path, method: :delete
+.dashboard-container
+  .dev-portal-logo
+    %p My Dev Portal
+  .header
+    .main-header
+    .current-user-header
+      %p
+        = current_user.email
+    .settings
+  .sidebar
+    .current-user-sidebar
+      .sidebar-gravatar
+        = image_tag current_user.gravatar_url
+      .sidebar-name
+        %p User Name
+    .sidebar-menu
+      .menu-item-1
+        menue item 1
+      .menu-item-2
+        menue item 2
+      .menu-item-3
+        menue item 3
+      .menu-item-4
+        menue item 4
+  .main-content
+    maincontent
