@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects
   get 'dashboard/index'
   get 'dashboard/index/:menu_action' => "dashboard#index"
 

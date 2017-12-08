@@ -22,6 +22,9 @@ gem 'gravtastic'
 gem 'haml-rails'
 # Linter for haml
 gem 'haml-lint'
+# Use carrierwave and mini magik for managing image uploads
+gem 'carrierwave'
+gem 'mini_magick'
 # Bootstrap 4 for rails
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 # jQuery for Rails

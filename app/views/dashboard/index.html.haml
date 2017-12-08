@@ -20,7 +20,7 @@
       .menu-item{ class: params[:menu_action] == 'change_portfolio_url' ? 'active' : 'not-active' }
         = link_to 'Change URL', dashboard_index_path(menu_action: 'change_portfolio_url')
       .menu-item
-        menue item 2
+        = link_to 'Add Project', dashboard_index_path(menu_action: 'add_project')
       .menu-item
         menue item 3
       .menu-item
