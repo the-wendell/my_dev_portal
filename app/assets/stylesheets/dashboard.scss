@@ -108,6 +108,18 @@ p {
   background-color: #f7fbff;
 }
 
+.field textarea {
+  box-shadow: 1px 1px 1px 0px black;
+}
+
+.field input {
+  box-shadow: 1px 1px 1px 0px black;
+}
+
+.actions input {
+  box-shadow: 1px 1px 1px 0px black;
+}
+
 .active {
   background-color: #1F2047;
 }

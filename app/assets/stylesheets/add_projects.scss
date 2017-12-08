@@ -1,0 +1,51 @@
+.main-project {
+  margin-top: 75px;
+  display: grid;
+  grid-template-columns: auto 600px auto;
+  grid-template-rows: 500px;
+}
+
+.form-container-project {
+  color: white;
+  grid-column: 2 / 3;
+  background-color: #00A6FB;
+  box-shadow: 3px 4px 1px 0px black;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.form-project {
+  display: grid;
+  grid-template-columns: 250px 310px;
+  grid-template-rows: repeat(6, 75px);
+  justify-items: start;
+}
+
+.form-project div:nth-child(5) {
+  grid-row: 3 / span 2;
+  grid-column: 1 / span 2;
+}
+
+.form-project div:nth-child(6) {
+  grid-column: 1 / span 2;
+}
+
+.form-project div:nth-child(7) {
+  grid-column: 2 / 3;
+  justify-self: end;
+  align-self: end;
+}
+
+.form-project-description {
+  width: 550px;
+  height: 100px;
+}
+
+.form-project-tech {
+  width: 550px;
+  height: 60px;
+}
+
+.form-project-image {
+  background-color: #70acd1;
+}

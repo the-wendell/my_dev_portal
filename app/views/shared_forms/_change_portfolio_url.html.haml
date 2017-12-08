@@ -4,6 +4,8 @@
   .form-container
     %h4 Change your portfolio's URL
     = form_for current_user.portfolios.first do |f|
-      = f.label :url, 'Portfolio URL'
-      = f.text_field :url
-      = submit_tag 'Update'
+      .field
+        = f.label :url, 'Portfolio URL'
+        = f.text_field :url
+      .actions
+        = submit_tag 'Update'
