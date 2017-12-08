@@ -14,10 +14,14 @@
   padding: 20px;
 }
 
+.form-container-project h4 {
+  text-align: center;
+}
+
 .form-project {
   display: grid;
   grid-template-columns: 250px 310px;
-  grid-template-rows: repeat(6, 75px);
+  grid-template-rows: repeat(6, 70px);
   justify-items: start;
 }
 

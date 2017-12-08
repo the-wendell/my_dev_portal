@@ -1,11 +1,15 @@
-%link{ rel: 'stylesheet', href: '/assets/change_portfolio_url' }
 
 .main
   .form-container
-    %h4 Change your portfolio's URL
+    %h4 Change Portfolio URL
+    %p
+      Your current portfolio URL is
+      %b
+        = "mydevportal.io/#{current_user.portfolios.first.url}"
     = form_for current_user.portfolios.first do |f|
-      .field
-        = f.label :url, 'Portfolio URL'
-        = f.text_field :url
-      .actions
-        = submit_tag 'Update'
+      .form-portfolio
+        .field
+          = f.label :url, 'Portfolio URL'
+          = f.text_field :url, class: 'input-portfolio-url'
+        .actions
+          = submit_tag 'Update'

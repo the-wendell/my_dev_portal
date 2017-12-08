@@ -12,4 +12,20 @@
   box-shadow: 3px 4px 1px 0px black;
   border-radius: 25px;
   padding: 20px;
+  display: grid;
+  grid-template-rows: 50px 60px 200px;
+}
+
+.form-portfolio {
+  display: grid;
+  grid-template-rows: 100px 50px;
+}
+
+.form-portfolio div:nth-child(2) {
+  justify-self: end;
+  padding-right: 10px;
+}
+
+.input-portfolio-url {
+  width: 250px;
 }

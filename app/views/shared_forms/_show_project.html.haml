@@ -1,0 +1,25 @@
+
+.project-mini-display-container
+  %p
+    %b Title:
+    %br
+    = project.title
+  %p
+    %b Descrption:
+    = "#{project.descrption[0..100]} ..."
+  %p
+    = image_tag project.image.thumb.url
+  %p
+    %b Link:
+    %br
+    = project.link
+  %p
+    %b Role:
+    %br
+    = project.role
+  %p
+    = link_to 'Edit', edit_project_path(project)
+    = link_to 'Back', projects_path
+  %p
+    %b Tech:
+    = project.tech

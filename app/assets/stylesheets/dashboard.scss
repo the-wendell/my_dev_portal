@@ -1,6 +1,9 @@
 // Place all the styles related to the Dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'change_portfolio_url';
+@import 'add_projects';
+@import 'project_display';
 
 body {
   margin: 0;
@@ -106,6 +109,7 @@ p {
 
 .main-content {
   background-color: #f7fbff;
+  box-shadow: inset 1px 2px 1px 1px #38393A;
 }
 
 .field textarea {

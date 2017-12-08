@@ -1,7 +1,7 @@
-%link{ rel: 'stylesheet', href: '/assets/add_projects' }
 
 .main-project
   .form-container-project
+    %h4 Add New Project
     = form_for Project.new do |f|
       .form-project
         .field
@@ -29,4 +29,4 @@
           %br
           = f.text_area :tech, class: 'form-project-tech'
         .actions
-          = f.submit 'Add New Project', class: 'btn'
+          = f.submit 'Add New Project'
