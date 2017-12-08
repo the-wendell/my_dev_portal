@@ -23,13 +23,15 @@
 .project-mini-display-container p:nth-child(2) {
   grid-row: 1 / span 2;
   grid-column: 2 / 3;
+  justify-self: center;
+  align-self: center;
 }
 
 .project-mini-display-container p:nth-child(3) {
-  grid-row: 3 / span 2;
-  grid-column: 2 / 3;
+  grid-row: 2 / span 2;
+  grid-column: 1 / 2;
 }
 
-.project-mini-display-container p:nth-child(7) {
+.project-mini-display-container p:nth-child(5) {
   grid-column: 1 / span 2;
 }

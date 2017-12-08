@@ -5,21 +5,21 @@
     %br
     = project.title
   %p
-    %b Descrption:
-    = "#{project.descrption[0..100]} ..."
-  %p
     = image_tag project.image.thumb.url
   %p
-    %b Link:
-    %br
-    = project.link
+    %b Descrption:
+    = "#{project.descrption[0..100]} ..."
   %p
     %b Role:
     %br
     = project.role
   %p
-    = link_to 'Edit', edit_project_path(project)
-    = link_to 'Back', projects_path
-  %p
     %b Tech:
     = project.tech
+  %p
+    %b Link:
+    %br
+    = project.link
+  %p
+    = link_to 'Edit', dashboard_index_path(menu_action: 'edit_project', id: project.id), class: 'edit-button'
+    = link_to 'Delete', project_path(project.id), class: 'delete-button', method: :delete, data: {confirm: "Are you sure that you would like to delete this project?"}

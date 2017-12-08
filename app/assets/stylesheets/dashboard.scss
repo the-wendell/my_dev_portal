@@ -112,6 +112,30 @@ p {
   box-shadow: inset 1px 2px 1px 1px #38393A;
 }
 
+.delete-button {
+  color: white;
+  background-color: #990000;
+  padding: 7px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+.delete-button:hover {
+  background-color: #700000;
+}
+
+.edit-button {
+  color: white;
+  background-color: #6B9900;
+  padding: 7px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+.edit-button:hover {
+  background-color: #4A6B00;
+}
+
 .field textarea {
   box-shadow: 1px 1px 1px 0px black;
 }

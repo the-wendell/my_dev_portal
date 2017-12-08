@@ -22,9 +22,7 @@ class PortfoliosController < ApplicationController
   def update
     @portfolio = current_user.portfolios.first
     @portfolio.url = params[:portfolio][:url]
-    if @portfolio.save
-      flash[:notice] = 'Portfolio URL update succesfully'
-    else
+    unless @portfolio.save
       flash[:alert] = @portfolio.errors.full_messages.first
     end
     redirect_to dashboard_index_path(menu_action: 'change_portfolio_url')
