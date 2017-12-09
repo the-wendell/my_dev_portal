@@ -3,44 +3,39 @@ require 'rails_helper'
 RSpec.describe PortfoliosController, type: :controller do
   login_user
 
-  describe 'Create Portfolio' do
+  describe 'portfolio#create' do
     it 'Lets new user create a portfolio' do
-      subject.current_user.portfolios.create(url: 'testing')
+      post :create, params: { portfolio: { url: 'testing' } }
       expect(subject.current_user.portfolios.first.url).to eq('testing')
     end
-    it 'URLs are unique' do
-      subject.current_user.portfolios.create(url: 'testing')
-      portfolio = subject.current_user.portfolios.create(url: 'testing')
-      expect(portfolio.errors.full_messages.first).to eq('Url has already been taken')
+    it 'Prevents user from creating more than one portfolio' do
+      post :create, params: { portfolio: { url: 'testing' } }
+      post :create, params: { portfolio: { url: 'test' } }
+      expect(subject.current_user.portfolios.all.count).to eq(1)
     end
-    it 'URLs are atleast 3 letters long' do
-      portfolio = subject.current_user.portfolios.create(url: 't')
-      expect(portfolio.errors.full_messages.first).to eq('Url is too short (minimum is 3 characters)')
-    end
-    it 'URL is not blank' do
-      portfolio = subject.current_user.portfolios.create(url: '   ')
-      expect(portfolio.errors.full_messages.first).to eq("Url can't be blank")
+    it 'Redirects to dashboard#index' do
+      post :create, params: { portfolio: { url: 'testing' } }
+      expect(response).to redirect_to(dashboard_index_path)
     end
   end
 
-  describe 'Update Portfolio' do
+  describe 'portfolio#update' do
     let(:portfolio) { subject.current_user.portfolios.create(url: 'testing') }
     it 'Lets user edit portfolio URL' do
-      portfolio.update(url: 'test')
+      patch :update, params: { id: portfolio.id, portfolio: { url: 'test' } }
       expect(subject.current_user.portfolios.first.url).to eq('test')
     end
-    it 'URLs are unique' do
-      subject.current_user.portfolios.create(url: 'test')
-      portfolio.update(url: 'test')
-      expect(portfolio.errors.full_messages.first).to eq('Url has already been taken')
+    it 'on success it reloads the same page' do
+      patch :update, params: { id: portfolio.id, portfolio: { url: 'test' } }
+      expect(response).to redirect_to(dashboard_index_path(menu_action: 'change_portfolio_url'))
     end
-    it 'URLs are atleast 3 letters long' do
-      portfolio.update(url: 't')
-      expect(portfolio.errors.full_messages.first).to eq('Url is too short (minimum is 3 characters)')
-    end
-    it 'URL is not blank' do
-      portfolio.update(url: '     ')
-      expect(portfolio.errors.full_messages.first).to eq("Url can't be blank")
+  end
+
+  describe 'portfolio#show' do
+    it 'renders the show template' do
+      post :create, params: { portfolio: { url: 'testing' } }
+      get :show, params: { portfolio: 'testing' }
+      expect(response).to render_template('show')
     end
   end
 end

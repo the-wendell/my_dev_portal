@@ -5,7 +5,8 @@
     %br
     = project.title
   %p
-    = image_tag project.image.thumb.url
+    - if project.image.thumb.url
+      = image_tag project.image.thumb.url
   %p
     %b Descrption:
     = "#{project.descrption[0..100]} ..."
@@ -22,4 +23,4 @@
     = project.link
   %p
     = link_to 'Edit', dashboard_index_path(menu_action: 'edit_project', id: project.id), class: 'edit-button'
-    = link_to 'Delete', project_path(project.id), class: 'delete-button', method: :delete, data: {confirm: "Are you sure that you would like to delete this project?"}
+    = link_to 'Delete', project_path(project.id), class: 'delete-button', method: :delete, data: { confirm: 'Are you sure that you would like to delete this project?' }

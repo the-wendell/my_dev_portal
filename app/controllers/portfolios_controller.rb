@@ -7,7 +7,7 @@ class PortfoliosController < ApplicationController
   def create
     @portfolio = current_user.portfolios.new
     @portfolio.url = params[:portfolio][:url]
-    if current_user.portfolios.count > 1
+    if current_user.portfolios.count > 0
       flash[:alert] = 'Only one portfolio allowed per user at this time'
       render 'new'
     elsif @portfolio.save

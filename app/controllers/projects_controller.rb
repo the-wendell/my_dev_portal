@@ -1,66 +1,31 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:update, :destroy]
+  before_action :authenticate_user!
 
-  # GET /projects
-  # GET /projects.json
-  def index
-    @projects = Project.all
-  end
-
-  # GET /projects/1
-  # GET /projects/1.json
-  def show
-  end
-
-  # GET /projects/new
-  def new
-    @portfolio = current_user.portfolios.first
-    @project = @portfolio.projects.new
-  end
-
-  # GET /projects/1/edit
-  def edit
-  end
-
-  # POST /projects
-  # POST /projects.json
   def create
     @portfolio = current_user.portfolios.first
     @project = @portfolio.projects.new(project_params)
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to dashboard_index_path(menu_action: 'view_projects') }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    if @project.save
+      redirect_to dashboard_index_path(menu_action: 'view_projects')
+    else
+      flash[:alert] = 'There was an error creating the project.  Please try again'
+      redirect_to dashboard_index_path(menu_action: 'add_project')
     end
   end
 
-  # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
   def update
-    respond_to do |format|
-      if @project.update(project_params)
-        format.html { redirect_to dashboard_index_path(menu_action: 'view_projects') }
-        format.json { render :show, status: :ok, location: @project }
-      else
-        format.html { render :edit }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    if @project.update(project_params)
+      redirect_to dashboard_index_path(menu_action: 'view_projects')
+    else
+      flash[:alert] = 'There was an error updating the project.  Please try again'
+      redirect_to dashboard_index_path(menu_action: 'edit_project', id: @project.id)
     end
   end
 
-  # DELETE /projects/1
-  # DELETE /projects/1.json
   def destroy
     @project.destroy
-    respond_to do |format|
-      format.html { redirect_to dashboard_index_path(menu_action: 'view_projects') }
-      format.json { head :no_content }
-    end
+    redirect_to dashboard_index_path(menu_action: 'view_projects')
   end
 
   private
