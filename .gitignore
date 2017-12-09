@@ -24,3 +24,6 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore images uploaded by carrierwave
+/public/uploads/project/image
