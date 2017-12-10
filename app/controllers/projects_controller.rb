@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:update, :destroy]
   before_action :authenticate_user!
+  before_action :confirm_owner, only: [:update, :destroy]
 
   def create
     @portfolio = current_user.portfolios.first
@@ -29,12 +30,18 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def confirm_owner
+      unless current_user == @project.portfolio.user
+        flash[:alert] = 'You are not the owner of that project or portfolio'
+        redirect_to root
+      end
+    end
+
     def set_project
       @project = Project.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def project_params
       params.require(:project).permit(:references, :title, :link, :descrption, :image, :tech, :role)
     end

@@ -13,7 +13,8 @@
       .sidebar-gravatar
         = image_tag current_user.gravatar_url
       .sidebar-name
-        %p User Name
+        %p
+          = current_user.portfolios.first.url
     .sidebar-menu
       .menu-item{ class: params[:menu_action] ? 'not-active' : 'active' }
         = link_to 'Home', dashboard_index_path

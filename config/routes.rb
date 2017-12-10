@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'technologies/create'
+
+  get 'technologies/update'
+
+  get 'technologies/destroy'
+
   resources :projects
   get 'dashboard/index'
   get 'dashboard/index/:menu_action' => "dashboard#index"

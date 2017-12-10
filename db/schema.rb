@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207235120) do
+ActiveRecord::Schema.define(version: 20171210212628) do
 
   create_table "portfolios", force: :cascade do |t|
     t.integer "user_id"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 20171207235120) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["portfolio_id"], name: "index_projects_on_portfolio_id"
+  end
+
+  create_table "technologies", force: :cascade do |t|
+    t.string "name", limit: 20
+    t.integer "portfolio_id"
+    t.integer "years_exp"
+    t.integer "proficiency"
+    t.boolean "show_years_exp"
+    t.boolean "show_proficiency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfolio_id"], name: "index_technologies_on_portfolio_id"
   end
 
   create_table "users", force: :cascade do |t|
