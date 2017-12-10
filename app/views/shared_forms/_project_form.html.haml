@@ -1,7 +1,8 @@
+
 .main-project
   .form-container-project
     %h4 Add New Project
-    = form_for Project.find(params[:id]) do |f|
+    = form_for [@portfolio, @project] do |f|
       .form-project
         .field
           = f.label :title
@@ -28,4 +29,4 @@
           %br
           = f.text_area :tech, class: 'form-project-tech'
         .actions
-          = f.submit 'Commit Changes'
+          = f.submit 'Submit Form'

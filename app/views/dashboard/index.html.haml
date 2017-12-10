@@ -20,8 +20,8 @@
         = link_to 'Home', dashboard_index_path
       .menu-item{ class: params[:menu_action] == 'change_portfolio_url' ? 'active' : 'not-active' }
         = link_to 'Change URL', dashboard_index_path(menu_action: 'change_portfolio_url')
-      .menu-item{ class: params[:menu_action] == 'add_project' ? 'active' : 'not-active' }
-        = link_to 'Add Project', dashboard_index_path(menu_action: 'add_project')
+      .menu-item{ class: params[:menu_action] == '_project' ? 'active' : 'not-active' }
+        = link_to 'Add Project', dashboard_index_path(menu_action: 'project_form')
       .menu-item{ class: params[:menu_action] == 'view_projects' ? 'active' : 'not-active' }
         = link_to 'View Projects', dashboard_index_path(menu_action: 'view_projects')
       .menu-item
