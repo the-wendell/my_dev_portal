@@ -1,8 +1,21 @@
 .technologies-show-main-container
   .technology-header
+    Technology
   .years-exp-header
+    Years Exp
   .proficency-header
+    Proficency
   .edit-delete-header
-  .technologies-container
-    - @technologies.each do |technology|
+    Edit/Delete
+  - @technologies.each do |technology|
+    .show-name
       = technology.name
+    .show-years-exp
+      = technology.years_exp
+    .show-proficency
+      = technology.proficiency
+    .edit-delete-technology
+      = link_to dashboard_index_path(menu_action: 'technologies', technology_id: technology.id) do
+        .technology-edit-icon
+      = link_to portfolio_technology_path(@portfolio.id, technology.id), method: :delete do
+        .technology-delete-icon

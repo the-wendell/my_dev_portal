@@ -29,4 +29,4 @@
           %br
           = f.text_area :tech, class: 'form-project-tech'
         .actions
-          = f.submit 'Submit Form'
+          = f.submit "Submit #{@project.persisted? ? 'Edit' : 'New'}"

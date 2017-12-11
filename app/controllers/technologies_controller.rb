@@ -7,18 +7,24 @@ class TechnologiesController < ApplicationController
     @portfolio = current_user.portfolios.first
     @technology = @portfolio.technologies.new(technology_params)
 
-    if @technology.save
-      redirect_to dashboard_index_path(menu_action: 'technologies')
-    else
+    unless @technology.save
       flash[:alert] = 'There was an error creating the project.  Please try again'
-      redirect_to dashboard_index_path(menu_action: 'technologies')
     end
+    redirect_to dashboard_index_path(menu_action: 'technologies')
   end
 
   def update
+    if @technology.update(technology_params)
+      redirect_to dashboard_index_path(menu_action: 'technologies')
+    else
+      flash[:alert] = 'There was an error updating.  Please try again'
+      redirect_to dashboard_index_path(menu_action: 'technologies', id: @technology.id)
+    end
   end
 
   def destroy
+    @technology.destroy
+    redirect_to dashboard_index_path(menu_action: 'technologies')
   end
 
   private

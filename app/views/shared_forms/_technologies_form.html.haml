@@ -20,4 +20,6 @@
         = f.label :proficiency
         = f.select :proficiency, ((0..10).map { |i| [i, i] })
       .actions
-        = f.submit 'Submit'
+        = f.submit "Submit #{@technology.persisted? ? 'Edit' : 'New'}"
+        - if @technology.persisted?
+          = link_to 'Cancel', dashboard_index_path(menu_action: 'technologies'), class: 'delete-button'

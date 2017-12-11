@@ -59,5 +59,37 @@
 // show technology index
 
 .technologies-show-main-container {
+  color: white;
+  background-color: #00A6FB;
+  box-shadow: 3px 4px 3px 0px black;
+  border-radius: 25px;
+  padding: 20px;
   grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: 150px 100px 175px 100px;
+  justify-content: center;
+}
+
+.edit-delete-header {
+  justify-self: center;
+}
+
+.edit-delete-technology {
+  display: grid;
+  grid-template-columns: 25px 25px;
+  justify-content: center;
+}
+
+.technology-edit-icon {
+  background-image: image-url('edit.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 24px;
+}
+
+.technology-delete-icon {
+  background-image: image-url('delete.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 24px;
 }
