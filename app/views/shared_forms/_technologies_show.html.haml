@@ -3,8 +3,8 @@
     Technology
   .years-exp-header
     Years Exp
-  .proficency-header
-    Proficency
+  .proficiency-header
+    Proficiency
   .edit-delete-header
     Edit/Delete
   - @technologies.each do |technology|
@@ -12,8 +12,11 @@
       = technology.name
     .show-years-exp
       = technology.years_exp
-    .show-proficency
-      = technology.proficiency
+    .show-proficiency
+      .progress
+        .progress-bar.bg-warning{ role: 'progressbar',
+                       'aria-valuemin' => '0', 'aria-valuemax' => '10',
+                       style: "width: #{technology.proficiency * 10}%" }
     .edit-delete-technology
       = link_to dashboard_index_path(menu_action: 'technologies', technology_id: technology.id) do
         .technology-edit-icon
