@@ -21,7 +21,7 @@ RSpec.describe ProjectsController, type: :controller do
     it 'Redirects to project view' do
       post :create, params: { portfolio_id: portfolio.id,
                               project: valid_attributes }
-      expect(response).to redirect_to(dashboard_index_path(menu_action: 'view_projects'))
+      expect(response).to redirect_to(dashboard_index_path(menu_action: 'projects_view'))
     end
   end
 
@@ -40,7 +40,7 @@ RSpec.describe ProjectsController, type: :controller do
       patch :update, params: { portfolio_id: portfolio.id,
                                id: portfolio.projects.first.id,
                                project: { title: 'working' } }
-      expect(response).to redirect_to(dashboard_index_path(menu_action: 'view_projects'))
+      expect(response).to redirect_to(dashboard_index_path(menu_action: 'projects_view'))
     end
   end
 
@@ -57,7 +57,7 @@ RSpec.describe ProjectsController, type: :controller do
                               project: valid_attributes }
       delete :destroy, params: { portfolio_id: portfolio.id,
                                  id: portfolio.projects.first.id }
-      expect(response).to redirect_to(dashboard_index_path(menu_action: 'view_projects'))
+      expect(response).to redirect_to(dashboard_index_path(menu_action: 'projects_view'))
     end
   end
 end

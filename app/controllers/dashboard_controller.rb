@@ -6,5 +6,7 @@ class DashboardController < ApplicationController
     @portfolio = current_user.portfolios.first
     @projects = @portfolio.projects.all
     @project = params[:project_id] ? Project.find(params[:project_id]) : Project.new
+    @technologies = @portfolio.technologies.all
+    @technology = params[:technology_id] ? Technology.find(params[:technology_id]) : Technology.new
   end
 end

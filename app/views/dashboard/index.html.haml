@@ -20,11 +20,11 @@
         = link_to 'Home', dashboard_index_path
       .menu-item{ class: params[:menu_action] == 'change_portfolio_url' ? 'active' : 'not-active' }
         = link_to 'Change URL', dashboard_index_path(menu_action: 'change_portfolio_url')
-      .menu-item{ class: params[:menu_action] == '_project' ? 'active' : 'not-active' }
+      .menu-item{ class: params[:menu_action] == 'project_form' ? 'active' : 'not-active' }
         = link_to 'Add Project', dashboard_index_path(menu_action: 'project_form')
-      .menu-item{ class: params[:menu_action] == 'view_projects' ? 'active' : 'not-active' }
-        = link_to 'View Projects', dashboard_index_path(menu_action: 'view_projects')
-      .menu-item
-        menue item 4
+      .menu-item{ class: params[:menu_action] == 'projects_view' ? 'active' : 'not-active' }
+        = link_to 'View Projects', dashboard_index_path(menu_action: 'projects_view')
+      .menu-item{ class: params[:menu_action] == 'technologies' ? 'active' : 'not-active' }
+        = link_to 'Technologies', dashboard_index_path(menu_action: 'technologies')
   .main-content
     = render partial: "shared_forms/#{@current_dashboard_action}"

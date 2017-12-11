@@ -1,3 +1,63 @@
-// Place all the styles related to the Technologies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Add technology form
+
+.technologies-main {
+  display: grid;
+  grid-template-columns: auto 550px auto;
+  margin-top: 75px;
+  grid-gap: 20px;
+}
+
+.technologies-form-container {
+  color: white;
+  background-color: #00A6FB;
+  box-shadow: 3px 4px 3px 0px black;
+  border-radius: 25px;
+  padding: 20px;
+  grid-column: 2 / 3;
+
+}
+
+.form-technology {
+  display: grid;
+  grid-template-columns: 280px 230px;
+  grid-template-rows: 40px 40px 40px 20px;
+}
+
+.form-technology div:nth-child(1) {
+  grid-row: 1 / span 2;
+}
+
+.show-select {
+  display: grid;
+  grid-template-columns: 150px 50px;
+  grid-template-rows: 25px;
+}
+
+.show-select label {
+  justify-self: center;
+}
+
+.display-option-header {
+  font-size: 22px;
+  justify-self: center;
+}
+
+.years-exp-field {
+  width: 30px;
+}
+
+.exp-input {
+  display: grid;
+  grid-template-columns: 150px 50px;
+  grid-template-rows: 25px;
+}
+
+.form-technology .actions {
+  justify-self: center;
+}
+
+// show technology index
+
+.technologies-show-main-container {
+  grid-column: 2 / 3;
+}

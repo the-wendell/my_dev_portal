@@ -1,0 +1,23 @@
+.technologies-form-container
+  = form_for [@portfolio, @technology] do |f|
+    .form-technology
+      .field
+        = f.label :technology
+        %br
+        = f.text_field :name
+      %p.display-option-header
+        Display on Profile
+      .field.show-select
+        = f.label :years_exp
+        = f.select :show_years_exp, [['Yes', true], ['No', false]]
+      .field.exp-input
+        = f.label :years_of_experience
+        = f.text_field :years_exp, class: 'years-exp-field'
+      .field.show-select
+        = f.label :proficiency
+        = f.select :show_proficiency, [['Yes', true], ['No', false]]
+      .field.exp-input
+        = f.label :proficiency
+        = f.select :proficiency, ((0..10).map { |i| [i, i] })
+      .actions
+        = f.submit 'Submit'
