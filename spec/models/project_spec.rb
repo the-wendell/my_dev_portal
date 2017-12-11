@@ -11,7 +11,7 @@ RSpec.describe Project, type: :model do
       tech: 'mostly interent explorer' }
   end
 
-  describe 'Create Project' do
+  describe '#create' do
     it 'creates new project' do
       portfolio.projects.create(project_input)
       expect(portfolio.projects.all.count).to eq(1)
@@ -21,16 +21,17 @@ RSpec.describe Project, type: :model do
       portfolio.projects.create(image: image)
       expect(portfolio.projects.first.image.is_a?(ImageUploader)).to eq(true)
     end
-    it 'requires a portfolio' do
-      Project.create(project_input)
-      expect(Project.all.count).to eq(0)
-    end
   end
-  describe 'Update Project' do
+
+  describe '#update' do
     let(:project) { portfolio.projects.create(project_input) }
     it 'updates a project' do
       project.update(title: 'updated')
       expect(portfolio.projects.first.title).to eq('updated')
     end
+  end
+
+  describe '#portfolio' do
+    it { should belong_to(:portfolio) }
   end
 end

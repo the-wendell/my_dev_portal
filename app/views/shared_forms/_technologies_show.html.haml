@@ -20,5 +20,5 @@
     .edit-delete-technology
       = link_to dashboard_index_path(menu_action: 'technologies', technology_id: technology.id) do
         .technology-edit-icon
-      = link_to portfolio_technology_path(@portfolio.id, technology.id), method: :delete do
+      = link_to portfolio_technology_path(@portfolio.id, technology.id), method: :deletez do
         .technology-delete-icon

@@ -9,18 +9,27 @@
 
 .technologies-form-container {
   color: white;
-  background-color: #00A6FB;
-  box-shadow: 3px 4px 3px 0px black;
-  border-radius: 25px;
+  background-color: #83c9f4;
+  // box-shadow: 3px 4px 3px 0px black;
+  border-radius: 10px;
   padding: 20px;
   grid-column: 2 / 3;
+  justify-self: center;
 
 }
 
 .form-technology {
   display: grid;
-  grid-template-columns: 280px 230px;
+  grid-template-columns: 230px 230px;
   grid-template-rows: 40px 40px 40px 20px;
+}
+
+.form-technology .field input {
+  box-shadow: 0px 0px 0px 0px;
+}
+
+.form-technology .actions input {
+  box-shadow: 0px 0px 0px 0px;
 }
 
 .form-technology div:nth-child(1) {
@@ -96,4 +105,8 @@
 
 .show-proficiency {
   margin-top: 4px;
+}
+
+.progress {
+  box-shadow: 1px 1px black;
 }
