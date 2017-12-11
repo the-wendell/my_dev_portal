@@ -8,6 +8,7 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.string :image
       t.text :tech
       t.string :role
+      t.integer :order
 
       t.timestamps
     end

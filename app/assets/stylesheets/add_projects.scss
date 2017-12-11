@@ -35,9 +35,16 @@
 }
 
 .form-project div:nth-child(7) {
-  grid-column: 2 / 3;
-  justify-self: end;
   align-self: end;
+}
+
+.form-project div:nth-child(8) {
+  align-self: end;
+  justify-self: end;
+}
+
+.display-order-input {
+  width: 40px;
 }
 
 .form-project-description {

@@ -8,7 +8,8 @@ RSpec.describe Project, type: :model do
       descrption: 'So many words',
       role: 'supreme leader',
       link: 'the-fun-place',
-      tech: 'mostly interent explorer' }
+      tech: 'mostly interent explorer',
+      order: 1 }
   end
 
   describe '#create' do
@@ -33,5 +34,9 @@ RSpec.describe Project, type: :model do
 
   describe '#portfolio' do
     it { should belong_to(:portfolio) }
+  end
+
+  describe '#order' do
+    it { should validate_numericality_of(:order) }
   end
 end

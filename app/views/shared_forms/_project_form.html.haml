@@ -28,5 +28,8 @@
           = f.label :tech
           %br
           = f.text_area :tech, class: 'form-project-tech'
+        .field
+          = f.label :display_order
+          = f.text_field :order, class: 'display-order-input'
         .actions
           = f.submit "Submit #{@project.persisted? ? 'Edit' : 'New'}"

@@ -9,7 +9,8 @@ RSpec.describe ProjectsController, type: :controller do
       descrption: 'exiting stuff',
       role: 'BMOC',
       tech: 'fancey things',
-      link: 'a place' }
+      link: 'a place',
+      order: 1 }
   }
 
   describe 'projects#create' do

@@ -26,4 +26,4 @@
 /config/application.yml
 
 # Ignore images uploaded by carrierwave
-/public/uploads/project/image
+/public/uploads

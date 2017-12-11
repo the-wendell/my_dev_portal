@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20171210212628) do
     t.string "image"
     t.text "tech"
     t.string "role"
+    t.integer "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["portfolio_id"], name: "index_projects_on_portfolio_id"

@@ -10,8 +10,8 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to dashboard_index_path(menu_action: 'projects_view')
     else
-      flash[:alert] = 'There was an error creating the project.  Please try again'
-      redirect_to dashboard_index_path(menu_action: 'add_project')
+      flash[:alert] = @project.errors.full_messages.first
+      redirect_to dashboard_index_path(menu_action: 'project_form')
     end
   end
 
@@ -19,8 +19,8 @@ class ProjectsController < ApplicationController
     if @project.update(project_params)
       redirect_to dashboard_index_path(menu_action: 'projects_view')
     else
-      flash[:alert] = 'There was an error updating the project.  Please try again'
-      redirect_to dashboard_index_path(menu_action: 'edit_project', id: @project.id)
+      flash[:alert] = @project.errors.full_messages.first
+      redirect_to dashboard_index_path(menu_action: 'project_form', id: @project.id)
     end
   end
 
@@ -44,6 +44,6 @@ class ProjectsController < ApplicationController
 
     def project_params
       params.require(:project).permit(:references, :title, :link, :descrption,
-                                      :image, :tech, :role)
+                                      :image, :tech, :role, :order)
     end
 end

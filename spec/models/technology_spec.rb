@@ -38,17 +38,6 @@ RSpec.describe Technology, type: :model do
     it { should validate_numericality_of(:years_exp) }
   end
 
-  describe '#show_years_exp and #show_proficiency' do
-    it do
-      should validate_inclusion_of(:show_years_exp)
-        .in_array([true, false])
-    end
-    it do
-      should validate_inclusion_of(:show_proficiency)
-        .in_array([true, false])
-    end
-  end
-
   describe '#name' do
     it { should validate_presence_of(:name) }
     it do
