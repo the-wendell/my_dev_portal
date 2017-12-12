@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
 
     @portfolio = current_user.portfolios.first
     @portfolio_header = @portfolio.portfolio_header || PortfolioHeader.new
+    @about = @portfolio.about || About.new
 
     @projects = @portfolio.projects.all.order(:order)
     @project = params[:project_id] ? Project.find(params[:project_id]) : Project.new

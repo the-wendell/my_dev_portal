@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211213207) do
+ActiveRecord::Schema.define(version: 20171212225416) do
+
+  create_table "abouts", force: :cascade do |t|
+    t.integer "portfolio_id"
+    t.text "about_me"
+    t.string "location"
+    t.string "about_me_brief"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfolio_id"], name: "index_abouts_on_portfolio_id"
+  end
 
   create_table "portfolio_headers", force: :cascade do |t|
     t.integer "portfolio_id"

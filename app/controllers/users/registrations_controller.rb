@@ -50,7 +50,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    new_portfolio_path
+    user_email = current_user.email.split('@').first
+    url = "#{user_email}#{rand(10**10).to_s.rjust(10, '0')}"
+    portfolio = current_user.portfolios.new
+    portfolio.url = url
+    portfolio.save
+    root_path
   end
 
   # The path used after sign up for inactive accounts.

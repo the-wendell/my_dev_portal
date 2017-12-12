@@ -1,6 +1,12 @@
 require 'faker'
 
 FactoryGirl.define do
+  factory :about do
+    portfolio nil
+    about_me "MyText"
+    location "MyString"
+    about_me_brief "MyString"
+  end
   factory :portfolio_header do
     portfolio nil
     header_one "MyString"
