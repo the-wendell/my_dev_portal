@@ -33,12 +33,6 @@
   font-weight: bold;
 }
 
-.portfolio-header-main h3 {
-  grid-column: 2 / 3;
-  align-self: center;
-  justify-self: center;
-}
-
 .form-portfolio-header div:nth-child(7) {
   justify-self: center;
   grid-column: 1 / span 2;
@@ -46,11 +40,23 @@
 
 // PortfolioHeader preview
 
+.portfolio-header-main h3 {
+  grid-column: 2 / 3;
+  align-self: end;
+  justify-self: center;
+  font-weight: bold;
+  font-size: 36px;
+}
+
 .portfolio-header-preview {
   grid-column: 2 / 3;
   display: grid;
   grid-template-rows: 125px 30px;
   background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 1px 2px 1px 1px black;
+  border: 15px solid #83c9f4;
+  border-radius: 25px;
 }
 
 .preview-avatar {

@@ -4,14 +4,14 @@ RSpec.describe ProjectsController, type: :controller do
   login_user
   let(:portfolio) { subject.current_user.portfolios.create(url: 'mytest') }
 
-  let(:valid_attributes) {
+  let(:valid_attributes) do
     { title: 'testing title',
       descrption: 'exiting stuff',
       role: 'BMOC',
       tech: 'fancey things',
       link: 'a place',
       order: 1 }
-  }
+  end
 
   describe 'projects#create' do
     it 'Allows user to create a new project' do
