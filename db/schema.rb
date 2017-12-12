@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210212628) do
+ActiveRecord::Schema.define(version: 20171211213207) do
+
+  create_table "portfolio_headers", force: :cascade do |t|
+    t.integer "portfolio_id"
+    t.string "header_one"
+    t.string "header_one_color"
+    t.string "header_two"
+    t.string "header_two_color"
+    t.string "cover_image"
+    t.string "avatar_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfolio_id"], name: "index_portfolio_headers_on_portfolio_id"
+  end
 
   create_table "portfolios", force: :cascade do |t|
     t.integer "user_id"

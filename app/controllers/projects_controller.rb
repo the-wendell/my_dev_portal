@@ -30,20 +30,20 @@ class ProjectsController < ApplicationController
   end
 
   private
-    def confirm_owner
-      unless current_user == @project.portfolio.user
-        flash[:alert] = 'You are not the owner of that project or portfolio'
-        redirect_to root
-      end
-    end
 
-    def set_project
-      @project = Project.find(params[:id])
+  def confirm_owner
+    unless current_user == @project.portfolio.user
+      flash[:alert] = 'You are not the owner of that project or portfolio'
+      redirect_to root
     end
+  end
 
+  def set_project
+    @project = Project.find(params[:id])
+  end
 
-    def project_params
-      params.require(:project).permit(:references, :title, :link, :descrption,
-                                      :image, :tech, :role, :order)
-    end
+  def project_params
+    params.require(:project).permit(:references, :title, :link, :descrption,
+                                    :image, :tech, :role, :order)
+  end
 end

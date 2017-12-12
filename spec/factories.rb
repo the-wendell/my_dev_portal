@@ -1,6 +1,13 @@
 require 'faker'
 
 FactoryGirl.define do
+  factory :portfolio_header do
+    portfolio nil
+    header_one "MyString"
+    header_two "MyString"
+    cover_image "MyString"
+    avatar_image "MyString"
+  end
   factory :technology do
     name "MyString"
     portfolio nil

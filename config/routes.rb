@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :portfolios do
     resources :projects, only: %i[create update destroy]
     resources :technologies, only: %i[create update destroy]
+    resources :portfolio_headers, only: %i[create update]
   end
 
   devise_for :users, controllers: { sessions: 'users/sessions',

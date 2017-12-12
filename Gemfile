@@ -27,6 +27,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 # Bootstrap 4 for rails
 gem 'bootstrap', '~> 4.0.0.beta2.1'
+# jquery color picker
+gem 'jquery-minicolors-rails'
 # jQuery for Rails
 gem 'jquery-rails'
 # Use Puma as the app server

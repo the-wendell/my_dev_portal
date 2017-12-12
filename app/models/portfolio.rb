@@ -5,4 +5,5 @@ class Portfolio < ApplicationRecord
   belongs_to :user
   has_many :projects
   has_many :technologies
+  has_one :portfolio_header
 end

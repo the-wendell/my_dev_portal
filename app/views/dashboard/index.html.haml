@@ -26,5 +26,7 @@
         = link_to 'View Projects', dashboard_index_path(menu_action: 'projects_view')
       .menu-item{ class: params[:menu_action] == 'technologies' ? 'active' : 'not-active' }
         = link_to 'Technologies', dashboard_index_path(menu_action: 'technologies')
+      .menu-item{ class: params[:menu_action] == 'portfolio_header' ? 'active' : 'not-active' }
+        = link_to 'Portfolio Header', dashboard_index_path(menu_action: 'portfolio_header')
   .main-content
     = render partial: "shared_forms/#{@current_dashboard_action}"
