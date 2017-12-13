@@ -4,16 +4,16 @@
     = form_for [@portfolio, @about] do |f|
       .form-about
         .field
-          = f.label :abbreviated_about_me
-          %br
-          = f.text_field :about_me_brief
-        .field
           = f.label :location
           %br
           = f.text_field :location
+        .field
+          = f.label :abbreviated_about_me
+          %br
+          = f.text_area :about_me_brief, class: 'about-me-brief-input'
         .field
           = f.label :about_me
           %br
           = f.text_area :about_me, class: 'about-me-input'
         .actions
-          = f.submit 'Update Your Portfolio Header'
+          = f.submit 'Update Your "About Me"'

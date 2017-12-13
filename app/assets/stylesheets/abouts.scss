@@ -17,15 +17,20 @@
 
 .form-about {
   display: grid;
-  grid-template-columns: 225px 225px;
-  grid-template-rows: 75px 350px;
+  grid-template-columns: 510px;
+  grid-template-rows: 75px 100px 350px;
 }
 
-.form-about div:nth-child(3) {
-  grid-column: 1 / span 2;
+.form-about input {
+  width: 510px;
 }
 
 .about-me-input {
   height: 300px;
+  width: 510px;
+}
+
+.about-me-brief-input {
+  height: 50px;
   width: 510px;
 }
