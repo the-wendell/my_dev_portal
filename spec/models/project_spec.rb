@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Project, type: :model do
   let(:user) { FactoryGirl.create(:user) }
-  let(:portfolio) { user.portfolios.create(url: 'testing') }
+  let(:portfolio) { FactoryGirl.create(:portfolio, user: user) }
   let(:project_input) do
     { title: 'My title',
       descrption: 'So many words',

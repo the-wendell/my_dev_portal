@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Technology, type: :model do
   let(:user) { FactoryGirl.create(:user) }
-  let(:portfolio) { user.portfolios.create(url: 'testing') }
+  let(:portfolio) { FactoryGirl.create(:portfolio, user: user) }
   let(:attributes) do
     { name: 'Ruby',
       years_exp: 1,

@@ -16,6 +16,15 @@
   padding: 20px;
 }
 
+.config-container .actions {
+  justify-self: end;
+  padding-right: 10px;
+}
+
+.config-container h4 {
+  text-align: center;
+}
+
 .change-url-form-container {
   display: grid;
   grid-template-rows: 50px 60px 200px;
@@ -26,11 +35,18 @@
   grid-template-rows: 100px 50px;
 }
 
-.form-portfolio-url div:nth-child(2) {
-  justify-self: end;
-  padding-right: 10px;
-}
-
 .input-portfolio-url {
   width: 250px;
+}
+
+.form-portfolio-colors {
+  display: grid;
+  grid-template-rows: repeat(5, 40px);
+  margin-top: 20px;
+}
+
+.form-portfolio-colors .field {
+  display: grid;
+  grid-template-columns: 115px 115px;
+  justify-content: center;
 }

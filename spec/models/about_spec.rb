@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe About, type: :model do
   let(:user) { FactoryGirl.create(:user) }
-  let(:portfolio) { user.portfolios.create(url: 'testing') }
+  let(:portfolio) { FactoryGirl.create(:portfolio, user: user) }
   let(:attributes) do
     { about_me: 'testing title',
       about_me_brief: 'exiting stuff',

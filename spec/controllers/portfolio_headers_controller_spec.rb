@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PortfolioHeadersController, type: :controller do
   login_user
-  let(:portfolio) { subject.current_user.portfolios.create(url: 'mytest') }
+  let(:portfolio) { FactoryGirl.create(:portfolio, user: subject.current_user) }
 
   let(:attributes) do
     { header_one: 'testing title',

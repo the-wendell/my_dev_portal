@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'devise'
 require 'shoulda-matchers'
 require_relative 'support/controller_macros'
+require_relative 'support/custom_validations'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -38,6 +39,8 @@ RSpec.configure do |config|
   # Use the following instead if you are on Devise <= 4.1.0
   # config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, type: :controller
+  # Use custom validations test
+  config.extend CustomValidationsSpec, type: :model
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

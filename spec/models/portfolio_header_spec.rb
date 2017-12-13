@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PortfolioHeader, type: :model do
   let(:user) { FactoryGirl.create(:user) }
-  let(:portfolio) { user.portfolios.create(url: 'testing') }
+  let(:portfolio) { FactoryGirl.create(:portfolio, user: user) }
   let(:attributes) do
     { header_one: 'testing title',
       header_two: 'exiting stuff',
@@ -55,37 +55,11 @@ RSpec.describe PortfolioHeader, type: :model do
   end
 
   describe '#header_two_color' do
-    it 'validates valid CSS hex color' do
-      record = PortfolioHeader.new
-      record.header_two_color = '#kjhadk'
-      record.valid?
-      expect(record.errors[:header_two_color]).to eq(["must be a valid CSS hex color code"])
-
-      record.header_two_color = 123123
-      record.valid?
-      expect(record.errors[:header_two_color]).to eq(["must be a valid CSS hex color code"])
-
-      record.header_two_color = '#123456'
-      record.valid?
-      expect(record.errors[:header_two_color]).to eq([])
-    end
+    is_valid_css_hex_color(:header_two_color, PortfolioHeader.new)
   end
 
   describe '#header_one_color' do
-    it 'validates valid CSS hex color' do
-      record = PortfolioHeader.new
-      record.header_one_color = '#kjhadk'
-      record.valid?
-      expect(record.errors[:header_one_color]).to eq(["must be a valid CSS hex color code"])
-
-      record.header_one_color = 123123
-      record.valid?
-      expect(record.errors[:header_one_color]).to eq(["must be a valid CSS hex color code"])
-
-      record.header_one_color = '#123456'
-      record.valid?
-      expect(record.errors[:header_one_color]).to eq([])
-    end
+    is_valid_css_hex_color(:header_one_color, PortfolioHeader.new)
   end
 
   describe '#portfolio' do

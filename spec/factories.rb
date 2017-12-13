@@ -22,6 +22,15 @@ FactoryGirl.define do
     show_years_exp false
     show_proficiency false
   end
+  factory :portfolio do
+    url "myUrl"
+    color_one '#ffffff'
+    color_two '#ffffff'
+    color_three '#ffffff'
+    color_four '#ffffff'
+    user 1
+    id 1
+  end
   factory :user do
     email { Faker::Internet.email }
     password "password"

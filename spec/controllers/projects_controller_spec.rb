@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ProjectsController, type: :controller do
   login_user
-  let(:portfolio) { subject.current_user.portfolios.create(url: 'mytest') }
+  let(:portfolio) { FactoryGirl.create(:portfolio, user: subject.current_user) }
 
   let(:valid_attributes) do
     { title: 'testing title',

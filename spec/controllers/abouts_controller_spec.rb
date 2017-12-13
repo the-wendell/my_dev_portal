@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe AboutsController, type: :controller do
   login_user
-  let(:portfolio) { subject.current_user.portfolios.create(url: 'mytest') }
+  let(:portfolio) { FactoryGirl.create(:portfolio, user: subject.current_user) }
 
   let(:attributes) do
     { about_me: 'testing title',
@@ -14,6 +14,10 @@ RSpec.describe AboutsController, type: :controller do
     it 'Allows user to create a new project' do
       post :create, params: { portfolio_id: portfolio.id,
                               about: attributes }
+      record = About.new
+      record.portfolio_id = portfolio.id
+      record.valid?
+
       expect(About.all.count).to eq(1)
     end
     it 'Redirects to about view' do

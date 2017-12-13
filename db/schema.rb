@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(version: 20171212225416) do
   create_table "portfolios", force: :cascade do |t|
     t.integer "user_id"
     t.string "url"
+    t.string "theme"
+    t.string "color_one"
+    t.string "color_two"
+    t.string "color_three"
+    t.string "color_four"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["url"], name: "index_portfolios_on_url", unique: true

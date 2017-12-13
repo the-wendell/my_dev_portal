@@ -2,11 +2,26 @@ require 'rails_helper'
 
 RSpec.describe Portfolio, type: :model do
   let(:user) { FactoryGirl.create(:user) }
+  let(:attributes) do
+    { url: 'testing',
+      color_one: '#ffffff',
+      color_two: '#ffffff',
+      color_three: '#ffffff',
+      color_four: '#ffffff' }
+  end
 
   describe 'Create Portfolio' do
     it 'creates a new portfolio' do
-      user.portfolios.create(url: 'testing')
+      user.portfolios.create(attributes)
       expect(Portfolio.first.url).to eq('testing')
+    end
+  end
+
+  describe 'Update Portfolio' do
+    let(:portfolio) { user.portfolios.create(attributes) }
+    it 'edits portfolio URL' do
+      portfolio.update(url: 'test')
+      expect(user.portfolios.first.url).to eq('test')
     end
   end
 
@@ -23,11 +38,19 @@ RSpec.describe Portfolio, type: :model do
     end
   end
 
-  describe 'Update Portfolio' do
-    let(:portfolio) { user.portfolios.create(url: 'testing') }
-    it 'edits portfolio URL' do
-      portfolio.update(url: 'test')
-      expect(user.portfolios.first.url).to eq('test')
-    end
+  describe '#color_one' do
+    is_valid_css_hex_color(:color_one, Portfolio.new)
+  end
+
+  describe '#color_two' do
+    is_valid_css_hex_color(:color_two, Portfolio.new)
+  end
+
+  describe '#color_three' do
+    is_valid_css_hex_color(:color_three, Portfolio.new)
+  end
+
+  describe '#color_three' do
+    is_valid_css_hex_color(:color_four, Portfolio.new)
   end
 end
