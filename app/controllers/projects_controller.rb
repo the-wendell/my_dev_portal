@@ -7,12 +7,10 @@ class ProjectsController < ApplicationController
     @portfolio = current_user.portfolios.first
     @project = @portfolio.projects.new(project_params)
 
-    if @project.save
-      redirect_to dashboard_index_path(menu_action: 'projects_view')
-    else
+    unless @project.save
       flash[:alert] = @project.errors.full_messages.first
-      redirect_to dashboard_index_path(menu_action: 'project_form')
     end
+    redirect_to dashboard_index_path(menu_action: 'projects_view')
   end
 
   def update
@@ -20,7 +18,7 @@ class ProjectsController < ApplicationController
       redirect_to dashboard_index_path(menu_action: 'projects_view')
     else
       flash[:alert] = @project.errors.full_messages.first
-      redirect_to dashboard_index_path(menu_action: 'project_form', id: @project.id)
+      redirect_to dashboard_index_path(menu_action: 'projects_view', id: @project.id)
     end
   end
 

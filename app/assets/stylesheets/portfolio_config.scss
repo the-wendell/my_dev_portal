@@ -1,27 +1,32 @@
-.main {
+.portfolio-config-main {
   margin-top: 75px;
+  margin-left: 20px;
+  margin-right: 20px;
   display: grid;
-  grid-template-columns: auto 300px auto;
-  grid-template-rows: 300px;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-auto-rows: 300px;
+  grid-gap: 20px;
 }
 
-.form-container {
+.config-container {
   color: white;
-  grid-column: 2 / 3;
   background-color: #00A6FB;
-  box-shadow: 3px 4px 1px 0px black;
+  box-shadow: 3px 4px 1px 0px grey;
   border-radius: 25px;
   padding: 20px;
+}
+
+.change-url-form-container {
   display: grid;
   grid-template-rows: 50px 60px 200px;
 }
 
-.form-portfolio {
+.form-portfolio-url {
   display: grid;
   grid-template-rows: 100px 50px;
 }
 
-.form-portfolio div:nth-child(2) {
+.form-portfolio-url div:nth-child(2) {
   justify-self: end;
   padding-right: 10px;
 }

@@ -1,7 +1,7 @@
 // Place all the styles related to the Dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import 'change_portfolio_url';
+@import 'portfolio_config';
 @import 'add_projects';
 @import 'project_display';
 @import 'technologies';
@@ -88,11 +88,18 @@ p {
 .sidebar-menu {
   padding-top: 10px;
   padding-bottom: 10px;
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   background-color: #323472;
   display: grid;
   grid-auto-rows: 30px;
   box-shadow: 1px 1px 1px 1px #1F2047;
+}
+
+.sidebar-heading {
+  text-align: center;
+  font-size: 26px;
 }
 
 .menu-item {
@@ -112,7 +119,7 @@ p {
 
 .main-content {
   background-color: #f7fbff;
-  box-shadow: inset 1px 2px 1px 1px #38393A;
+  box-shadow: inset 1px 2px 1px 1px grey;
 }
 
 .delete-button {
@@ -120,7 +127,7 @@ p {
   background-color: #990000;
   padding: 7px;
   border-radius: 5px;
-  box-shadow: 1px 1px 1px 1px black;
+  box-shadow: 1px 1px 1px 1px grey;
 }
 
 .delete-button:hover {
@@ -140,15 +147,15 @@ p {
 }
 
 .field textarea {
-  box-shadow: 1px 1px 1px 0px black;
+  box-shadow: 1px 1px 1px 0px grey;
 }
 
 .field input {
-  box-shadow: 1px 1px 1px 0px black;
+  box-shadow: 1px 1px 1px 0px grey;
 }
 
 .actions input {
-  box-shadow: 1px 1px 1px 0px black;
+  box-shadow: 1px 1px 1px 0px grey;
 }
 
 .active {

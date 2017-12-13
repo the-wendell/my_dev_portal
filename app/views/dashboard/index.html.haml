@@ -18,17 +18,27 @@
     .sidebar-menu
       .menu-item{ class: params[:menu_action] ? 'not-active' : 'active' }
         = link_to 'Home', dashboard_index_path
-      .menu-item{ class: params[:menu_action] == 'change_portfolio_url' ? 'active' : 'not-active' }
-        = link_to 'Change URL', dashboard_index_path(menu_action: 'change_portfolio_url')
+    .sidebar-heading
+      %p Portfolio
+    .sidebar-menu
+      .menu-item{ class: params[:menu_action] == 'portfolio_config' ? 'active' : 'not-active' }
+        = link_to 'Portfolio Settings', dashboard_index_path(menu_action: 'portfolio_config')
       .menu-item{ class: params[:menu_action] == 'about' ? 'active' : 'not-active' }
         = link_to 'About Me', dashboard_index_path(menu_action: 'about')
-      .menu-item{ class: params[:menu_action] == 'project_form' ? 'active' : 'not-active' }
-        = link_to 'Add Project', dashboard_index_path(menu_action: 'project_form')
       .menu-item{ class: params[:menu_action] == 'projects_view' ? 'active' : 'not-active' }
-        = link_to 'View Projects', dashboard_index_path(menu_action: 'projects_view')
+        = link_to 'Projects', dashboard_index_path(menu_action: 'projects_view')
       .menu-item{ class: params[:menu_action] == 'technologies' ? 'active' : 'not-active' }
         = link_to 'Technologies', dashboard_index_path(menu_action: 'technologies')
       .menu-item{ class: params[:menu_action] == 'portfolio_header' ? 'active' : 'not-active' }
         = link_to 'Portfolio Header', dashboard_index_path(menu_action: 'portfolio_header')
+    .sidebar-heading
+      %p Applications
+    .sidebar-menu
+      .menu-item
+        item one
+      .menu-item
+        item two
+      .menu-item
+        item three
   .main-content
-    = render partial: "shared_forms/#{@current_dashboard_action}"
+    = render partial: "dashboard/#{@current_dashboard_action}"

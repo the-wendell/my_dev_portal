@@ -27,7 +27,7 @@ RSpec.describe PortfoliosController, type: :controller do
     end
     it 'on success it reloads the same page' do
       patch :update, params: { id: portfolio.id, portfolio: { url: 'test' } }
-      expect(response).to redirect_to(dashboard_index_path(menu_action: 'change_portfolio_url'))
+      expect(response).to redirect_to(dashboard_index_path(menu_action: 'portfolio_config'))
     end
   end
 

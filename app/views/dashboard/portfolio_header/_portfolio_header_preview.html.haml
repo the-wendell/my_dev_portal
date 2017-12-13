@@ -1,0 +1,7 @@
+.portfolio-header-preview{ style: "background-image: url(#{@portfolio_header.cover_image.preview.url})" }
+  .preview-avatar
+    %img.preview-avatar-image{ src: "#{@portfolio_header.avatar_image.preview.url}"}
+  .preview-header-one{ style: "color: #{@portfolio_header.header_one_color}" }
+    = @portfolio_header.header_one
+  .preview-header-two{ style: "color: #{@portfolio_header.header_two_color}" }
+    = @portfolio_header.header_two

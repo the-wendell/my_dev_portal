@@ -25,7 +25,7 @@ class PortfoliosController < ApplicationController
     unless @portfolio.save
       flash[:alert] = @portfolio.errors.full_messages.first
     end
-    redirect_to dashboard_index_path(menu_action: 'change_portfolio_url')
+    redirect_to dashboard_index_path(menu_action: 'portfolio_config')
   end
 
   def show
