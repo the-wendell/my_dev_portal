@@ -1,0 +1,39 @@
+@import '../componenets/slider';
+
+.default .theme-container {
+  display: grid;
+  grid-template-rows: 800px;
+  grid-template-columns: auto;
+}
+
+.default .header {
+  display: grid;
+  grid-template-rows: 300px 100px 100px;
+  grid-template-columns: auto;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  background-size: containe;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.default .avatar-image {
+  border-radius: 50px;
+}
+
+.default .header-name {
+  font-size: 60px;
+}
+
+.default .header-subheader {
+  font-size: 30px;
+}
+
+.default h2 {
+  text-align: center;
+  text-decoration: underline;
+  color: white;
+  margin-top: 100px;
+  font-size: 60px;
+}

@@ -1,1 +1,16 @@
-= @portfolio.inspect
+.default
+  .theme-container
+    .header{ style: "background-color: #{@portfolio.color_one}; background-image: #{@portfolio.show_cover_image ? "url(#{@portfolio_header.cover_image.full.url})" : nil}" }
+      .header-avatar
+        - if @portfolio.show_avatar_image
+          %img.avatar-image{ src: "#{@portfolio_header.avatar_image.full.url}" }
+      .header-name{ style: "color: #{@portfolio_header.header_one_color}" }
+        = @portfolio_header.header_one
+      .header-subheader{ style: "color: #{@portfolio_header.header_two_color}" }
+        = @portfolio_header.header_two
+    .portfolio{ style: "background-color: #{@portfolio.color_two}" }
+      %h2 Portfolio
+      = render partial: 'portfolios/themes/components/portfolio_slider'
+    .technical-skill
+    .about-me
+    .footer

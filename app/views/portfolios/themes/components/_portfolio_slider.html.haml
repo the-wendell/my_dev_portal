@@ -1,0 +1,20 @@
+%section.section.slider
+  - @projects.count.downto(0).each do |index|
+    %input.slider__radio{ type: 'radio', name: 'slider', id: "slide-#{index + 1}", checked: true }
+  .slider__holder
+    - @projects.each_with_index do |project, index|
+      %label.slider__item.card{ for: "slide-#{index + 1}", class: "slider__item--#{index + 1}",
+                                style: "background-color: #{@portfolio.color_three}; color: #{@portfolio.font_color_one}"}
+        .project-title
+          = project.title
+        .project-description
+          = "#{project.descrption[0..400]}..."
+        %img.project-image{ src: "#{project.image.small.url}" }
+        .project-tech
+          %h6 Tech Used
+          = project.tech
+        .show-more
+          modal-link
+  .bullets
+    - @projects.count.times do |index|
+      %label.bullets__item{ for: "slide-#{index + 1}", class: "bullets__item--#{index + 1}" }

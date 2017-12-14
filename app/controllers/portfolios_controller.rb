@@ -29,6 +29,8 @@ class PortfoliosController < ApplicationController
 
   def show
     @portfolio = Portfolio.find_by(url: params[:portfolio]) || raise('not found')
+    @portfolio_header = @portfolio.portfolio_header
+    @projects = @portfolio.projects.all.order(:order)
   end
 
   private

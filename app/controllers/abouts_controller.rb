@@ -8,10 +8,13 @@ class AboutsController < ApplicationController
     @about = About.new(about_params)
     @about.portfolio = @portfolio
 
-    unless @about.save
+    if @about.save
+      redirect_to dashboard_index_path(menu_action: 'about')
+    else
       flash[:alert] = @about.errors.full_messages.first
+      @current_dashboard_action = 'about'
+      render 'dashboard/index'
     end
-    redirect_to dashboard_index_path(menu_action: 'about')
   end
 
   def update
@@ -36,6 +39,7 @@ class AboutsController < ApplicationController
 
   def about_params
     params.require(:about).permit(:about_me, :location, :about_me_brief,
-                                  :github, :email)
+                                  :github, :email, :linkedin, :facebook,
+                                  :twiter, :website)
   end
 end
