@@ -17,6 +17,12 @@ ActiveRecord::Schema.define(version: 20171212225416) do
     t.text "about_me"
     t.string "location"
     t.string "about_me_brief"
+    t.string "email"
+    t.string "github"
+    t.string "linkedin"
+    t.string "twiter"
+    t.string "facebook"
+    t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["portfolio_id"], name: "index_abouts_on_portfolio_id"

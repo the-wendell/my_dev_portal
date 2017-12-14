@@ -6,6 +6,10 @@
   grid-gap: 20px;
 }
 
+.about-main h4 {
+  text-align: center;
+}
+
 .about-form {
   color: white;
   background-color: #00A6FB;
@@ -18,7 +22,7 @@
 .form-about {
   display: grid;
   grid-template-columns: 510px;
-  grid-template-rows: 75px 100px 350px;
+  grid-template-rows: repeat(7, 70px) 100px 350px;
 }
 
 .form-about input {

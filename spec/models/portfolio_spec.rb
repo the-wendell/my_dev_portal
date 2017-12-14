@@ -36,6 +36,18 @@ RSpec.describe Portfolio, type: :model do
       should validate_length_of(:url)
         .is_at_least(3)
     end
+    it 'should only containe lowercase alphanumeric characters' do
+      record = Portfolio.new
+      invalid_characters = %w[! @ A B # $ % ^ & * ( ) _ - = + / \ { } [ ] < > ' " ` ~]
+      invalid_characters.each do |char|
+        record.url = "test#{char}"
+        record.valid?
+        expect(record.errors[:url]).to eq(['must only contain lowercase alphanumeric characters'])
+      end
+      record.url = 'myurl'
+      record.valid?
+      expect(record.errors[:url]).to eq([])
+    end
   end
 
   describe '#color_one' do

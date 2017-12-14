@@ -2,6 +2,8 @@ class Portfolio < ApplicationRecord
   validates :url, presence: true,
                   length: { in: 3..30 },
                   uniqueness: true
+  validates_format_of :url, with: /\A[a-z0-9]+\z/,
+                            message: 'must only contain lowercase alphanumeric characters'
   validates :color_one, :color_two, :color_three, :color_four,
             css_hex_color: true
   belongs_to :user

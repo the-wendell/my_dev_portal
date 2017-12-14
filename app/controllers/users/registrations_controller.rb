@@ -52,8 +52,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     user_email = current_user.email.split('@').first
     url = "#{user_email}#{rand(10**10).to_s.rjust(10, '0')}"
-    portfolio = current_user.portfolios.new
-    portfolio.url = url
+    default = { url: url, theme: 'default',
+                color_one: '#ffffff', color_two: '#ff0000',
+                color_three: '#ffee00', color_four: '#0026ff' }
+    portfolio = current_user.portfolios.new(default)
     portfolio.save
     root_path
   end

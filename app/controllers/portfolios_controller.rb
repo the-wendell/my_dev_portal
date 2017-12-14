@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: %i[update]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[update create new]
   before_action :confirm_owner, only: %i[update]
 
   def new

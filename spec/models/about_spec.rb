@@ -25,6 +25,20 @@ RSpec.describe About, type: :model do
     end
   end
 
+  describe '#about_me' do
+    it do
+      should validate_length_of(:about_me)
+        .is_at_most(2000)
+    end
+  end
+
+  describe '#about_me_brief' do
+    it do
+      should validate_length_of(:about_me_brief)
+        .is_at_most(150)
+    end
+  end
+
   describe '#portfolio' do
     it { should belong_to(:portfolio) }
   end

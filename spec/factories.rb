@@ -23,7 +23,7 @@ FactoryGirl.define do
     show_proficiency false
   end
   factory :portfolio do
-    url "myUrl"
+    url "myurl"
     color_one '#ffffff'
     color_two '#ffffff'
     color_three '#ffffff'

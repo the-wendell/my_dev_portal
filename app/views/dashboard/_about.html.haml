@@ -1,12 +1,36 @@
 .about-main
   .about-form
-    %h4 Edit Your Portfolio Header
+    %h4 Edit Your "About Me"
     = form_for [@portfolio, @about] do |f|
       .form-about
         .field
           = f.label :location
           %br
           = f.text_field :location
+        .field
+          = f.label :email
+          %br
+          = f.text_field :email
+        .field
+          = f.label :github
+          %br
+          = f.text_field :github
+        .field
+          = f.label :linkedin
+          %br
+          = f.text_field :linkedin
+        .field
+          = f.label :facebook
+          %br
+          = f.text_field :facebook
+        .field
+          = f.label :twiter
+          %br
+          = f.text_field :twiter
+        .field
+          = f.label :website
+          %br
+          = f.text_field :website
         .field
           = f.label :abbreviated_about_me
           %br
