@@ -49,6 +49,10 @@ ActiveRecord::Schema.define(version: 20171212225416) do
     t.string "color_two"
     t.string "color_three"
     t.string "color_four"
+    t.string "font_color_one"
+    t.string "font_color_two"
+    t.boolean "show_cover_image"
+    t.boolean "show_avatar_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["url"], name: "index_portfolios_on_url", unique: true

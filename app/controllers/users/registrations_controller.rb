@@ -53,8 +53,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     user_email = current_user.email.split('@').first
     url = "#{user_email}#{rand(10**10).to_s.rjust(10, '0')}"
     default = { url: url, theme: 'default',
-                color_one: '#ffffff', color_two: '#ff0000',
-                color_three: '#ffee00', color_four: '#0026ff' }
+                color_one: '#0a0d72', color_two: '#83c9f4',
+                color_three: '#2196f3', color_four: '#00a6fb',
+                font_color_one: '#ffffff', font_color_two: '#ffffff',
+                show_cover_image: false, show_avatar_image: true }
     portfolio = current_user.portfolios.new(default)
     portfolio.save
     root_path

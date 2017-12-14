@@ -1,0 +1,12 @@
+.change-image-display.config-container
+  %h4 Display Images
+  = form_for current_user.portfolios.first do |f|
+    .form-image-display
+      .field
+        = f.label :show_avatar_image
+        = f.select :show_avatar_image, [['Yes', true], ['No', false]], selected: @portfolio.show_avatar_image
+      .field
+        = f.label :show_cover_image
+        = f.select :show_cover_image, [['Yes', true], ['No', false]], selected: @portfolio.show_cover_image
+      .actions
+        = submit_tag 'Update'

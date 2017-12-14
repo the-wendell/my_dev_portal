@@ -9,16 +9,16 @@
         Display on Profile
       .field.show-select
         = f.label :years_exp
-        = f.select :show_years_exp, [['Yes', true], ['No', false]]
+        = f.select :show_years_exp, [['Yes', true], ['No', false]], selected: @technology.show_years_exp
       .field.exp-input
         = f.label :years_of_experience
-        = f.text_field :years_exp, class: 'years-exp-field'
+        = f.text_field :years_exp, value: 0, class: 'years-exp-field'
       .field.show-select
         = f.label :proficiency
-        = f.select :show_proficiency, [['Yes', true], ['No', false]]
+        = f.select :show_proficiency, [['Yes', true], ['No', false]], selected: @technology.show_proficiency
       .field.exp-input
         = f.label :proficiency
-        = f.select :proficiency, ((0..10).map { |i| [i, i] })
+        = f.select :proficiency, ((0..10).map { |i| [i, i] }), selected: 10
       .actions
         = f.submit "Submit #{@technology.persisted? ? 'Edit' : 'New'}"
         - if @technology.persisted?

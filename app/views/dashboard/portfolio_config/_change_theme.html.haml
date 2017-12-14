@@ -7,6 +7,6 @@
     .form-portfolio-theme
       .field
         = f.label :theme
-        = f.select(:theme, @themes.map { |theme| [ theme, theme]})
+        = f.select :theme, @themes.map { |theme| [ theme, theme]}, selected: @portfolio.theme
       .actions
         = submit_tag 'Update'

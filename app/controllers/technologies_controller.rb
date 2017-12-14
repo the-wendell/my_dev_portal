@@ -8,7 +8,7 @@ class TechnologiesController < ApplicationController
     @technology = @portfolio.technologies.new(technology_params)
 
     unless @technology.save
-      flash[:alert] = 'There was an error creating the project.  Please try again'
+      flash[:alert] = @technology.errors.full_messages.first
     end
     redirect_to dashboard_index_path(menu_action: 'technologies')
   end
@@ -17,7 +17,7 @@ class TechnologiesController < ApplicationController
     if @technology.update(technology_params)
       redirect_to dashboard_index_path(menu_action: 'technologies')
     else
-      flash[:alert] = 'There was an error updating.  Please try again'
+      flash[:alert] = @technology.errors.full_messages.first
       redirect_to dashboard_index_path(menu_action: 'technologies', id: @technology.id)
     end
   end

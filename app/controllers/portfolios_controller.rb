@@ -46,6 +46,8 @@ class PortfoliosController < ApplicationController
 
   def portfolio_params
     params.require(:portfolio).permit(:url, :theme, :color_one, :color_two,
-                                      :color_three, :color_four)
+                                      :color_three, :color_four,
+                                      :font_color_one, :font_color_two,
+                                      :show_cover_image, :show_avatar_image)
   end
 end

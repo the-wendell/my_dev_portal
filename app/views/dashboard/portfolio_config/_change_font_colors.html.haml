@@ -1,0 +1,15 @@
+-# Inline script required to load minicolors() without refresh
+:javascript
+  $('.color-picker').minicolors()
+.change-color-theme.config-container
+  %h4 Change Font Colors
+  = form_for current_user.portfolios.first do |f|
+    .form-portfolio-colors
+      .field
+        = f.label :font_color_one
+        = f.text_field :font_color_one, as: :minicolors, class: 'color-picker'
+      .field
+        = f.label :font_color_two
+        = f.text_field :font_color_two, as: :minicolors, class: 'color-picker'
+      .actions
+        = submit_tag 'Update'

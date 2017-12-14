@@ -2,6 +2,6 @@
 class Themes
   def self.array
     @array ||= Dir['app/views/portfolios/themes/*']
-                         .map { |file| file.rpartition('/').last.partition('.').first[1..-1] }
+               .map { |file| file.rpartition('/').last.partition('.').first[1..-1] }
   end
 end

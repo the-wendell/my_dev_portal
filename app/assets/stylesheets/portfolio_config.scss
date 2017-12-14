@@ -27,6 +27,8 @@
 .change-url-form-container {
   display: grid;
   grid-template-rows: 50px 60px 200px;
+  grid-template-columns: 250px;
+  overflow-wrap: break-word;
 }
 
 .form-portfolio-url {
@@ -51,7 +53,7 @@
 }
 
 .form-portfolio-theme {
-  margin-top: 75px;
+  margin-top: 30px;
   display: grid;
   grid-template-rows: 32px 50px;
 }
@@ -72,4 +74,10 @@
 
 .change-portfolio-theme h5 {
   text-align: center;
+}
+
+.form-image-display {
+  margin-top: 30px;
+  display: grid;
+  grid-template-rows: 35px 35px 50px;
 }
