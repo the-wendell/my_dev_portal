@@ -49,3 +49,27 @@
   grid-template-columns: 115px 115px;
   justify-content: center;
 }
+
+.form-portfolio-theme {
+  margin-top: 75px;
+  display: grid;
+  grid-template-rows: 32px 50px;
+}
+
+.form-portfolio-theme .field {
+  display: grid;
+  grid-template-columns: 115px 115px;
+}
+
+.form-portfolio-theme .field label {
+  justify-self: center;
+  font-weight: bold;
+}
+
+.form-portfolio-theme .actions {
+  align-self: end;
+}
+
+.change-portfolio-theme h5 {
+  text-align: center;
+}

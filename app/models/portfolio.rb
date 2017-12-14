@@ -6,6 +6,7 @@ class Portfolio < ApplicationRecord
                             message: 'must only contain lowercase alphanumeric characters'
   validates :color_one, :color_two, :color_three, :color_four,
             css_hex_color: true
+  validates :theme, inclusion: { in: Themes.array }
   belongs_to :user
   has_many :projects
   has_many :technologies

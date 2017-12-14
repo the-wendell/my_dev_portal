@@ -7,7 +7,8 @@ RSpec.describe Portfolio, type: :model do
       color_one: '#ffffff',
       color_two: '#ffffff',
       color_three: '#ffffff',
-      color_four: '#ffffff' }
+      color_four: '#ffffff',
+      theme: 'default' }
   end
 
   describe 'Create Portfolio' do
@@ -64,5 +65,12 @@ RSpec.describe Portfolio, type: :model do
 
   describe '#color_three' do
     is_valid_css_hex_color(:color_four, Portfolio.new)
+  end
+
+  describe '#theme' do
+    it do
+      should validate_inclusion_of(:theme)
+        .in_array(Themes.array)
+    end
   end
 end

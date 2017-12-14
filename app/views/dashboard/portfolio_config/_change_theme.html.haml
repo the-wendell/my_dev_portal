@@ -1,2 +1,12 @@
-.change-portfolio-template.config-container
+.change-portfolio-theme.config-container
   %h4 Change Portfolio Theme
+  %p Your current theme is
+  %h5
+    = @portfolio.theme
+  = form_for current_user.portfolios.first do |f|
+    .form-portfolio-theme
+      .field
+        = f.label :theme
+        = f.select(:theme, @themes.map { |theme| [ theme, theme]})
+      .actions
+        = submit_tag 'Update'

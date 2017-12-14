@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
 
   def index
     @current_dashboard_action = params[:menu_action] || 'dashboard_home'
+    @themes = Themes.array
 
     @portfolio = current_user.portfolios.first
     @portfolio_header = @portfolio.portfolio_header || PortfolioHeader.new

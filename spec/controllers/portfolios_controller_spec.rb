@@ -7,14 +7,16 @@ RSpec.describe PortfoliosController, type: :controller do
       color_one: '#ffffff',
       color_two: '#ffffff',
       color_three: '#ffffff',
-      color_four: '#ffffff' }
+      color_four: '#ffffff',
+      theme: 'default'}
   end
   let(:attributes2) do
     { url: 'portfolio',
       color_one: '#ffffff',
       color_two: '#ffffff',
       color_three: '#ffffff',
-      color_four: '#ffffff' }
+      color_four: '#ffffff',
+      theme: 'default' }
   end
 
   describe 'portfolio#create' do
