@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171212225416) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "abouts", force: :cascade do |t|
     t.integer "portfolio_id"
     t.text "about_me"

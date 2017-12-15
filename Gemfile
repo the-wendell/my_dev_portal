@@ -8,14 +8,14 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use devise for authentication
 gem 'devise'
 # Use mailgun for mailer
 gem 'mailgun_rails'
 # Use figaro to manage environment variables
 gem 'figaro'
+# Use Postgres as database
+gem 'pg'
 # Gravitar API
 gem 'gravtastic'
 # Use Haml instead of ERb
@@ -62,6 +62,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
+  gem 'sqlite3'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'factory_girl_rails'
   gem 'faker'
@@ -78,3 +79,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+ruby "2.3.5"
