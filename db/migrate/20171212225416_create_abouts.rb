@@ -8,7 +8,7 @@ class CreateAbouts < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :github
       t.string :linkedin
-      t.string :twiter
+      t.string :twitter
       t.string :facebook
       t.string :website
 

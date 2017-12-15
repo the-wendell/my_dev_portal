@@ -40,6 +40,6 @@ class AboutsController < ApplicationController
   def about_params
     params.require(:about).permit(:about_me, :location, :about_me_brief,
                                   :github, :email, :linkedin, :facebook,
-                                  :twiter, :website)
+                                  :twitter, :website)
   end
 end

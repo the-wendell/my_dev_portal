@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20171212225416) do
     t.string "email"
     t.string "github"
     t.string "linkedin"
-    t.string "twiter"
+    t.string "twitter"
     t.string "facebook"
     t.string "website"
     t.datetime "created_at", null: false

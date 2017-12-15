@@ -1,16 +1,13 @@
 .default{ style: "color: #{@portfolio.font_color_one}"}
   .theme-container
-    - if @portfolio_header
-      .header{ style: "background-color: #{@portfolio.color_one}; background-image: #{@portfolio.show_cover_image ? "url(#{@portfolio_header.cover_image.url})" : nil}" }
-        .header-avatar
-          - if @portfolio.show_avatar_image
-            %img.avatar-image{ src: "#{@portfolio_header.avatar_image.full.url}" }
-        .header-name{ style: "color: #{@portfolio_header.header_one_color}" }
-          = @portfolio_header.header_one
-        .header-subheader{ style: "color: #{@portfolio_header.header_two_color}" }
-          = @portfolio_header.header_two
-    - else
-      %h2 Return to your dashboard and finish setting up your header!
+    .header{ style: "background-color: #{@portfolio.color_one}; background-image: #{@portfolio.show_cover_image ? "url(#{@portfolio_header.cover_image.url})" : nil}" }
+      .header-avatar
+        - if @portfolio.show_avatar_image
+          %img.avatar-image{ src: "#{@portfolio_header.avatar_image.full.url}" }
+      .header-name{ style: "color: #{@portfolio_header.header_one_color}" }
+        = @portfolio_header.header_one
+      .header-subheader{ style: "color: #{@portfolio_header.header_two_color}" }
+        = @portfolio_header.header_two
     .portfolio{ style: "background-color: #{@portfolio.color_two}" }
       %h2 Portfolio
       = render partial: 'portfolios/themes/components/portfolio_slider'
@@ -63,9 +60,9 @@
               .facebook
                 = link_to @about.facebook do
                   = image_tag 'facebook.svg', class: 'social-link'
-            - if @about.twiter.length > 0
+            - if @about.twitter.length > 0
               .twitter
-                = link_to @about.twiter do
+                = link_to @about.twitter do
                   = image_tag 'twitter.svg', class: 'social-link'
             - if @about.website.length > 0
               .website

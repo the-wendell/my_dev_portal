@@ -8,6 +8,7 @@
       %a.btn.dropdown-toggle{ id: "dropdownMenuButton", 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'area-exapend' => "false" }
         = current_user.email
         .dropdown-menu{'aria-labelledby' => 'dropdownMenuLink'}
+          = link_to 'View Portfolio', "/#{@portfolio.url}", class: 'dropdown-item'
           = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item'
   .sidebar
     .current-user-sidebar
