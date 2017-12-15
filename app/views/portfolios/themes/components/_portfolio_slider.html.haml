@@ -1,3 +1,4 @@
+= stylesheet_link_tag 'component-slider', media: 'all', 'data-turbolinks-track' => true
 %section.section.slider
   - @projects.count.downto(0).each do |index|
     %input.slider__radio{ type: 'radio', name: 'slider', id: "slide-#{index + 1}", checked: true }
@@ -13,8 +14,25 @@
         .project-tech
           %h6 Tech Used
           = project.tech
-        .show-more
-          modal-link
+        %button.btn.show-more{ type: 'button', 'data-toggle' => 'modal', 'data-target' => "#project-#{index + 1}", style: "background-color: #{@portfolio.color_one}" }
+          show more
+      .modal.fade{ id: "project-#{index + 1}", tabindex: '-1', role: 'dialog', 'aria-labelledby' => "project-#{index + 1}-label", 'aria-hidden' => 'true' }
+        .modal-dialog{ role: 'document' }
+          .modal-content
+            .modal-header
+              %h5.modal-title{ id: "project-#{index + 1}-label" }
+                = project.title
+              %button.close{ type: 'button', 'data-dismiss' => 'modal', 'aria-label' => 'close'}
+                %span{ 'aria-hidden' => true}
+                  &times;
+            .modal-body
+              %img.modal-project-image{ src: "#{project.image.url}" }
+              .modal-project-role
+              .modal-project-header
+              .modal-project-tech
+              .modal-project-link
+              .modal-project-description
+            .modal-footer
   .bullets
     - @projects.count.times do |index|
       %label.bullets__item{ for: "slide-#{index + 1}", class: "bullets__item--#{index + 1}" }
