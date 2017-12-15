@@ -6,9 +6,7 @@ RSpec.describe Technology, type: :model do
   let(:attributes) do
     { name: 'Ruby',
       years_exp: 1,
-      proficiency: 8,
-      show_years_exp: true,
-      show_proficiency: true }
+      proficiency: 8 }
   end
 
   describe '#update' do

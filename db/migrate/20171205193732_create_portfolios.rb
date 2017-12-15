@@ -12,6 +12,8 @@ class CreatePortfolios < ActiveRecord::Migration[5.1]
       t.string :font_color_two
       t.boolean :show_cover_image
       t.boolean :show_avatar_image
+      t.boolean :show_years_exp
+      t.boolean :show_proficiency
 
       t.timestamps
     end

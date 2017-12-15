@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20171212225416) do
     t.string "font_color_two"
     t.boolean "show_cover_image"
     t.boolean "show_avatar_image"
+    t.boolean "show_years_exp"
+    t.boolean "show_proficiency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["url"], name: "index_portfolios_on_url", unique: true
@@ -78,8 +80,6 @@ ActiveRecord::Schema.define(version: 20171212225416) do
     t.integer "portfolio_id"
     t.integer "years_exp"
     t.integer "proficiency"
-    t.boolean "show_years_exp"
-    t.boolean "show_proficiency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["portfolio_id"], name: "index_technologies_on_portfolio_id"

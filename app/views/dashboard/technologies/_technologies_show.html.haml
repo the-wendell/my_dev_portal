@@ -11,18 +11,12 @@
     .show-name
       = technology.name
     .show-years-exp
-      - if technology.show_years_exp
-        = technology.years_exp
-      - else
-        Display Off
+      = technology.years_exp
     .show-proficiency
-      - if technology.show_proficiency
-        .progress
-          .progress-bar.bg-warning{ role: 'progressbar',
-                                    'aria-valuemin' => '0', 'aria-valuemax' => '10',
-                                    style: "width: #{technology.proficiency * 10}%" }
-      - else
-        Display Off
+      .progress
+        .progress-bar.bg-warning{ role: 'progressbar',
+                                  'aria-valuemin' => '0', 'aria-valuemax' => '10',
+                                  style: "width: #{technology.proficiency * 10}%" }
     .edit-delete-technology
       = link_to dashboard_index_path(menu_action: 'technologies', technology_id: technology.id) do
         .technology-edit-icon

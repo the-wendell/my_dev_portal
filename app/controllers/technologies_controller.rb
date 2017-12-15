@@ -41,7 +41,6 @@ class TechnologiesController < ApplicationController
   end
 
   def technology_params
-    params.require(:technology).permit(:name, :years_exp, :proficiency,
-                                       :show_years_exp, :show_proficiency)
+    params.require(:technology).permit(:name, :years_exp, :proficiency)
   end
 end

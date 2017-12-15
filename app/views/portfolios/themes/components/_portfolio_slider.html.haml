@@ -28,10 +28,21 @@
             .modal-body
               %img.modal-project-image{ src: "#{project.image.url}" }
               .modal-project-role
-              .modal-project-header
+                %p
+                  %strong Role:
+                  = project.role
               .modal-project-tech
+                %p
+                  %strong Tech Used:
+                  = project.tech
               .modal-project-link
+                %p
+                  %strong Link:
+                  = project.link
               .modal-project-description
+                %p
+                  %strong Description:
+                  = project.descrption
             .modal-footer
   .bullets
     - @projects.count.times do |index|

@@ -1,16 +1,39 @@
-.default
+.default{ style: "color: #{@portfolio.font_color_one}"}
   .theme-container
-    .header{ style: "background-color: #{@portfolio.color_one}; background-image: #{@portfolio.show_cover_image ? "url(#{@portfolio_header.cover_image.url})" : nil}" }
-      .header-avatar
-        - if @portfolio.show_avatar_image
-          %img.avatar-image{ src: "#{@portfolio_header.avatar_image.full.url}" }
-      .header-name{ style: "color: #{@portfolio_header.header_one_color}" }
-        = @portfolio_header.header_one
-      .header-subheader{ style: "color: #{@portfolio_header.header_two_color}" }
-        = @portfolio_header.header_two
+    - if @portfolio_header
+      .header{ style: "background-color: #{@portfolio.color_one}; background-image: #{@portfolio.show_cover_image ? "url(#{@portfolio_header.cover_image.url})" : nil}" }
+        .header-avatar
+          - if @portfolio.show_avatar_image
+            %img.avatar-image{ src: "#{@portfolio_header.avatar_image.full.url}" }
+        .header-name{ style: "color: #{@portfolio_header.header_one_color}" }
+          = @portfolio_header.header_one
+        .header-subheader{ style: "color: #{@portfolio_header.header_two_color}" }
+          = @portfolio_header.header_two
+    - else
+      %h2 Return to your dashboard and finish setting up your header!
     .portfolio{ style: "background-color: #{@portfolio.color_two}" }
       %h2 Portfolio
       = render partial: 'portfolios/themes/components/portfolio_slider'
-    .technical-skill
+    .technical-skill{ style: "background-color: #{@portfolio.color_one}" }
+      %h2 Technical Skills
+      .skills-header{ style: "border-color: #{@portfolio.font_color_two}", class: "#{@show_technology}" }
+        %h5 Technology
+        %h5
+          = @portfolio.show_years_exp ? 'Experience' : nil
+        %h5
+          = @portfolio.show_proficiency ? 'Proficiency' : nil
+      - @technologies.each do |technology|
+        .technology{ class: "#{@show_technology}" }
+          .show-name{ style: "color: #{@portfolio.font_color_two}"}
+            = technology.name
+          .show-years-exp{ style: "color: #{@portfolio.font_color_two}"}
+            - if @portfolio.show_years_exp
+              = "#{pluralize(technology.years_exp, 'year')}"
+          .show-proficiency
+            - if @portfolio.show_proficiency
+              .progress
+                .progress-bar{ role: 'progressbar',
+                                          'aria-valuemin' => '0', 'aria-valuemax' => '10',
+                                          style: "width: #{technology.proficiency * 10}%; background-color: #{@portfolio.color_four};" }
     .about-me
-    .footer
+    .footerbg-warning

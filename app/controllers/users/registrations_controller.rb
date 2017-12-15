@@ -56,7 +56,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
                 color_one: '#0a0d72', color_two: '#83c9f4',
                 color_three: '#2196f3', color_four: '#00a6fb',
                 font_color_one: '#ffffff', font_color_two: '#ffffff',
-                show_cover_image: false, show_avatar_image: true }
+                show_cover_image: false, show_avatar_image: true,
+                show_years_exp: true, show_proficiency: true }
     portfolio = current_user.portfolios.new(default)
     portfolio.save
     root_path

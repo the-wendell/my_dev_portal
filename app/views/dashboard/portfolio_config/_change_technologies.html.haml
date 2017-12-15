@@ -1,0 +1,12 @@
+.change-image-display.config-container
+  %h4 Display Technical Skills
+  = form_for current_user.portfolios.first do |f|
+    .form-image-display
+      .field
+        = f.label :show_years_exp
+        = f.select :show_years_exp, [['Yes', true], ['No', false]], selected: @portfolio.show_years_exp
+      .field
+        = f.label :show_proficiency
+        = f.select :show_proficiency, [['Yes', true], ['No', false]], selected: @portfolio.show_proficiency
+      .actions
+        = submit_tag 'Update'

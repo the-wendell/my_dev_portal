@@ -32,7 +32,86 @@
 .default h2 {
   text-align: center;
   text-decoration: underline;
-  color: white;
+  color: inherit;
   margin-top: 100px;
   font-size: 60px;
+}
+
+.default .technical-skill {
+  display: grid;
+  grid-template-columns: 60%;
+  justify-content: center;
+}
+
+.default .skills-header {
+  display: grid;
+  padding-bottom: 5px;
+  border-bottom: solid 1px;
+  margin-top: 40px;
+}
+
+.default .skills-header.all {
+  grid-template-columns: 150px auto auto;
+}
+
+.default .skills-header.proficiency {
+  grid-template-columns: 150px auto auto;
+}
+
+.default .skills-header.proficiency h5:nth-child(3){
+  justify-self: center;
+}
+
+.default .skills-header.years {
+  grid-template-columns: 150px 200px;
+  justify-content: center;
+}
+
+.default .skills-header.years h5:nth-child(2){
+  justify-self: center;
+}
+
+.default .skills-header.none {
+  display: none;
+}
+
+.default h5 {
+  font-size: 24px;
+}
+
+.default .technology {
+  display: grid;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.default .technology.all {
+  grid-template-columns: 150px auto auto;
+}
+
+.default .technology.proficiency {
+  grid-template-columns: 150px auto auto;
+}
+
+.default .technology.years {
+  grid-template-columns: 150px 200px;
+  justify-content: center;
+}
+
+.default .technology.none {
+  grid-template-columns: auto;
+  justify-content: center;
+}
+
+.default .show-name {
+  font-size: 20px;
+}
+
+.default .show-proficiency {
+  min-width: 150px;
+}
+
+.default .show-years-exp {
+  justify-self: center;
+  margin-right: 20px;
 }

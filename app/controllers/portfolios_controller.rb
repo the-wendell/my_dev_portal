@@ -31,6 +31,17 @@ class PortfoliosController < ApplicationController
     @portfolio = Portfolio.find_by(url: params[:portfolio]) || raise('not found')
     @portfolio_header = @portfolio.portfolio_header
     @projects = @portfolio.projects.all.order(:order)
+    @technologies = @portfolio.technologies.all
+
+    if @portfolio.show_years_exp && @portfolio.show_proficiency
+      @show_technology = 'all'
+    elsif @portfolio.show_years_exp
+      @show_technology = 'years'
+    elsif @portfolio.show_proficiency
+      @show_technology = 'proficiency'
+    else
+      @show_technology = 'none'
+    end
   end
 
   private
@@ -50,6 +61,7 @@ class PortfoliosController < ApplicationController
     params.require(:portfolio).permit(:url, :theme, :color_one, :color_two,
                                       :color_three, :color_four,
                                       :font_color_one, :font_color_two,
-                                      :show_cover_image, :show_avatar_image)
+                                      :show_cover_image, :show_avatar_image,
+                                      :show_years_exp, :show_proficiency)
   end
 end

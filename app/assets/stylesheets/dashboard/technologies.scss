@@ -20,7 +20,7 @@
 .form-technology {
   display: grid;
   grid-template-columns: 230px 230px;
-  grid-template-rows: 40px 40px 40px 20px;
+  grid-template-rows: 40px 40px 20px;
 }
 
 .form-technology .field input {
@@ -41,15 +41,6 @@
   grid-template-rows: 25px;
 }
 
-.show-select label {
-  justify-self: center;
-}
-
-.display-option-header {
-  font-size: 22px;
-  justify-self: center;
-}
-
 .years-exp-field {
   width: 30px;
 }
@@ -62,6 +53,7 @@
 
 .form-technology .actions {
   justify-self: center;
+  grid-column: 2 / 3;
 }
 
 // show technology index
