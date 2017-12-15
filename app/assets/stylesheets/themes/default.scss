@@ -41,6 +41,7 @@
   display: grid;
   grid-template-columns: 60%;
   justify-content: center;
+  padding-bottom: 130px;
 }
 
 .default .skills-header {
@@ -52,6 +53,7 @@
 
 .default .skills-header.all {
   grid-template-columns: 150px auto auto;
+  justify-items: center;
 }
 
 .default .skills-header.proficiency {
@@ -114,4 +116,58 @@
 .default .show-years-exp {
   justify-self: center;
   margin-right: 20px;
+}
+
+.default .about-me {
+  display: grid;
+  grid-template-columns: 60%;
+  justify-content: center;
+}
+
+.default .about {
+  margin-top: 40px;
+  margin-bottom: 130px;
+}
+
+.default .footer {
+  display: grid;
+  grid-template-columns: 90%;
+  justify-content: center;
+}
+
+.default .footer-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 75px;
+  justify-items: center;
+}
+
+.default .footer-body {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 75px;
+  justify-items: center;
+}
+
+.contact {
+  display: grid;
+  grid-template-rows: 30px 30px;
+  grid-template-columns: auto;
+  justify-content: center;
+}
+
+.default .links {
+  display: flex;
+  justify-content: center;
+}
+
+.default .social-link {
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  margin-left: 3px;
+  margin-right: 3px;
+  fill: inherit;
 }

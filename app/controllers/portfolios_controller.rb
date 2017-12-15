@@ -32,6 +32,8 @@ class PortfoliosController < ApplicationController
     @portfolio_header = @portfolio.portfolio_header
     @projects = @portfolio.projects.all.order(:order)
     @technologies = @portfolio.technologies.all
+    @about = @portfolio.about
+    @first_name = @portfolio_header.header_one.split(' ').first
 
     if @portfolio.show_years_exp && @portfolio.show_proficiency
       @show_technology = 'all'
