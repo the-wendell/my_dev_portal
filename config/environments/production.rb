@@ -64,11 +64,11 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.default_url_options = { host: 'mg.mydevportal.io' }
+  config.action_mailer.default_url_options = { host: 'www.mydevportal.io' }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     api_key: ENV['MAILGUN_API_KEY'],
-    domain: 'mg.mydevportal.io'
+    domain: 'mydevportal.io'
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
