@@ -35,7 +35,7 @@ class CoverImageUploader < CarrierWave::Uploader::Base
   end
 
   version :preview do
-    process resize_to_fit: [550, 229], quality: 50
+    process resize_to_fit: [10000, 229], quality: 50
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
