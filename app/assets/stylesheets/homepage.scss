@@ -1,0 +1,114 @@
+.homepage .home_page_container {
+  background-color: #00a6fb;
+  min-height: 100vh;
+  color: white;
+}
+
+.homepage a {
+  color: white;
+}
+
+.homepage h1 {
+  font-size: 144px;
+  text-align: center;
+  padding-top: 150px;
+}
+
+.homepage h2 {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.homepage .main {
+  display: grid;
+  grid-template-columns: 400px;
+  justify-content: center;
+}
+
+.homepage .sign-up-button {
+  justify-self: center;
+  margin-top: 100px;
+}
+
+.homepage .sign-up {
+  background-color: #0a0d72;
+  height: 175px;
+  width: 350px;
+  border-radius: 25px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  font-size: 72px;
+}
+
+.homepage .login {
+  justify-self: end;
+  margin-top: 10px;
+  font-size: 36px;
+}
+
+.homepage .main-text {
+  display: grid;
+  grid-template-columns: 600px;
+  justify-content: center;
+  font-size: 26px;
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 950px) {
+  .homepage h1 {
+    font-size: 100px;
+  }
+
+  .homepage h2 {
+    font-size: 25px;
+    padding-top: 25px;
+  }
+
+  .homepage .sign-up {
+    transform: scale(.85);
+  }
+
+  .homepage .main-text {
+    font-size: 23px;
+  }
+}
+
+@media only screen and (max-width: 650px ) {
+  .homepage h1 {
+    font-size: 75px;
+    padding-top: 50px;
+  }
+
+  .homepage h2 {
+    font-size: 20px;
+    padding-top: 20px;
+  }
+
+  .homepage .sign-up-button {
+    margin-top: 25px;
+  }
+
+  .homepage .sign-up {
+    transform: scale(.6);
+  }
+
+  .homepage .main {
+    grid-template-columns: 300px;
+  }
+
+  .homepage .main-text {
+    grid-template-columns: 300px;
+    font-size: 20px;
+    margin-top: 25px;
+  }
+
+  .homepage .login {
+    margin-top: 0px;
+    font-size: 30px;
+  }
+
+  .homepage a {
+    margin-top: 0;
+  }
+}

@@ -1,5 +1,6 @@
 @import 'bootstrap';
 @import 'jquery.minicolors';
+@import 'homepage';
 
 body {
    font-family: 'Roboto', sans-serif;
@@ -8,4 +9,8 @@ body {
 a:hover {
   text-decoration: none;
   color: inherit;
+}
+
+html {
+  height: 100%;
 }

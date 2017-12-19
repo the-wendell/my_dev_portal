@@ -1,6 +1,16 @@
-.home_page_container
-  .top_nav_bar
-    = link_to 'Sign Up', new_user_registration_path
-    = link_to 'Login', new_user_session_path
-    = link_to 'Log Out', destroy_user_session_path, method: :delete
-  .main_body
+.homepage
+  .home_page_container
+    .header
+      %h1 My Dev Portal
+      %h2 Build your portfolio and track your job application all in one place
+    .main
+      .sign-up-button
+        = link_to 'Sign Up', new_user_registration_path, class: 'sign-up btn'
+      = link_to 'Login', new_user_session_path, class: 'login'
+    .main-text
+      %p
+        Any features that you think we are missing?  Got a great idea for a new portfolio theme?  The power to create change is in your hands - contribute!
+      %p
+        Find the Github repositroy
+        %strong
+          = link_to 'here.', 'https://github.com/SWLivingstone/my_dev_portal_dashboard'
