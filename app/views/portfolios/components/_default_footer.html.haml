@@ -1,13 +1,10 @@
 .footer{ style: "background-color: #{@portfolio.color_four}" }
-  .footer-heading
-    %h3 Location
-    %h3 Around the Web
-    %h3
-      = "About #{@first_name}"
   .footer-body{ style: "color: #{@portfolio.font_color_two}"}
     .location
+      %h3 Location
       = @about.location
     .contact
+      %h3 Around the Web
       = @about.email
       .links{ style: "fill: #{@portfolio.font_color_two}"}
         - if @about.github.length > 0
@@ -31,4 +28,6 @@
             = link_to @about.website do
               = image_tag 'website.svg', class: 'social-link'
     .about-mini
+      %h3
+        = "About #{@first_name}"
       = @about.about_me_brief

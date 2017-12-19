@@ -139,24 +139,21 @@
   justify-content: center;
 }
 
-.default .footer-heading {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-top: 75px;
-  justify-items: center;
-}
-
 .default .footer-body {
-  margin-top: 10px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-bottom: 75px;
   justify-items: center;
 }
 
+.default h3 {
+  margin-bottom: 20px;
+}
+
 .contact {
   display: grid;
-  grid-template-rows: 30px 30px;
+  grid-template-rows: 50px 30px 30px;
   grid-template-columns: auto;
   justify-content: center;
 }
@@ -174,4 +171,103 @@
   margin-left: 3px;
   margin-right: 3px;
   fill: inherit;
+}
+
+@media only screen and (max-width: 950px ) {
+  .default h2 {
+    font-size: 45px;
+  }
+
+  .default .show-name {
+    font-size: 15px;
+  }
+
+  .default .show-years-exp {
+    font-size: 15px;
+  }
+
+  .default .show-proficiency {
+    font-size: 15px;
+  }
+
+  .default h5 {
+    font-size: 20px;
+  }
+
+  .default .header-name {
+    font-size: 40px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .default .header-subheader {
+    font-size: 20px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+
+  .default .footer-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 20px;
+  }
+
+  .default h3 {
+    text-align: center;
+  }
+
+  .default .about-mini {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 675px ) {
+  .default .show-name {
+    font-size: 15px;
+  }
+
+  .default .show-years-exp {
+    font-size: 15px;
+  }
+
+  .default .show-proficiency {
+    font-size: 15px;
+  }
+
+  .default h5 {
+    font-size: 15px;
+  }
+
+  .default .technology.all {
+    grid-template-columns: 100px auto auto;
+  }
+
+  .default .technology.proficiency {
+    grid-template-columns: 100px auto auto;
+  }
+
+  .default .technology.years {
+    grid-template-columns: 100px 150px;
+  }
+
+  .default .show-proficiency {
+    min-width: 50px;
+  }
+
+  .default .skills-header.all {
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+  }
+
+  .default .skills-header.proficiency {
+    grid-template-columns: auto auto auto;
+  }
+
+  .default .skills-header.years {
+    grid-template-columns: 100px 100px;
+    justify-content: center;
+  }
 }

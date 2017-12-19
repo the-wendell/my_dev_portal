@@ -54,6 +54,55 @@
   font-weight: bold;
 }
 
+.card .image-button {
+  display: none;
+}
+
+@media only screen and (max-width: 700px ) {
+  .card .project-description {
+    display: none;
+  }
+
+  .card .project-tech {
+    display: none;
+  }
+
+  .card .project-image {
+    display: none;
+  }
+
+  .card .show-more {
+    display: none;
+  }
+
+  .card .image-button {
+    display: block;
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .card .project-title {
+    grid-column: auto;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto;
+    justify-content: center;
+  }
+
+  .card .image-button:hover{
+    opacity: .7;
+  }
+}
+
+@media only screen and (max-width: 500px ) {
+  .card .project-title {
+    font-size: 26px;
+  }
+}
 /*--------------------------------------------------------------
 2.0 Slider
 --------------------------------------------------------------*/
@@ -86,6 +135,10 @@
 
     @media (max-width: 600px) {
       margin-top: 60px;
+    }
+
+    @media (max-width: 500px) {
+      max-width: 300px;
     }
   }
 
