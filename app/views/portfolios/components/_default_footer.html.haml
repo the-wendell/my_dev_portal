@@ -1,0 +1,34 @@
+.footer{ style: "background-color: #{@portfolio.color_four}" }
+  .footer-heading
+    %h3 Location
+    %h3 Around the Web
+    %h3
+      = "About #{@first_name}"
+  .footer-body{ style: "color: #{@portfolio.font_color_two}"}
+    .location
+      = @about.location
+    .contact
+      = @about.email
+      .links{ style: "fill: #{@portfolio.font_color_two}"}
+        - if @about.github.length > 0
+          .github
+            = link_to @about.github do
+              = image_tag 'github.svg', class: 'social-link'
+        - if @about.linkedin.length > 0
+          .linkedin
+            = link_to @about.linkedin do
+              = image_tag 'linkedin.svg', class: 'social-link'
+        - if @about.facebook.length > 0
+          .facebook
+            = link_to @about.facebook do
+              = image_tag 'facebook.svg', class: 'social-link'
+        - if @about.twitter.length > 0
+          .twitter
+            = link_to @about.twitter do
+              = image_tag 'twitter.svg', class: 'social-link'
+        - if @about.website.length > 0
+          .website
+            = link_to @about.website do
+              = image_tag 'website.svg', class: 'social-link'
+    .about-mini
+      = @about.about_me_brief

@@ -37,11 +37,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process resize_to_fit: [600, 600], quality: 100
+    process resize_to_fit: [10000, 600], quality: 100
   end
 
   version :small do
-    process resize_to_fit: [200, 150], quality: 100
+    process resize_to_fit: [10000, 150], quality: 100
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

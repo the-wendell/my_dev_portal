@@ -1,0 +1,31 @@
+.portfolio-gallary-container
+  - @projects.each_with_index do |project, index|
+    %button.gallary-item{type: 'button', 'data-toggle' => 'modal', 'data-target' => "#project-#{index + 1}", style: "background-image: url(#{project.image.large.url})"}
+    .modal.fade{ id: "project-#{index + 1}", tabindex: '-1', role: 'dialog', 'aria-labelledby' => "project-#{index + 1}-label", 'aria-hidden' => 'true' }
+      .modal-dialog{ role: 'document' }
+        .modal-content
+          .modal-header
+            %h5.modal-title{ id: "project-#{index + 1}-label" }
+              = project.title
+            %button.close{ type: 'button', 'data-dismiss' => 'modal', 'aria-label' => 'close'}
+              %span{ 'aria-hidden' => true}
+                &times;
+          .modal-body
+            %img.modal-project-image{ src: "#{project.image.url}" }
+            .modal-project-role
+              %p
+                %strong Role:
+                = project.role
+            .modal-project-tech
+              %p
+                %strong Tech Used:
+                = project.tech
+            .modal-project-link
+              %p
+                %strong Link:
+                = project.link
+            .modal-project-description
+              %p
+                %strong Description:
+                = project.description
+          .modal-footer

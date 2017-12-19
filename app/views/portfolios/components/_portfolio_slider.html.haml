@@ -9,7 +9,7 @@
         .project-title
           = project.title
         .project-description
-          = "#{project.descrption[0..400]}..."
+          = "#{project.description[0..400]}..."
         %img.project-image{ src: "#{project.image.small.url}" }
         .project-tech
           %h6 Tech Used
@@ -42,7 +42,7 @@
               .modal-project-description
                 %p
                   %strong Description:
-                  = project.descrption
+                  = project.description
             .modal-footer
   .bullets
     - @projects.count.times do |index|

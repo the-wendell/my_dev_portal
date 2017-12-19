@@ -39,7 +39,7 @@ Currently I am only accepting contributions towards adding more portfolio themes
 
   The template is now selectable while logged into the My Dev Portal dashboard under the Portfolio Settings page.
 
-  **Available Resources**
+  **AVAILABLE RESOURCES**
 
   * `@portfolio_header` **hash**
     * `.header_one` **string** = User's name
@@ -50,7 +50,7 @@ Currently I am only accepting contributions towards adding more portfolio themes
     * `.title` **string** = Title of the project
     * `.link` **string** = Link to project webpage
     * `.description` text = Description of the project
-    * `.image` **string** = Project image
+    * `.image` **string** = Project image. Suffix with `.url` for original upload size, `.large.url` for an image 600px high, and `.small.url` for an image 150px high.
     * `.tech` **string** = list of technologies used on the project
     * `.role` **string** = User's role on the project
     * `.order` **int** = User given order.  `@projects` will already be sorted by `.order`
@@ -70,7 +70,7 @@ Currently I am only accepting contributions towards adding more portfolio themes
     * `.website` **string**
   * `@first_name` **string** User's first name
 
-  **Available User Preferences** (Your theme must support these options)
+  **AVAILABLE USER PREFERENCES** (Your theme must support these options)
 
   * Options for displaying technologies
     * The user can chose how they would like to display their skills.  They can display their years of experience, their proficiency, both, or none at all simply electing to display only the name.
@@ -117,3 +117,4 @@ Currently I am only accepting contributions towards adding more portfolio themes
 
   * Please make your theme mobile friendly
   * Your shouldn't need to add any dependencies.  Bootstrap 4, Sass, and jQuery are supported and with the fantastic addition of CSS grid you should be able to manage without adding further dependencies
+  * Feel free to create reusable partials in app/views/portfolios/components.  As well, feel free to use any of the existing components that are in there.  You should be able to drop them straight into your theme with `= render partial: 'portfolios/components/some_component'`

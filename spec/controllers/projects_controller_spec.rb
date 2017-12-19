@@ -6,7 +6,7 @@ RSpec.describe ProjectsController, type: :controller do
 
   let(:valid_attributes) do
     { title: 'testing title',
-      descrption: 'exiting stuff',
+      description: 'exiting stuff',
       role: 'BMOC',
       tech: 'fancey things',
       link: 'a place',

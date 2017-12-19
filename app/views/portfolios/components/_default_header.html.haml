@@ -1,0 +1,8 @@
+.header{ style: "background-color: #{@portfolio.color_one}; background-image: #{@portfolio.show_cover_image ? "url(#{@portfolio_header.cover_image.url})" : nil}" }
+  .header-avatar
+    - if @portfolio.show_avatar_image
+      %img.avatar-image{ src: "#{@portfolio_header.avatar_image.full.url}" }
+  .header-name{ style: "color: #{@portfolio_header.header_one_color}" }
+    = @portfolio_header.header_one
+  .header-subheader{ style: "color: #{@portfolio_header.header_two_color}" }
+    = @portfolio_header.header_two

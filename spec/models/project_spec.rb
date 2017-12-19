@@ -5,7 +5,7 @@ RSpec.describe Project, type: :model do
   let(:portfolio) { FactoryGirl.create(:portfolio, user: user) }
   let(:project_input) do
     { title: 'My title',
-      descrption: 'So many words',
+      description: 'So many words',
       role: 'supreme leader',
       link: 'the-fun-place',
       tech: 'mostly interent explorer',

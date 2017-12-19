@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212225416) do
+ActiveRecord::Schema.define(version: 20171219205323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20171212225416) do
     t.integer "portfolio_id"
     t.string "title"
     t.string "link"
-    t.text "descrption"
+    t.text "description"
     t.string "image"
     t.text "tech"
     t.string "role"
