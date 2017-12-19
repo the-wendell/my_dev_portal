@@ -7,7 +7,13 @@ RSpec.describe About, type: :model do
     { about_me: 'testing title',
       about_me_brief: 'exiting stuff',
       location: 'here',
-      portfolio_id: portfolio.id }
+      portfolio_id: portfolio.id,
+      email: 'myemail',
+      github: '',
+      linkedin: '',
+      facebook: '',
+      twitter: '',
+      website: '' }
   end
 
   describe '#create' do
@@ -41,5 +47,9 @@ RSpec.describe About, type: :model do
 
   describe '#portfolio' do
     it { should belong_to(:portfolio) }
+  end
+
+  describe '#github' do
+    is_valid_url(:github, About.new)
   end
 end

@@ -7,7 +7,12 @@ RSpec.describe AboutsController, type: :controller do
   let(:attributes) do
     { about_me: 'testing title',
       about_me_brief: 'exiting stuff',
-      location: 'here' }
+      location: 'here',
+      github: '',
+      linkedin: '',
+      facebook: '',
+      twitter: '',
+      website: '' }
   end
 
   describe 'about#create' do
