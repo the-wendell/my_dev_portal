@@ -63,15 +63,14 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.default_url_options = { host: 'mydevportal.io' }
+  config.action_mailer.default_url_options = { host: 'mg.mydevportal.io' }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     api_key: ENV['PRODUCTION_MAILGUN_API_KEY'],
     domain: ENV['PRODUCTION_MAILGUN_DOMAIN']
   }
-  
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
