@@ -21,6 +21,7 @@ Currently I am only accepting contributions towards adding more portfolio themes
   **Requirments:**
     * Rails 5
     * Postgres
+    * Bundler -v 1.15.2
 
   1. Run `bundle install`
   2. Run `rails db:migrate`
