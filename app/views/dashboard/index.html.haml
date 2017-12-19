@@ -43,10 +43,4 @@
       .menu-item
         item three
   .main-content
-    - if flash[:alert]
-      .alert.alert-warning.alert-dismissible.fade.show{ role: 'alert' }
-        = alert
-        %button.close{ type: 'button', 'data-dismiss' => 'alert', 'aria-label' => 'close' }
-          %span{ 'aria-hidden' => 'true' }
-            &times;
     = render partial: "dashboard/#{@current_dashboard_action}"

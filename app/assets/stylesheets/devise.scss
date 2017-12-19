@@ -1,0 +1,31 @@
+.devise {
+  min-height: 100vh;
+  background-color: #00a6fb;
+  display: grid;
+  justify-content: center;
+  padding-top: 10vh;
+  color: white;
+  font-size: 18px;
+}
+
+.devise a {
+  color: white;
+}
+
+.devise form {
+  margin-top: 10px;
+  display: grid;
+  grid-row-gap: 10px;
+}
+
+// .devise .actions {
+//   justify-self: end;
+// }
+
+.devise .actions input {
+  background-color: #0a0d72;
+  border: 0px;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 10px 5px 10px;
+}
