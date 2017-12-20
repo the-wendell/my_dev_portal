@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title MyDevPortalDashboard
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application-themes', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %link{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto' }
+
+  %body
+    - if flash[:alert]
+      .alert.alert-warning.alert-dismissible.fade.show{ role: 'alert' }
+        = alert
+        %button.close{ type: 'button', 'data-dismiss' => 'alert', 'aria-label' => 'close' }
+          %span{ 'aria-hidden' => 'true' }
+            &times;
+    = yield
