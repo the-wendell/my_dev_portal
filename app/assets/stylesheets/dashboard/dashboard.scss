@@ -24,8 +24,9 @@ p {
 }
 
 .dashboard-container {
+  min-height: 100vh;
   display: grid;
-  grid-template: 50px 100vh
+  grid-template: 50px auto
   / 200px auto;
 }
 
@@ -65,6 +66,7 @@ p {
 .sidebar {
   background-color: #0a0d72;
   color: white;
+  min-height: 100vh;
 }
 
 .current-user-sidebar {
