@@ -14,5 +14,11 @@ class DashboardController < ApplicationController
 
     @technologies = @portfolio.technologies.all
     @technology = params[:technology_id] ? Technology.find(params[:technology_id]) : Technology.new
+
+    if @portfolio_header.header_one && @about.about_me && (@technologies.count > 0) && (@projects.count > 0)
+      @new_user = false
+    else
+      @new_user = true
+    end
   end
 end
