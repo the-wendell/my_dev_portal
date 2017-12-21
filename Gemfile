@@ -31,6 +31,8 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-minicolors-rails'
 # jQuery for Rails
 gem 'jquery-rails'
+# jQuery turbolinks
+gem 'jquery-turbolinks'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

@@ -3,6 +3,7 @@
   $('.color-picker').minicolors()
 .change-color-theme.config-container
   %h4 Change Font Colors
+  %p Pick the main font colors to be used for your portfolio.  Note: These font colors are seperate from your header font colors
   = form_for current_user.portfolios.first do |f|
     .form-portfolio-colors
       .field

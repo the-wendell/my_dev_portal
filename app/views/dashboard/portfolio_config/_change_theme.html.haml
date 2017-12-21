@@ -1,6 +1,7 @@
 .change-portfolio-theme.config-container
   %h4 Change Portfolio Theme
-  %p Your current theme is
+  %p Pick a theme for your portfolio.  More themes coming soon!
+  %small Your current theme is
   %h5
     = @portfolio.theme
   = form_for current_user.portfolios.first do |f|

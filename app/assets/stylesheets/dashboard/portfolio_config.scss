@@ -26,7 +26,7 @@
 
 .change-url-form-container {
   display: grid;
-  grid-template-rows: 50px 60px 200px;
+  grid-template-rows: 50px 75px 100px;
   grid-template-columns: 250px;
   overflow-wrap: break-word;
 }
@@ -60,7 +60,7 @@
 
 .form-portfolio-theme .field {
   display: grid;
-  grid-template-columns: 115px 115px;
+  grid-template-columns: 115px auto;
 }
 
 .form-portfolio-theme .field label {

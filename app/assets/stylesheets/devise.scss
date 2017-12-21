@@ -6,6 +6,7 @@
   padding-top: 10vh;
   color: white;
   font-size: 18px;
+  grid-template-columns: 350px;
 }
 
 .devise a {
@@ -18,14 +19,34 @@
   grid-row-gap: 10px;
 }
 
-// .devise .actions {
-//   justify-self: end;
-// }
-
 .devise .actions input {
   background-color: #0a0d72;
   border: 0px;
   border-radius: 5px;
   color: white;
   padding: 5px 10px 5px 10px;
+}
+
+.devise input {
+  width: 320px;
+}
+
+.devise .cancel-account {
+  margin-top: 40px;
+}
+
+.devise .current-password {
+  margin-top: 30px;
+}
+
+.devise .remember-me input {
+  width: 20px;
+  justify-self: start;
+  height: 20px;
+}
+
+.devise .remember-me {
+  display: grid;
+  grid-template-columns: 150px auto;
+  align-items: center;
 }

@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: %i[update]
-  before_action :authenticate_user!, only: %i[update create new]
+  before_action :authenticate_user!, only: %i[update create new destroy]
   before_action :confirm_owner, only: %i[update]
 
   def new
@@ -46,6 +46,11 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def destroy
+    @portfolio.destroy
+    redirect_to root_path
+  end
+
   private
 
   def filler_about
@@ -57,7 +62,7 @@ class PortfoliosController < ApplicationController
       facebook: '',
       twitter: '',
       website: '',
-      about_me_brief: '',
+      about_me_brief: ''
     )
   end
 

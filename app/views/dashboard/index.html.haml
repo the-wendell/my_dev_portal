@@ -3,44 +3,39 @@
     %p My Dev Portal
   .header
     .main-header
-    .dropdown
-      %a.btn.dropdown-toggle{ id: "dropdownMenuButton", 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'area-exapend' => "false" }
+    .dropdown.show
+      %a.btn.dropdown-toggle{ id: "dropdownMenuLink", role: 'button', 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'area-exapend' => "false" }
         = current_user.email
-        .dropdown-menu{'aria-labelledby' => 'dropdownMenuLink'}
-          = link_to 'View Portfolio', "/#{@portfolio.url}", class: 'dropdown-item'
-          = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item'
+      .dropdown-menu.dropdown-menu-right{'aria-labelledby' => 'dropdownMenuLink'}
+        = link_to 'View Portfolio', "/#{@portfolio.url}", class: 'dropdown-item'
+        = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item'
+        = link_to 'Account Settings', edit_user_registration_path, class: 'dropdown-item'
   .sidebar
-    .current-user-sidebar
-      .sidebar-gravatar
-        = image_tag current_user.gravatar_url
-      .sidebar-name
-        %p
-          = current_user.portfolios.first.url
     .sidebar-menu
-      .menu-item{ class: params[:menu_action] ? 'not-active' : 'active' }
+      .menu-item{ class: params[:menu_action] ? 'not-active' : 'active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Your dashboard home page (under construction)' }
         = link_to 'Home', dashboard_index_path
     .sidebar-heading
       %p Portfolio
     .sidebar-menu
-      .menu-item{ class: params[:menu_action] == 'portfolio_config' ? 'active' : 'not-active' }
+      .menu-item{ class: params[:menu_action] == 'portfolio_config' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Customize your portfolio settings' }
         = link_to 'Portfolio Settings', dashboard_index_path(menu_action: 'portfolio_config')
-      .menu-item{ class: params[:menu_action] == 'about' ? 'active' : 'not-active' }
+      .menu-item{ class: params[:menu_action] == 'about' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Add and edit the personal information displayed on your portfolio' }
         = link_to 'About Me', dashboard_index_path(menu_action: 'about')
-      .menu-item{ class: params[:menu_action] == 'projects_view' ? 'active' : 'not-active' }
+      .menu-item{ class: params[:menu_action] == 'projects_view' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Add and edit projects to be displayed on your portfolio' }
         = link_to 'Projects', dashboard_index_path(menu_action: 'projects_view')
-      .menu-item{ class: params[:menu_action] == 'technologies' ? 'active' : 'not-active' }
+      .menu-item{ class: params[:menu_action] == 'technologies' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Add and edit known skills to be displayed on your portfolio' }
         = link_to 'Technologies', dashboard_index_path(menu_action: 'technologies')
-      .menu-item{ class: params[:menu_action] == 'portfolio_header' ? 'active' : 'not-active' }
+      .menu-item{ class: params[:menu_action] == 'portfolio_header' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Customize the display of your portfolio header' }
         = link_to 'Portfolio Header', dashboard_index_path(menu_action: 'portfolio_header')
     .sidebar-heading
       %p Job Tracking
     .sidebar-menu
       .menu-item
-        item one
+        place holder
       .menu-item
-        item two
+        place holder
       .menu-item
-        item three
+        place holder
   .main-content
     - if flash[:alert]
       .alert.alert-warning.alert-dismissible.fade.show{ role: 'alert' }

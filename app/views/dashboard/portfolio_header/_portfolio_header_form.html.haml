@@ -3,22 +3,29 @@
   $('.color-picker').minicolors()
 .portfolio-header-form
   %h4 Edit Your Portfolio Header
+  %p
+    Here you can fill in the details for your portfolio's header.  It is
+    recomended that Header one be your name but of course you can make it
+    whatever you like.
+  %small
+    NOTE: The preview may not be 100% acurate as your portfolio's header is
+    largly dependent on the theme that you chose.
   = form_for [@portfolio, @portfolio_header] do |f|
     .form-portfolio-header
       .field
-        = f.label :your_name
+        = f.label :header_one
         %br
         = f.text_field :header_one
       .field
-        = f.label :name_font_color
+        = f.label :header_one_font_color
         %br
         = f.text_field :header_one_color, as: :minicolors, class: 'color-picker'
       .field
-        = f.label :subheading
+        = f.label :header_two
         %br
         = f.text_field :header_two
       .field
-        = f.label :subheading_font_color
+        = f.label :header_two_font_color
         %br
         = f.text_field :header_two_color, as: :minicolors, class: 'color-picker'
       .field.upload-image
