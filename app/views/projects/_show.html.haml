@@ -1,4 +1,3 @@
-
 .project-mini-display-container
   %p
     %b Title:
@@ -20,5 +19,5 @@
   %p
     = link_to project.link, project.link, class: 'project-mini-link'
   %p
-    = link_to 'Edit', dashboard_index_path(menu_action: 'projects_view', project_id: project.id), class: 'edit-button'
+    = link_to 'Edit', edit_portfolio_project_path(@portfolio, project.id), class: 'edit-button'
     = link_to 'Delete', portfolio_project_path(@portfolio.id, project.id), class: 'delete-button', method: :delete, data: { confirm: 'Are you sure that you would like to delete this project?' }

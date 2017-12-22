@@ -109,12 +109,14 @@ p {
   align-items: center;
   padding-left: 10px;
   background-color: #323472;
+  -moz-appearance: button;
 }
 
 .menu-item a {
   text-decoration: none;
   color: white;
   width: 160px;
+  padding: 8px;
 }
 
 .menu-item:hover {

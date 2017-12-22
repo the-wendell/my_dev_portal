@@ -1,0 +1,16 @@
+.technologies-main
+  .technologies-form-container
+    .technologies-explained
+      %h4 Add Known Technologies
+      %p
+        Here you can add known technologies to your profile.  Each technology can
+        qualified by 'Proficiency' and 'Years Exp'.
+      %p
+        %strong 'Years Exp'
+        is the number of years that you have experience with a given
+        technology.
+      %p
+        %strong 'Proficiency'
+        is your skill level on a scale of 1 to 10 with a given technology
+    = render partial: 'technologies/form'
+  = render partial: 'technologies/show'

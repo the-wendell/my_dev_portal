@@ -1,0 +1,33 @@
+= form_for [@portfolio, @project] do |f|
+  .form-project
+    .field
+      = f.label :title
+      %br
+      = f.text_field :title
+    .field
+      = f.label :link
+      %br
+      = f.text_field :link
+    .field
+      = f.label :role
+      %br
+      = f.text_field :role
+    .field
+      = f.label :image
+      %br
+      = f.file_field :image, class: 'form-project-image'
+    .field
+      = f.label :description
+      %br
+      = f.text_area :description, class: 'form-project-description'
+    .field
+      = f.label :tech
+      %br
+      = f.text_area :tech, class: 'form-project-tech'
+    .field
+      = f.label :display_order
+      = f.text_field :order, class: 'display-order-input'
+    .actions
+      = f.submit "Submit #{@project.persisted? ? 'Edit' : 'New'}"
+      - if @project.persisted?
+        = link_to 'Cancel', portfolio_projects_path(@portfolio), class: 'delete-button'

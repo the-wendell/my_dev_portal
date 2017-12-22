@@ -3,7 +3,7 @@
   $('.color-picker').minicolors()
 .change-color-theme.config-container
   %h4 Change Theme Colors
-  = form_for current_user.portfolios.first do |f|
+  = form_for @portfolio do |f|
     .form-portfolio-colors
       .field
         = f.label :color_one

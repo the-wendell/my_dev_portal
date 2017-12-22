@@ -1,9 +1,12 @@
 class PortfoliosController < ApplicationController
+  layout 'dashboard', except: %i[show]
   before_action :set_portfolio, only: %i[update]
   before_action :authenticate_user!, only: %i[update create new destroy]
   before_action :confirm_owner, only: %i[update]
 
-  def new
+  def edit
+    @portfolio = Portfolio.find(params[:id])
+    @themes = Themes.array
   end
 
   def create
@@ -21,10 +24,16 @@ class PortfoliosController < ApplicationController
   end
 
   def update
-    unless @portfolio.update(portfolio_params)
-      flash[:alert] = @portfolio.errors.full_messages.first
+    @portfolio = Portfolio.find(params[:id])
+    @themes = Themes.array
+
+    if @portfolio.update(portfolio_params)
+      redirect_to edit_portfolio_path(@portfolio)
+      flash[:notice] = 'Portfolio updated successfully'
+    else
+      flash[:alert] = @portfolio.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      render 'edit'
     end
-    redirect_to dashboard_index_path(menu_action: 'portfolio_config')
   end
 
   def show

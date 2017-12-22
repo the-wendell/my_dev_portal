@@ -9,4 +9,61 @@
     %link{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto' }
 
   %body
-    = yield
+    .dashboard-container
+      .dev-portal-logo
+        %p My Dev Portal
+      .header
+        .main-header
+        .dropdown.show
+          %a.btn.dropdown-toggle{ id: "dropdownMenuLink", role: 'button', 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'area-exapend' => "false" }
+            = current_user.email
+          .dropdown-menu.dropdown-menu-right{'aria-labelledby' => 'dropdownMenuLink'}
+            = link_to 'View Portfolio', "/#{@portfolio.url}", class: 'dropdown-item'
+            = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item'
+            = link_to 'Account Settings', edit_user_registration_path, class: 'dropdown-item'
+      .sidebar
+        .sidebar-menu
+          .menu-item{ class: controller_name == 'dashboard' ? 'active' : '',
+                     `data-toggle` => 'tooltip', 'data-placement' => 'right',
+                     type: 'button', title: 'Your dashboard home page (under construction)' }
+            = link_to 'Home', dashboard_index_path
+        .sidebar-heading
+          %p Portfolio
+        .sidebar-menu
+          .menu-item{ class: controller_name == 'portfolios' ? 'active' : '',
+                      `data-toggle` => 'tooltip', 'data-placement' => 'right',
+                      type: 'button', title: 'Customize your portfolio settings' }
+            = link_to 'Portfolio Settings', edit_portfolio_path(@portfolio)
+          .menu-item{ class: controller_name == 'abouts' ? 'active' : '',
+                      `data-toggle` => 'tooltip', 'data-placement' => 'right',
+                      type: 'button', title: 'Add and edit the personal information displayed on your portfolio' }
+            = link_to 'About Me', portfolio_abouts_path(@portfolio)
+          .menu-item{ class: controller_name == 'projects' ? 'active' : '', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Add and edit projects to be displayed on your portfolio' }
+            = link_to 'Projects', portfolio_projects_path(@portfolio)
+          .menu-item{ class: controller_name == 'technologies' ? 'active' : '', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Add and edit known skills to be displayed on your portfolio' }
+            = link_to 'Technologies', portfolio_technologies_path(@portfolio)
+          .menu-item{ class: params[:menu_action] == 'portfolio_header' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Customize the display of your portfolio header' }
+            = link_to 'Portfolio Header', portfolio_portfolio_headers_path(@portfolio)
+        .sidebar-heading
+          %p Job Tracking
+        .sidebar-menu
+          .menu-item
+            place holder
+          .menu-item
+            place holder
+          .menu-item
+            place holder
+      .main-content
+        - if flash[:alert]
+          .alert.alert-warning.alert-dismissible.fade.show{ role: 'alert' }
+            = alert
+            %button.close{ type: 'button', 'data-dismiss' => 'alert', 'aria-label' => 'close' }
+              %span{ 'aria-hidden' => 'true' }
+                &times;
+        - if flash[:notice]
+          .alert.alert-success.alert-dismissible.fade.show{ role: 'alert' }
+            = notice
+            %button.close{ type: 'button', 'data-dismiss' => 'alert', 'aria-label' => 'close' }
+              %span{ 'aria-hidden' => 'true' }
+                &times;
+        = yield

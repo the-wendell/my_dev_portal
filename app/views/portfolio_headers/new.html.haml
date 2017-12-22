@@ -1,0 +1,13 @@
+.portfolio-header-main
+  .portfolio-header-form
+    %h4 Create Your Portfolio Header
+    %p
+      Here you can fill in the details for your portfolio's header.  It is
+      recomended that Header one be your name but of course you can make it
+      whatever you like.
+    %small
+      NOTE: The preview may not be 100% acurate as your portfolio's header is
+      largly dependent on the theme that you chose.
+    = render partial: 'portfolio_headers/form'
+  %h3 Preview
+  = render partial: 'portfolio_headers/show'

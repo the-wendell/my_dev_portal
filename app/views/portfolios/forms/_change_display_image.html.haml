@@ -1,7 +1,7 @@
 .change-image-display.config-container
   %h4 Display Images
   %p Select which images will be displayed on your portfolio.  What replaces the image will depend on your chosen theme.
-  = form_for current_user.portfolios.first do |f|
+  = form_for @portfolio do |f|
     .form-image-display
       .field
         = f.label :show_avatar_image

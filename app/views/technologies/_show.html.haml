@@ -18,7 +18,7 @@
                                   'aria-valuemin' => '0', 'aria-valuemax' => '10',
                                   style: "width: #{technology.proficiency * 10}%" }
     .edit-delete-technology
-      = link_to dashboard_index_path(menu_action: 'technologies', technology_id: technology.id) do
+      = link_to edit_portfolio_technology_path(@portfolio, technology.id) do
         .technology-edit-icon
       = link_to portfolio_technology_path(@portfolio.id, technology.id), method: :delete do
         .technology-delete-icon

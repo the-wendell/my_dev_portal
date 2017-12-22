@@ -1,46 +1,68 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[update destroy]
+  layout 'dashboard'
+  before_action :set_record, only: %i[update destroy edit create show]
+  before_action :set_new_record, only: %i[index new]
   before_action :authenticate_user!
-  before_action :confirm_owner, only: %i[update destroy]
+  before_action :confirm_owner, only: %i[create update destroy]
+
+  def index
+    render 'new'
+  end
+
+  def show
+    render 'edit'
+  end
+
+  def new
+  end
+
+  def edit
+  end
 
   def create
-    @portfolio = current_user.portfolios.first
-    @project = @portfolio.projects.new(project_params)
-
     if @project.save
-      redirect_to dashboard_index_path(menu_action: 'projects_view')
+      flash[:notice] = 'Project successfully added'
+      redirect_to portfolio_projects_path(@portfolio)
     else
-      flash[:alert] = @project.errors.full_messages.first
-      @current_dashboard_action = 'projects_view'
-      render 'dashboard/index'
+      flash[:alert] = @project.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      render 'new'
     end
   end
 
   def update
     if @project.update(project_params)
-      redirect_to dashboard_index_path(menu_action: 'projects_view')
+      flash[:notice] = 'Project successfully updated'
+      redirect_to portfolio_projects_path(@portfolio)
     else
-      flash[:alert] = @project.errors.full_messages.first
-      redirect_to dashboard_index_path(menu_action: 'projects_view', id: @project.id)
+      flash[:alert] = @project.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      render 'edit'
     end
   end
 
   def destroy
     @project.destroy
-    redirect_to dashboard_index_path(menu_action: 'projects_view')
+    redirect_to portfolio_projects_path(@portfolio)
   end
 
   private
 
   def confirm_owner
-    unless current_user == @project.portfolio.user
-      flash[:alert] = 'You are not the owner of that project or portfolio'
+    unless current_user == Portfolio.find(params[:portfolio_id]).user
+      flash[:alert] = 'You are not the owner of that or portfolio'
       redirect_to root
     end
   end
 
-  def set_project
-    @project = Project.find(params[:id])
+  def set_new_record
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    @projects = @portfolio.projects.all
+    @project = Project.new
+  end
+
+  def set_record
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    @project = params[:id] ? Project.find(params[:id]) : @portfolio.projects.new(project_params)
+    @projects = @portfolio.projects.all
   end
 
   def project_params

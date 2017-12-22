@@ -1,0 +1,16 @@
+= form_for [@portfolio, @technology] do |f|
+  .form-technology
+    .field
+      = f.label :technology
+      %br
+      = f.text_field :name
+    .field.exp-input
+      = f.label :years_of_experience
+      = f.text_field :years_exp, value: "#{@technology.years_exp ? @technology.years_exp : 0}", class: 'years-exp-field'
+    .field.exp-input
+      = f.label :proficiency
+      = f.select :proficiency, ((0..10).map { |i| [i, i] }), selected: 10
+    .actions
+      = f.submit "Submit #{@technology.persisted? ? 'Edit' : 'New'}"
+      - if @technology.persisted?
+        = link_to 'Cancel', portfolio_technologies_path(@portfolio), class: 'delete-button'

@@ -5,14 +5,13 @@ Rails.application.routes.draw do
   get 'dashboard/index/:menu_action' => 'dashboard#index'
 
   get ':portfolio' => 'portfolios#show'
+  get 'portfolios/:id' => 'portfolios#edit'
 
-  get 'portfolios/:portfolio_id/projects', to: redirect('dashboard/index/projects_view')
-  get 'portfolios/:portfolio_id/abouts', to: redirect('dashboard/index/about')
-  resources :portfolios do
-    resources :projects, only: %i[create update destroy]
-    resources :technologies, only: %i[create update destroy]
-    resources :portfolio_headers, only: %i[create update]
-    resources :abouts, only: %i[create update]
+  resources :portfolios, only: %i[create update destroy edit] do
+    resources :projects
+    resources :technologies
+    resources :portfolio_headers
+    resources :abouts
   end
 
   devise_for :users, controllers: { sessions: 'users/sessions',

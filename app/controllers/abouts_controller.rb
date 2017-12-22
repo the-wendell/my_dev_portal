@@ -1,40 +1,63 @@
 class AboutsController < ApplicationController
-  before_action :set_about, only: %i[update]
+  layout 'dashboard'
+  before_action :set_record, only: %i[update edit create show]
+  before_action :set_new_record, only: %i[index new]
   before_action :authenticate_user!
-  before_action :confirm_owner, only: %i[update]
+  before_action :confirm_owner, only: %i[update create]
+
+  def index
+    render @about.portfolio ? 'edit' : 'new'
+  end
+
+  def show
+    render 'edit'
+  end
+
+  def new
+  end
+
+  def edit
+  end
 
   def create
-    @portfolio = current_user.portfolios.first
-    @about = About.new(about_params)
     @about.portfolio = @portfolio
 
     if @about.save
-      redirect_to dashboard_index_path(menu_action: 'about')
+      redirect_to portfolio_abouts_path(@portfolio)
+      flash[:notice] = '"About Me" successfully created!'
     else
-      flash[:alert] = @about.errors.full_messages.first
-      @current_dashboard_action = 'about'
-      render 'dashboard/index'
+      flash[:alert] = @about.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      render 'new'
     end
   end
 
   def update
-    unless @about.update(about_params)
-      flash[:alert] = @about.errors.full_messages.first
+    if @about.update(about_params)
+      redirect_to portfolio_abouts_path(@portfolio)
+      flash[:notice] = '"About Me" successfully updated'
+    else
+      flash[:alert] = @about.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      render 'edit'
     end
-    redirect_to dashboard_index_path(menu_action: 'about')
   end
 
   private
 
   def confirm_owner
-    unless current_user == @about.portfolio.user
-      flash[:alert] = 'You are not the owner of that portfolio'
+    unless current_user == Portfolio.find(params[:portfolio_id]).user
+      flash[:alert] = 'You are not the owner of that or portfolio'
       redirect_to root
     end
   end
 
-  def set_about
-    @about= About.find(params[:id])
+  def set_new_record
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    @about = @portfolio.about || About.new
+  end
+
+  def set_record
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    @about = params[:id] ? About.find(params[:id]) : @about = About.new(about_params)
   end
 
   def about_params

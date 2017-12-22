@@ -1,24 +1,44 @@
 class PortfolioHeadersController < ApplicationController
-  before_action :set_portfolio_header, only: %i[update]
+  layout 'dashboard'
+  before_action :set_record, only: %i[update edit create show]
+  before_action :set_new_record, only: %i[index new]
   before_action :authenticate_user!
   before_action :confirm_owner, only: %i[update]
 
+  def index
+    render @portfolio.portfolio_header ? 'edit' : 'new'
+  end
+
+  def show
+    render 'edit'
+  end
+
+  def new
+  end
+
+  def edit
+  end
+
   def create
-    @portfolio = current_user.portfolios.first
-    @portfolio_header = PortfolioHeader.new(portfolio_header_params)
     @portfolio_header.portfolio = @portfolio
 
-    unless @portfolio_header.save
-      flash[:alert] = @portfolio_header.errors.full_messages.first
+    if @portfolio_header.save
+      redirect_to portfolio_portfolio_headers_path(@portfolio)
+      flash[:notice] = 'Portfolio Header successfully created!'
+    else
+      flash[:alert] = @portfolio_header.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      render 'new'
     end
-    redirect_to dashboard_index_path(menu_action: 'portfolio_header')
   end
 
   def update
-    unless @portfolio_header.update(portfolio_header_params)
-      flash[:alert] = @portfolio_header.errors.full_messages.first
+    if @portfolio_header.update(portfolio_header_params)
+      redirect_to portfolio_portfolio_headers_path(@portfolio)
+      flash[:notice] = 'Portfolio Header successfully updated'
+    else
+      flash[:alert] = @portfolio_header.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      render 'edit'
     end
-    redirect_to dashboard_index_path(menu_action: 'portfolio_header')
   end
 
   private
@@ -30,8 +50,14 @@ class PortfolioHeadersController < ApplicationController
     end
   end
 
-  def set_portfolio_header
-    @portfolio_header= PortfolioHeader.find(params[:id])
+  def set_new_record
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    @portfolio_header = @portfolio.portfolio_header || PortfolioHeader.new
+  end
+
+  def set_record
+    @portfolio = current_user.portfolios.first
+    @portfolio_header = params[:id] ? PortfolioHeader.find(params[:id]) : PortfolioHeader.new(portfolio_header_params)
   end
 
   def portfolio_header_params

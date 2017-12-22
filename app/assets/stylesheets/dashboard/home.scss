@@ -13,13 +13,18 @@
 .go-to-portfolio {
   background-color: #323472;
   font-size: 28px;
-  padding: 12px;
-  border-radius: 10px;
   box-shadow: 1px 1px 1px grey;
+  padding: 10px;
+}
+
+.go-to-portfolio:hover {
+  background-color: #1F2047;
 }
 
 .go-to-portfolio a {
   color: white;
+  height: 68px;
+  padding: 12px;
 }
 
 .new-user-box {

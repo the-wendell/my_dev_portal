@@ -1,46 +1,26 @@
-.dashboard-container
-  .dev-portal-logo
-    %p My Dev Portal
-  .header
-    .main-header
-    .dropdown.show
-      %a.btn.dropdown-toggle{ id: "dropdownMenuLink", role: 'button', 'data-toggle' => "dropdown", 'aria-haspopup' => "true", 'area-exapend' => "false" }
-        = current_user.email
-      .dropdown-menu.dropdown-menu-right{'aria-labelledby' => 'dropdownMenuLink'}
-        = link_to 'View Portfolio', "/#{@portfolio.url}", class: 'dropdown-item'
-        = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item'
-        = link_to 'Account Settings', edit_user_registration_path, class: 'dropdown-item'
-  .sidebar
-    .sidebar-menu
-      .menu-item{ class: params[:menu_action] ? 'not-active' : 'active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Your dashboard home page (under construction)' }
-        = link_to 'Home', dashboard_index_path
-    .sidebar-heading
-      %p Portfolio
-    .sidebar-menu
-      .menu-item{ class: params[:menu_action] == 'portfolio_config' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Customize your portfolio settings' }
-        = link_to 'Portfolio Settings', dashboard_index_path(menu_action: 'portfolio_config')
-      .menu-item{ class: params[:menu_action] == 'about' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Add and edit the personal information displayed on your portfolio' }
-        = link_to 'About Me', dashboard_index_path(menu_action: 'about')
-      .menu-item{ class: params[:menu_action] == 'projects_view' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Add and edit projects to be displayed on your portfolio' }
-        = link_to 'Projects', dashboard_index_path(menu_action: 'projects_view')
-      .menu-item{ class: params[:menu_action] == 'technologies' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Add and edit known skills to be displayed on your portfolio' }
-        = link_to 'Technologies', dashboard_index_path(menu_action: 'technologies')
-      .menu-item{ class: params[:menu_action] == 'portfolio_header' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Customize the display of your portfolio header' }
-        = link_to 'Portfolio Header', dashboard_index_path(menu_action: 'portfolio_header')
-    .sidebar-heading
-      %p Job Tracking
-    .sidebar-menu
-      .menu-item
-        place holder
-      .menu-item
-        place holder
-      .menu-item
-        place holder
-  .main-content
-    - if flash[:alert]
-      .alert.alert-warning.alert-dismissible.fade.show{ role: 'alert' }
-        = alert
-        %button.close{ type: 'button', 'data-dismiss' => 'alert', 'aria-label' => 'close' }
-          %span{ 'aria-hidden' => 'true' }
-            &times;
-    = render partial: "dashboard/#{@current_dashboard_action}"
+.home-container
+  .welcome-box
+    .go-to-portfolio{type: 'button'}
+      = link_to 'View Your Portfolio', "/#{@portfolio.url}"
+    - if @new_user
+      .new-user-box
+        %h2 Welcome to Your Dev Portal!
+        %p Use the sidebar to navigate to the various components of your portfolio.  You can then change settings, upload photos, and add information.
+        %p
+          %b Finish filling out your portoflio.  Check the list below to see what still needs to be done!
+        - unless @about.about_me
+          %p
+            Be sure to fill out your 'About Me'
+            = link_to 'HERE', dashboard_index_path(menu_action: 'about')
+        - unless @projects.count > 0
+          %p
+            Add projects to your portfolio
+            = link_to 'HERE', dashboard_index_path(menu_action: 'projects_view')
+        - unless @technologies.count > 0
+          %p
+            Add skills and technology that you know
+            = link_to 'HERE', dashboard_index_path(menu_action: 'technologies')
+        - unless @portfolio_header.header_one
+          %p
+            Create your Portfolio Header
+            = link_to 'HERE', dashboard_index_path(menu_action: 'portfolio_header')
