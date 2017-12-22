@@ -11,16 +11,16 @@
         - unless @about.about_me
           %p
             Be sure to fill out your 'About Me'
-            = link_to 'HERE', dashboard_index_path(menu_action: 'about')
+            = link_to 'HERE', portfolio_abouts_path(@portfolio)
         - unless @projects.count > 0
           %p
             Add projects to your portfolio
-            = link_to 'HERE', dashboard_index_path(menu_action: 'projects_view')
+            = link_to 'HERE', portfolio_projects_path(@portfolio)
         - unless @technologies.count > 0
           %p
             Add skills and technology that you know
-            = link_to 'HERE', dashboard_index_path(menu_action: 'technologies')
+            = link_to 'HERE', portfolio_technologies_path(@portfolio)
         - unless @portfolio_header.header_one
           %p
             Create your Portfolio Header
-            = link_to 'HERE', dashboard_index_path(menu_action: 'portfolio_header')
+            = link_to 'HERE', portfolio_portfolio_headers_path(@portfolio)

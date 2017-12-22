@@ -42,7 +42,7 @@
             = link_to 'Projects', portfolio_projects_path(@portfolio)
           .menu-item{ class: controller_name == 'technologies' ? 'active' : '', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Add and edit known skills to be displayed on your portfolio' }
             = link_to 'Technologies', portfolio_technologies_path(@portfolio)
-          .menu-item{ class: params[:menu_action] == 'portfolio_header' ? 'active' : 'not-active', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Customize the display of your portfolio header' }
+          .menu-item{ class: controller_name == 'portfolio_headers' ? 'active' : '', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Customize the display of your portfolio header' }
             = link_to 'Portfolio Header', portfolio_portfolio_headers_path(@portfolio)
         .sidebar-heading
           %p Job Tracking
