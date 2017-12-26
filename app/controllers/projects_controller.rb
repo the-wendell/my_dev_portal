@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
       flash[:notice] = 'Project successfully added'
       redirect_to portfolio_projects_path(@portfolio)
     else
-      flash[:alert] = @project.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      flash[:alert] = helpers.display_errors(@project)
       render 'new'
     end
   end
@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
       flash[:notice] = 'Project successfully updated'
       redirect_to portfolio_projects_path(@portfolio)
     else
-      flash[:alert] = @project.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      flash[:alert] = helpers.display_errors(@project)
       render 'edit'
     end
   end

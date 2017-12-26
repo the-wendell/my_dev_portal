@@ -24,7 +24,7 @@ class TechnologiesController < ApplicationController
       flash[:notice] = 'Technology successfully added'
       redirect_to portfolio_technologies_path(@portfolio)
     else
-      flash[:alert] = @technology.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      flash[:alert] = helpers.display_errors(@technology)
       render 'new'
     end
   end
@@ -34,7 +34,7 @@ class TechnologiesController < ApplicationController
       flash[:notice] = 'Technology successfully updated'
       redirect_to portfolio_technologies_path(@portfolio)
     else
-      flash[:alert] = @technology.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      flash[:alert] = helpers.display_errors(@technology)
       render 'edit'
     end
   end

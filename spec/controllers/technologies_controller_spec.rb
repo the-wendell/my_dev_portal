@@ -20,7 +20,7 @@ RSpec.describe TechnologiesController, type: :controller do
     it 'Redirects to technologies view' do
       post :create, params: { portfolio_id: portfolio.id,
                               technology: valid_attributes }
-      expect(response).to redirect_to(dashboard_index_path(menu_action: 'technologies'))
+      expect(response).to redirect_to(portfolio_technologies_path(portfolio))
     end
   end
 
@@ -39,7 +39,7 @@ RSpec.describe TechnologiesController, type: :controller do
       patch :update, params: { portfolio_id: portfolio.id,
                                id: portfolio.technologies.first.id,
                                technology: { name: 'Ruby on Rails' } }
-      expect(response).to redirect_to(dashboard_index_path(menu_action: 'technologies'))
+      expect(response).to redirect_to(portfolio_technologies_path(portfolio))
     end
   end
 
@@ -56,7 +56,7 @@ RSpec.describe TechnologiesController, type: :controller do
                               technology: valid_attributes }
       delete :destroy, params: { portfolio_id: portfolio.id,
                                  id: portfolio.technologies.first.id }
-      expect(response).to redirect_to(dashboard_index_path(menu_action: 'technologies'))
+      expect(response).to redirect_to(portfolio_technologies_path(portfolio))
     end
   end
 

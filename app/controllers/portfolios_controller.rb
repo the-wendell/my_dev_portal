@@ -18,7 +18,7 @@ class PortfoliosController < ApplicationController
       flash[:notice] = 'New Portfolio Created'
       redirect_to dashboard_index_path
     else
-      flash[:alert] = @portfolio.errors.full_messages.first
+      flash[:alert] = helpers.display_errors(@portfolio)
       render 'new'
     end
   end
@@ -31,7 +31,7 @@ class PortfoliosController < ApplicationController
       redirect_to edit_portfolio_path(@portfolio)
       flash[:notice] = 'Portfolio updated successfully'
     else
-      flash[:alert] = @portfolio.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      flash[:alert] = helpers.display_errors(@portfolio)
       render 'edit'
     end
   end

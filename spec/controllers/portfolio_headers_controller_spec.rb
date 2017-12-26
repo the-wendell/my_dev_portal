@@ -20,7 +20,7 @@ RSpec.describe PortfolioHeadersController, type: :controller do
     it 'Redirects to portfolio_header view' do
       post :create, params: { portfolio_id: portfolio.id,
                               portfolio_header: attributes }
-      expect(response).to redirect_to(dashboard_index_path(menu_action: 'portfolio_header'))
+      expect(response).to redirect_to(portfolio_portfolio_headers_path(portfolio))
     end
   end
 
@@ -39,7 +39,7 @@ RSpec.describe PortfolioHeadersController, type: :controller do
       patch :update, params: { portfolio_id: portfolio.id,
                                id: PortfolioHeader.first.id,
                                portfolio_header: { header_one: 'working' } }
-      expect(response).to redirect_to(dashboard_index_path(menu_action: 'portfolio_header'))
+      expect(response).to redirect_to(portfolio_portfolio_headers_path(portfolio))
     end
   end
 end

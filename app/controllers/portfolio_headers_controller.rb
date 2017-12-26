@@ -26,7 +26,7 @@ class PortfolioHeadersController < ApplicationController
       redirect_to portfolio_portfolio_headers_path(@portfolio)
       flash[:notice] = 'Portfolio Header successfully created!'
     else
-      flash[:alert] = @portfolio_header.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      flash[:alert] = helpers.display_errors(@portfolio_header)
       render 'new'
     end
   end
@@ -36,7 +36,7 @@ class PortfolioHeadersController < ApplicationController
       redirect_to portfolio_portfolio_headers_path(@portfolio)
       flash[:notice] = 'Portfolio Header successfully updated'
     else
-      flash[:alert] = @portfolio_header.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      flash[:alert] = helpers.display_errors(@portfolio_header)
       render 'edit'
     end
   end

@@ -26,7 +26,7 @@ class AboutsController < ApplicationController
       redirect_to portfolio_abouts_path(@portfolio)
       flash[:notice] = '"About Me" successfully created!'
     else
-      flash[:alert] = @about.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      flash[:alert] = helpers.display_errors(@about)
       render 'new'
     end
   end
@@ -36,7 +36,7 @@ class AboutsController < ApplicationController
       redirect_to portfolio_abouts_path(@portfolio)
       flash[:notice] = '"About Me" successfully updated'
     else
-      flash[:alert] = @about.errors.full_messages.each{|msg| msg}.join("<br/>").html_safe
+      flash[:alert] = helpers.display_errors(@about)
       render 'edit'
     end
   end

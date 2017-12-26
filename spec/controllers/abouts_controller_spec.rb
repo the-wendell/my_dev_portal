@@ -28,7 +28,7 @@ RSpec.describe AboutsController, type: :controller do
     it 'Redirects to about view' do
       post :create, params: { portfolio_id: portfolio.id,
                               about: attributes }
-      expect(response).to redirect_to(dashboard_index_path(menu_action: 'about'))
+      expect(response).to redirect_to(portfolio_abouts_path(portfolio))
     end
   end
 
@@ -41,13 +41,13 @@ RSpec.describe AboutsController, type: :controller do
                                about: { about_me: 'working' } }
       expect(About.first.about_me).to eq('working')
     end
-    it 'Redirects to project view' do
+    it 'Redirects to about view' do
       post :create, params: { portfolio_id: portfolio.id,
                               about: attributes }
       patch :update, params: { portfolio_id: portfolio.id,
                                id: About.first.id,
                                about: { about_me: 'working' } }
-      expect(response).to redirect_to(dashboard_index_path(menu_action: 'about'))
+      expect(response).to redirect_to(portfolio_abouts_path(portfolio))
     end
   end
 end
