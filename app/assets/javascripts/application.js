@@ -14,8 +14,7 @@
 //= require jquery3
 //= require jquery
 //= require jquery.turbolinks
-//= require jquery.minicolors
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require_tree .
+//= require ./cable.js
