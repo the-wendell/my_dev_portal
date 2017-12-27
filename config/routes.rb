@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :abouts
   end
 
+  resources :users, only: %i[] do
+    resources :job_applications
+  end
+
   devise_for :users, controllers: { sessions: 'users/sessions',
                                     registrations: 'users/registrations',
                                     passwords: 'users/passwords'}

@@ -1,0 +1,42 @@
+%p#notice= notice
+
+%p
+  %b First contact date:
+  = @job_application.first_contact_date
+%p
+  %b Company name:
+  = @job_application.company_name
+%p
+  %b Company website:
+  = @job_application.company_website
+%p
+  %b Job location:
+  = @job_application.job_location
+%p
+  %b Enthusiasm:
+  = @job_application.enthusiasm
+%p
+  %b Job title:
+  = @job_application.job_title
+%p
+  %b Job link:
+  = @job_application.job_link
+%p
+  %b Referral:
+  = @job_application.referral
+%p
+  %b Referral type:
+  = @job_application.referral_type
+%p
+  %b Status:
+  = @job_application.status
+%p
+  %b Industry:
+  = @job_application.industry
+%p
+  %b Notes:
+  = @job_application.notes
+
+= link_to 'Edit', edit_job_application_path(@job_application)
+\|
+= link_to 'Back', job_applications_path

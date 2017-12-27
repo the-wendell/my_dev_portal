@@ -47,8 +47,8 @@
         .sidebar-heading
           %p Job Tracking
         .sidebar-menu
-          .menu-item
-            place holder
+          .menu-item{ class: controller_name == 'job_applications' ? 'active' : '', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Customize the display of your portfolio header' }
+            = link_to 'Job Applications', user_job_applications_path(current_user)
           .menu-item
             place holder
           .menu-item
