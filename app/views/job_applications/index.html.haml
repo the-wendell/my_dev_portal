@@ -1,4 +1,9 @@
 .job-application-container
+  %h1 Your Job Applications
+  .add-application-button{  }
+    = link_to new_user_job_application_path(current_user) do
+      .add-application-icon{ 'data-placement' => 'right', title: 'Add New Application' }
+        Add New
   .table-container
     %table.table.table-striped.table-dark
       %thead
@@ -6,11 +11,9 @@
           %th{ scope: 'col', style: 'width: 120px;'} Options
           %th{ scope: 'col' } First contact date
           %th{ scope: 'col' } Company name
-          %th{ scope: 'col' } Company website
           %th{ scope: 'col' } Job location
           %th{ scope: 'col' } Enthusiasm
           %th{ scope: 'col' } Job title
-          %th{ scope: 'col' } Job link
           %th{ scope: 'col' } Referral
           %th{ scope: 'col' } Referral type
           %th{ scope: 'col' } Status
@@ -21,18 +24,16 @@
             %th{ scope: 'row' }
               .table-item-options
                 = link_to user_job_application_path(current_user, job_application) do
-                  .job-application-icon.view{ 'data-placement' => 'right', title: 'View Application'}
+                  .job-application-icon.view{ 'data-placement' => 'right', title: 'View Application' }
                 = link_to edit_user_job_application_path(current_user, job_application) do
-                  .job-application-icon.edit{ 'data-placement' => 'right', title: 'Edit Application'}
-                = link_to user_job_application_path(current_user, job_application), method: :delete do
-                  .job-application-icon.delete{ 'data-placement' => 'right', title: 'Delete Application'}
+                  .job-application-icon.edit{ 'data-placement' => 'right', title: 'Edit Application' }
+                = link_to user_job_application_path(current_user, job_application), method: :delete, data: { confirm: 'Are you sure that you would like to delete this Application?' } do
+                  .job-application-icon.delete{ 'data-placement' => 'right', title: 'Delete Application' }
             %td= job_application.first_contact_date
             %td= job_application.company_name
-            %td= job_application.company_website
             %td= job_application.job_location
             %td= job_application.enthusiasm
             %td= job_application.job_title
-            %td= job_application.job_link
             %td= job_application.referral
             %td= job_application.referral_type
             %td= job_application.status

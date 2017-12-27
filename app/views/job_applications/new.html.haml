@@ -1,5 +1,7 @@
-%h1 New job_application
+.job-application-form-container
+  .form-job-application
+    %h1 New Job Application
 
-= render 'form'
+    = render 'form'
 
-= link_to 'Back', user_job_applications_path(current_user)
+  = link_to 'Back', user_job_applications_path(current_user)

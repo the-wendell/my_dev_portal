@@ -37,6 +37,6 @@
   %b Notes:
   = @job_application.notes
 
-= link_to 'Edit', edit_job_application_path(@job_application)
+= link_to 'Edit', edit_user_job_application_path(current_user, @job_application)
 \|
-= link_to 'Back', job_applications_path
+= link_to 'Back', user_job_applications_path(current_user)

@@ -1,7 +1,7 @@
-%h1 Editing job_application
+.job-application-form-container
+  .form-job-application
+    %h1 Edit Job Application
 
-= render 'form'
+    = render 'form'
 
-= link_to 'Show', @job_application
-\|
-= link_to 'Back', job_applications_path
+  = link_to 'Back', user_job_applications_path(current_user)

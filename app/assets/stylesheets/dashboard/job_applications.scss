@@ -5,9 +5,13 @@
   margin-left: 20px;
   margin-right: 20px;
   color: white;
-  overflow-x: scroll;
-  padding-top: 20px;
-  width: 85vw;
+  background-color: #00a6fb;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.job-application-container h1 {
+  text-align: center;
 }
 
 .job-application-container table, th, td {
@@ -15,22 +19,12 @@
 }
 
 .job-application-container table {
-  width: 2000px;
   border-collapse: collapse;
 }
 
 .table-container {
+  overflow-x: auto;
   width: 100%;
-}
-
-.grip {
-  background-image: image-url('down-arrow.svg');
-  width: 30px;
-  height: 30px;
-  margin-top: -15px;
-  margin-left: -8px;
-  position: relative;
-  z-index: 88;
 }
 
 .table-item-options {
@@ -39,6 +33,29 @@
   grid-auto-rows: 30px;
   justify-content: center;
   align-items: center;
+}
+
+.add-application-icon {
+  background-image: image-url('add.svg');
+  background-color: #83c9f4;
+  padding: 5px;
+  height: 37px;
+  width: 130px;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: right;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 2px grey;
+  text-align: left;
+  color: white;
+  font-size: 20px;
+}
+
+.add-application-button {
+  height: 40px;
+  margin-bottom: 10px;
+  display: grid;
+  justify-content: end;
 }
 
 .job-application-icon {
@@ -60,20 +77,48 @@
   background-image: image-url('view.svg');
 }
 
-@media only screen and (max-width: 1700px ) {
-  .job-application-container {
-    width: 80vw;
-  }
+.job-application-form-container {
+  display: grid;
+  justify-content: center;
 }
 
-@media only screen and (max-width: 1300px ) {
-  .job-application-container {
-    width: 75vw;
-  }
+.form-job-application{
+  margin-top: 100px;
+  color: white;
+  background-color: #00a6fb;
+  border-radius: 10px;
+  padding: 20px;
+  display: grid;
 }
 
-@media only screen and (max-width: 1050px ) {
-  .job-application-container {
-    width: 70vw;
-  }
+.form-job-application form {
+  display: grid;
+  grid-template-columns: 250px 250px;
+  grid-template-rows: repeat(7, 70px) 50px;
+}
+
+.form-job-application .notes {
+  grid-column: 1 / 3;
+  grid-row: 6 / span 2;
+}
+
+.form-job-application .notes textarea {
+  width: 455px;
+  height: 100px;
+}
+
+.form-job-application h1 {
+  grid-column: 1 / 3;
+  justify-self: center;
+}
+
+.form-job-application .actions {
+  justify-self: center;
+  align-self: center;
+  grid-column: 1 / 3;
+}
+
+.status-enthusiasm {
+  display: grid;
+  grid-template-columns: 125px 125px;
 }
