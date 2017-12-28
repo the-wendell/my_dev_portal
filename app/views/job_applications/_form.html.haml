@@ -49,4 +49,4 @@
       %br
       = f.select :enthusiasm, %w[high medium low], selected: @job_application.enthusiasm || 'high'
   .actions
-    = f.submit "#{@job_application.persisted? ? 'Edit' : 'Add'} Job Application"
+    = f.submit "#{@job_application.persisted? ? 'Submit Changes' : 'Add Job Application'}"

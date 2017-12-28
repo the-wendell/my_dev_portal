@@ -19,6 +19,6 @@
                                   style: "width: #{technology.proficiency * 10}%" }
     .edit-delete-technology
       = link_to edit_portfolio_technology_path(@portfolio, technology.id) do
-        .technology-edit-icon
+        .technology-edit-icon{ 'data-placement' => 'right', title: 'Edit Technology' }
       = link_to portfolio_technology_path(@portfolio.id, technology.id), method: :delete do
-        .technology-delete-icon
+        .technology-delete-icon{ 'data-placement' => 'right', title: 'Remove Technology' }

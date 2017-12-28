@@ -1,13 +1,16 @@
-
+.show-main {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 100%;
+}
 
 .job-application-container {
-  margin-top: 10vh;
   margin-left: 20px;
   margin-right: 20px;
   color: white;
   background-color: #00a6fb;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 0px 20px 20px 20px;
 }
 
 .job-application-container h1 {
@@ -37,32 +40,28 @@
 
 .add-application-icon {
   background-image: image-url('add.svg');
-  background-color: #83c9f4;
-  padding: 5px;
+  background-color: #323472;
   height: 37px;
-  width: 130px;
-  border-radius: 5px;
+  width: 120px;
+  border-radius: 20px 5px 0px 0px;
+  border: solid 5px #323472;
   background-repeat: no-repeat;
-  background-position: right;
-  margin-bottom: 10px;
-  box-shadow: 2px 2px 2px grey;
-  text-align: left;
+  background-position: left;
+  text-align: right;
   color: white;
   font-size: 20px;
 }
 
 .add-application-button {
-  height: 40px;
-  margin-bottom: 10px;
   display: grid;
-  justify-content: end;
+  justify-content: start;
+  margin-left: 20px;
 }
 
 .job-application-icon {
   background-position: center;
   background-repeat: no-repeat;
   height: 20px;
-  margin-left: 5px;
 }
 
 .job-application-icon.delete {
@@ -87,10 +86,9 @@
 }
 
 .form-job-application{
-  margin-top: 100px;
   color: white;
   background-color: #00a6fb;
-  border-radius: 10px;
+  border-radius: 0px 20px 20px 20px;
   padding: 20px;
   display: grid;
 }
@@ -167,4 +165,28 @@
   background-color: #323472;
   width: 100px;
   border-radius: 20px 5px 0px 0px;
+}
+
+.new-application-main {
+  display: grid;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.new-item-options {
+  width: 40px;
+  border-radius: 20px 5px 0px 0px;
+  background-color: #323472;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.edit-item-options {
+  width: 70px;
+  border-radius: 20px 5px 0px 0px;
+  background-color: #323472;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 30px);
 }

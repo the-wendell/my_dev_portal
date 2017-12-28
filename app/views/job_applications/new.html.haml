@@ -1,7 +1,9 @@
-.job-application-form-container
-  .form-job-application
-    %h1 New Job Application
+.new-application-main
+  .new-item-options
+    = link_to user_job_applications_path(current_user) do
+      .job-application-icon.back{ 'data-placement' => 'right', title: 'Go Back' }
+  .job-application-form-container
+    .form-job-application
+      %h1 New Job Application
 
-    = render 'form'
-
-  = link_to 'Back', user_job_applications_path(current_user)
+      = render 'form'

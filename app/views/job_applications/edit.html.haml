@@ -1,7 +1,11 @@
-.job-application-form-container
-  .form-job-application
-    %h1 Edit Job Application
+.new-application-main
+  .edit-item-options
+    = link_to user_job_applications_path(current_user) do
+      .job-application-icon.back{ 'data-placement' => 'right', title: 'Go Back' }
+    = link_to user_job_application_path(current_user, @job_application), method: :delete, data: { confirm: 'Are you sure that you would like to delete this Application?' } do
+      .job-application-icon.delete{ 'data-placement' => 'right', title: 'Delete Application' }
+  .job-application-form-container
+    .form-job-application
+      %h1 Edit Job Application
 
-    = render 'form'
-
-  = link_to 'Back', user_job_applications_path(current_user)
+      = render 'form'
