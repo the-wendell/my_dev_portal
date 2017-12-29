@@ -15,4 +15,5 @@ Rails.application.config.assets.precompile += %w[application-dashboard.css
                                                  application-themes.css
                                                  component-slider.css
                                                  dashboard.js
-                                                 portfolio.js]
+                                                 portfolio.js
+                                                 filterrific/filterrific-spinner.gif]

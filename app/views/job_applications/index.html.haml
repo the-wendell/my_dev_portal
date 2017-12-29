@@ -4,38 +4,14 @@
       .add-application-icon{ 'data-placement' => 'right', title: 'Add New Application' }
         Add New
   .job-application-container
+    .filter-search-box
+      = form_for_filterrific @filterrific, remote: true do |f|
+        .search-filter
+          Sorted By
+          = f.select(:sorted_by, @filterrific.select_options[:sorted_by])
+        .reset-filter
+          = link_to 'Reset Filters', reset_filterrific_url
+          = render_filterrific_spinner
     %h1 Your Job Applications
-    .table-container
-      %table.table.table-striped.table-dark
-        %thead
-          %tr.table-heading
-            %th{ scope: 'col', style: 'width: 120px;'} Options
-            %th{ scope: 'col' } First contact date
-            %th{ scope: 'col' } Company name
-            %th{ scope: 'col' } Job location
-            %th{ scope: 'col' } Enthusiasm
-            %th{ scope: 'col' } Job title
-            %th{ scope: 'col' } Referral
-            %th{ scope: 'col' } Referral type
-            %th{ scope: 'col' } Status
-            %th{ scope: 'col' } Industry
-        %tbody
-          - @job_applications.each do |job_application|
-            %tr
-              %th{ scope: 'row' }
-                .table-item-options
-                  = link_to user_job_application_path(current_user, job_application) do
-                    .job-application-icon.view{ 'data-placement' => 'right', title: 'View Application' }
-                  = link_to edit_user_job_application_path(current_user, job_application) do
-                    .job-application-icon.edit{ 'data-placement' => 'right', title: 'Edit Application' }
-                  = link_to user_job_application_path(current_user, job_application), method: :delete, data: { confirm: 'Are you sure that you would like to delete this Application?' } do
-                    .job-application-icon.delete{ 'data-placement' => 'right', title: 'Delete Application' }
-              %td= job_application.first_contact_date
-              %td= job_application.company_name
-              %td= job_application.job_location
-              %td= job_application.enthusiasm
-              %td= job_application.job_title
-              %td= job_application.referral
-              %td= job_application.referral_type
-              %td= job_application.status
-              %td= job_application.industry
+    #application-list-table
+      = render partial: 'job_applications/applications_list', locals: { job_applications: @job_applications }

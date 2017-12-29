@@ -5,9 +5,22 @@ class JobApplicationsController < ApplicationController
   # GET /job_applications
   # GET /job_applications.json
   def index
-    # TODO: Set up global variable for portfolio
     @portfolio = current_user.portfolios.first
-    @job_applications = current_user.job_applications.all
+    # TODO: Set up global variable for portfolio
+
+    @filterrific = initialize_filterrific(
+      JobApplication,
+      params[:filterrific],
+      select_options: {
+        sorted_by: JobApplication.options_for_sorted_by
+      },
+      available_filters: [:sorted_by],
+    ) || return
+    @job_applications = current_user.job_applications.filterrific_find(@filterrific)
+
+    rescue ActiveRecord::RecordNotFound => e
+      puts "Had to reset filterrific params: #{ e.message }"
+      redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   # GET /job_applications/1

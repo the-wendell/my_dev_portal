@@ -1,0 +1,24 @@
+.technologies-show-main-container
+  .technology-header
+    Technology
+  .years-exp-header
+    Years Exp
+  .proficiency-header
+    Proficiency
+  .edit-delete-header
+    Edit/Delete
+  - @technologies.each do |technology|
+    .show-name
+      = technology.name
+    .show-years-exp
+      = technology.years_exp
+    .show-proficiency
+      .progress
+        .progress-bar.bg-warning{ role: 'progressbar',
+                                  'aria-valuemin' => '0', 'aria-valuemax' => '10',
+                                  style: "width: #{technology.proficiency * 10}%" }
+    .edit-delete-technology
+      = link_to edit_portfolio_technology_path(@portfolio, technology.id) do
+        .technology-edit-icon{ 'data-placement' => 'right', title: 'Edit Technology' }
+      = link_to portfolio_technology_path(@portfolio.id, technology.id), method: :delete do
+        .technology-delete-icon{ 'data-placement' => 'right', title: 'Remove Technology' }
