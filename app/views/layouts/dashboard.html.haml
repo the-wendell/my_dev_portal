@@ -5,6 +5,7 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag 'application-dashboard', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'dashboard', 'data-turbolinks-track' => true
     = csrf_meta_tags
     %link{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto' }
 
@@ -23,32 +24,32 @@
             = link_to 'Account Settings', edit_user_registration_path, class: 'dropdown-item'
       .sidebar
         .sidebar-menu
-          .menu-item{ class: controller_name == 'dashboard' ? 'active' : '',
-                     `data-toggle` => 'tooltip', 'data-placement' => 'right',
+          .menu-item{ class: controller_name == 'dashboard' ? 'active' : '', 'data-placement' => 'right',
                      type: 'button', title: 'Your dashboard home page (under construction)' }
             = link_to 'Home', dashboard_index_path
         .sidebar-heading
           %p Portfolio
         .sidebar-menu
-          .menu-item{ class: controller_name == 'portfolios' ? 'active' : '',
-                      `data-toggle` => 'tooltip', 'data-placement' => 'right',
+          .menu-item{ class: controller_name == 'portfolios' ? 'active' : '', 'data-placement' => 'right',
                       type: 'button', title: 'Customize your portfolio settings' }
             = link_to 'Portfolio Settings', edit_portfolio_path(@portfolio)
-          .menu-item{ class: controller_name == 'abouts' ? 'active' : '',
-                      `data-toggle` => 'tooltip', 'data-placement' => 'right',
+          .menu-item{ class: controller_name == 'abouts' ? 'active' : '', 'data-placement' => 'right',
                       type: 'button', title: 'Add and edit the personal information displayed on your portfolio' }
             = link_to 'About Me', portfolio_abouts_path(@portfolio)
-          .menu-item{ class: controller_name == 'projects' ? 'active' : '', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Add and edit projects to be displayed on your portfolio' }
+          .menu-item{ class: controller_name == 'projects' ? 'active' : '', 'data-placement' => 'right',
+                      type: 'button', title: 'Add and edit projects to be displayed on your portfolio' }
             = link_to 'Projects', portfolio_projects_path(@portfolio)
-          .menu-item{ class: controller_name == 'technologies' ? 'active' : '', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Add and edit known skills to be displayed on your portfolio' }
+          .menu-item{ class: controller_name == 'technologies' ? 'active' : '', 'data-placement' => 'right',
+                      type: 'button', title: 'Add and edit known skills to be displayed on your portfolio' }
             = link_to 'Technologies', portfolio_technologies_path(@portfolio)
-          .menu-item{ class: controller_name == 'portfolio_headers' ? 'active' : '', `data-toggle` => 'tooltip', 'data-placement' => 'right', type: 'button', title: 'Customize the display of your portfolio header' }
+          .menu-item{ class: controller_name == 'portfolio_headers' ? 'active' : '', 'data-placement' => 'right',
+                      type: 'button', title: 'Customize the display of your portfolio header' }
             = link_to 'Portfolio Header', portfolio_portfolio_headers_path(@portfolio)
         .sidebar-heading
           %p Job Tracking
         .sidebar-menu
-          .menu-item
-            place holder
+          .menu-item{ class: controller_name == 'job_applications' ? 'active' : '', 'data-placement' => 'right', type: 'button', title: 'Manage your job applications' }
+            = link_to 'Job Applications', user_job_applications_path(current_user)
           .menu-item
             place holder
           .menu-item

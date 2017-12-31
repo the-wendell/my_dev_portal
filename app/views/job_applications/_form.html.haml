@@ -1,0 +1,52 @@
+= form_for [current_user, @job_application] do |f|
+  -# - if job_application.errors.any?
+  -#   #error_explanation
+  -#     %h2= "#{pluralize(job_application.errors.count, "error")} prohibited this job_application from being saved:"
+  -#     %ul
+  -#       - @job_application.errors.full_messages.each do |message|
+  -#         %li= message
+
+
+  .field
+    = f.label :industry
+    = f.text_field :industry
+  .field
+    = f.label :company_name
+    = f.text_field :company_name
+  .field
+    = f.label :company_website
+    = f.text_field :company_website
+  .field
+    = f.label :job_location
+    = f.text_field :job_location
+  .field
+    = f.label :job_title
+    = f.text_field :job_title
+  .field
+    = f.label :job_posting_link
+    = f.text_field :job_link
+  .field
+    = f.label 'Referral site/person'
+    = f.text_field :referral
+  .field.notes
+    = f.label :notes
+    %br
+    = f.text_area :notes
+  .field
+    = f.label :referral_type
+    = f.select :referral_type, ['cold outreach', 'mentor', 'personal connection', 'new connection', 'career website'], selected: @job_application.referral_type || 'career website'
+  .field
+    = f.label :first_contact_date
+    %br
+    = f.date_select :first_contact_date
+  .status-enthusiasm
+    .field
+      = f.label :status
+      %br
+      = f.select :status, %w[researching applied interviewing rejected offer], selected: @job_application.status || 'applied'
+    .field.enthusiasm
+      = f.label :enthusiasm
+      %br
+      = f.select :enthusiasm, %w[high medium low], selected: @job_application.enthusiasm || 'high'
+  .actions
+    = f.submit "#{@job_application.persisted? ? 'Submit Changes' : 'Add Job Application'}"

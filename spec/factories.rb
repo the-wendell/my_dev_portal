@@ -1,6 +1,20 @@
 require 'faker'
 
 FactoryGirl.define do
+  factory :job_application do
+    first_contact_date "2017-12-26"
+    company_name "MyString"
+    company_website "MyString"
+    job_location "MyString"
+    enthusiasm "MyString"
+    job_title "MyString"
+    job_link "MyString"
+    referral "MyString"
+    referral_type "MyString"
+    status "MyString"
+    industry "MyString"
+    notes "MyText"
+  end
   factory :about do
     portfolio nil
     about_me "MyText"

@@ -27,7 +27,7 @@ p {
   min-height: 100vh;
   display: grid;
   grid-template: 50px auto
-  / 200px auto;
+  / 20% 80%;
 }
 
 .dev-portal-logo {
@@ -166,4 +166,18 @@ p {
 
 .active {
   background-color: #1F2047;
+}
+
+@media only screen and (min-width: 1400px ) {
+  .dashboard-container {
+    grid-template: 50px auto
+    / 15% 85%;
+  }
+}
+
+@media only screen and (min-width: 2200px ) {
+  .dashboard-container {
+    grid-template: 50px auto
+    / 10% 90%;
+  }
 }

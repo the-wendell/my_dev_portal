@@ -1,0 +1,192 @@
+.show-main {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.job-application-container {
+  margin-left: 20px;
+  margin-right: 20px;
+  color: white;
+  background-color: #00a6fb;
+  padding: 20px;
+  border-radius: 0px 20px 20px 20px;
+}
+
+.job-application-container h1 {
+  text-align: center;
+}
+
+.job-application-container table, th, td {
+  border-right: 3px solid #323472;
+}
+
+.job-application-container table {
+  border-collapse: collapse;
+}
+
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.table-item-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 30px);
+  grid-auto-rows: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-application-icon {
+  background-image: image-url('add.svg');
+  background-color: #323472;
+  height: 37px;
+  width: 120px;
+  border-radius: 20px 5px 0px 0px;
+  border: solid 5px #323472;
+  background-repeat: no-repeat;
+  background-position: left;
+  text-align: right;
+  color: white;
+  font-size: 20px;
+}
+
+.add-application-button {
+  display: grid;
+  justify-content: start;
+  margin-left: 20px;
+}
+
+.job-application-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 20px;
+}
+
+.job-application-icon.delete {
+  background-image: image-url('delete.svg');
+}
+
+.job-application-icon.edit {
+  background-image: image-url('edit.svg');
+}
+
+.job-application-icon.view {
+  background-image: image-url('view.svg');
+}
+
+.job-application-icon.back {
+  background-image: image-url('back.svg')
+}
+
+.job-application-form-container {
+  display: grid;
+  justify-content: center;
+}
+
+.form-job-application{
+  color: white;
+  background-color: #00a6fb;
+  border-radius: 0px 20px 20px 20px;
+  padding: 20px;
+  display: grid;
+}
+
+.form-job-application form {
+  display: grid;
+  grid-template-columns: 250px 250px;
+  grid-template-rows: repeat(7, 70px) 50px;
+}
+
+.form-job-application .notes {
+  grid-column: 1 / 3;
+  grid-row: 6 / span 2;
+}
+
+.form-job-application .notes textarea {
+  width: 455px;
+  height: 100px;
+}
+
+.form-job-application h1 {
+  grid-column: 1 / 3;
+  justify-self: center;
+}
+
+.form-job-application .actions {
+  justify-self: center;
+  align-self: center;
+  grid-column: 1 / 3;
+}
+
+.status-enthusiasm {
+  display: grid;
+  grid-template-columns: 125px 125px;
+}
+
+.show-application-main {
+  display: grid;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.show-application-container {
+  color: white;
+  background-color: #00A6FB;
+  box-shadow: 3px 4px 3px 0px grey;
+  border-radius: 0px 25px 25px 25px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 190px 190px;
+  grid-template-rows: repeat(6, auto);
+  grid-gap: 10px;
+  justify-content: center;
+  width: 420px;
+}
+
+.show-application-container .link {
+  width: 180px;
+  overflow-wrap: break-word;
+}
+
+.show-application-container .notes {
+  width: 370px;
+  grid-column: 1 / 3;
+}
+
+.show-item-options {
+  display: grid;
+  grid-template-columns: repeat(3, 30px);
+  grid-auto-rows: 30px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background-color: #323472;
+  width: 100px;
+  border-radius: 20px 5px 0px 0px;
+}
+
+.new-application-main {
+  display: grid;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.new-item-options {
+  width: 40px;
+  border-radius: 20px 5px 0px 0px;
+  background-color: #323472;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.edit-item-options {
+  width: 70px;
+  border-radius: 20px 5px 0px 0px;
+  background-color: #323472;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 30px);
+}

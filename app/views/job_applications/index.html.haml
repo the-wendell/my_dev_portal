@@ -1,0 +1,17 @@
+.show-main
+  .add-application-button
+    = link_to new_user_job_application_path(current_user) do
+      .add-application-icon{ 'data-placement' => 'right', title: 'Add New Application' }
+        Add New
+  .job-application-container
+    .filter-search-box
+      = form_for_filterrific @filterrific, remote: true do |f|
+        .search-filter
+          Sorted By
+          = f.select(:sorted_by, @filterrific.select_options[:sorted_by])
+        .reset-filter
+          = link_to 'Reset Filters', reset_filterrific_url
+          = render_filterrific_spinner
+    %h1 Your Job Applications
+    #application-list-table
+      = render partial: 'job_applications/applications_list', locals: { job_applications: @job_applications }

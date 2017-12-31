@@ -25,6 +25,8 @@ gem 'haml-lint'
 # Use carrierwave and mini magik for managing image uploads
 gem 'carrierwave'
 gem 'mini_magick'
+# Filterrifc for filtering ActiveRecord
+gem 'filterrific'
 # Bootstrap 4 for rails
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 # jquery color picker

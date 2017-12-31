@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219205323) do
+ActiveRecord::Schema.define(version: 20171226173830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,25 @@ ActiveRecord::Schema.define(version: 20171219205323) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["portfolio_id"], name: "index_abouts_on_portfolio_id"
+  end
+
+  create_table "job_applications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.date "first_contact_date"
+    t.string "company_name"
+    t.string "company_website"
+    t.string "job_location"
+    t.string "enthusiasm"
+    t.string "job_title"
+    t.string "job_link"
+    t.string "referral"
+    t.string "referral_type"
+    t.string "status"
+    t.string "industry"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_job_applications_on_user_id"
   end
 
   create_table "portfolio_headers", force: :cascade do |t|
@@ -105,4 +124,5 @@ ActiveRecord::Schema.define(version: 20171219205323) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "job_applications", "users"
 end
