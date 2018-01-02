@@ -58,8 +58,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
                 font_color_one: '#ffffff', font_color_two: '#ffffff',
                 show_cover_image: false, show_avatar_image: true,
                 show_years_exp: true, show_proficiency: true }
-    portfolio = current_user.portfolios.new(default)
-    portfolio.save
+    portfolio = current_user.portfolios.create(default)
+    current_user.update_attribute(:options, active_portfolio_id: portfolio.id)
+    current_user.save
     root_path
   end
 

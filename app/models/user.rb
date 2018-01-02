@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  store :options, accessors: %i[active_portfolio_id blog_active?]
   has_many :portfolios, dependent: :destroy
   has_many :job_applications, dependent: :destroy
   include Gravtastic

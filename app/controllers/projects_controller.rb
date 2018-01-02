@@ -1,8 +1,7 @@
-class ProjectsController < ApplicationController
+class ProjectsController < DashboardController
   layout 'dashboard'
   before_action :set_record, only: %i[update destroy edit create show]
   before_action :set_new_record, only: %i[index new]
-  before_action :authenticate_user!
   before_action :confirm_owner, only: %i[create update destroy]
 
   def index
@@ -54,13 +53,11 @@ class ProjectsController < ApplicationController
   end
 
   def set_new_record
-    @portfolio = Portfolio.find(params[:portfolio_id])
     @projects = @portfolio.projects.all
     @project = Project.new
   end
 
   def set_record
-    @portfolio = Portfolio.find(params[:portfolio_id])
     @project = params[:id] ? Project.find(params[:id]) : @portfolio.projects.new(project_params)
     @projects = @portfolio.projects.all
   end

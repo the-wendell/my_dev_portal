@@ -1,8 +1,7 @@
 class DashboardController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :set_portfolio
 
   def index
-    @portfolio = current_user.portfolios.first
     @portfolio_header = @portfolio.portfolio_header || PortfolioHeader.new
     @about = @portfolio.about || About.new
     @projects = @portfolio.projects.all.order(:order)
@@ -13,5 +12,10 @@ class DashboardController < ApplicationController
     else
       @new_user = true
     end
+  end
+  private
+
+  def set_portfolio
+    @portfolio = helpers.active_portfolio
   end
 end

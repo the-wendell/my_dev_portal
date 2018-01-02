@@ -1,8 +1,7 @@
-class AboutsController < ApplicationController
+class AboutsController < DashboardController
   layout 'dashboard'
   before_action :set_record, only: %i[update edit create show]
   before_action :set_new_record, only: %i[index new]
-  before_action :authenticate_user!
   before_action :confirm_owner, only: %i[update create]
 
   def index
@@ -51,12 +50,10 @@ class AboutsController < ApplicationController
   end
 
   def set_new_record
-    @portfolio = Portfolio.find(params[:portfolio_id])
     @about = @portfolio.about || About.new
   end
 
   def set_record
-    @portfolio = Portfolio.find(params[:portfolio_id])
     @about = params[:id] ? About.find(params[:id]) : @about = About.new(about_params)
   end
 

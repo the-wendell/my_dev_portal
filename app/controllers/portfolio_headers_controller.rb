@@ -1,8 +1,7 @@
-class PortfolioHeadersController < ApplicationController
+class PortfolioHeadersController < DashboardController
   layout 'dashboard'
   before_action :set_record, only: %i[update edit create show]
   before_action :set_new_record, only: %i[index new]
-  before_action :authenticate_user!
   before_action :confirm_owner, only: %i[update]
 
   def index
@@ -51,12 +50,10 @@ class PortfolioHeadersController < ApplicationController
   end
 
   def set_new_record
-    @portfolio = Portfolio.find(params[:portfolio_id])
     @portfolio_header = @portfolio.portfolio_header || PortfolioHeader.new
   end
 
   def set_record
-    @portfolio = current_user.portfolios.first
     @portfolio_header = params[:id] ? PortfolioHeader.find(params[:id]) : PortfolioHeader.new(portfolio_header_params)
   end
 

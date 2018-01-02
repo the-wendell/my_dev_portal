@@ -1,8 +1,7 @@
-class TechnologiesController < ApplicationController
+class TechnologiesController < DashboardController
   layout 'dashboard'
   before_action :set_record, only: %i[update destroy edit create show]
   before_action :set_new_record, only: %i[index new]
-  before_action :authenticate_user!
   before_action :confirm_owner, only: %i[create update destroy]
 
   def index
@@ -54,13 +53,11 @@ class TechnologiesController < ApplicationController
   end
 
   def set_record
-    @portfolio = Portfolio.find(params[:portfolio_id])
     @technology = params[:id] ? Technology.find(params[:id]) : @portfolio.technologies.new(technology_params)
     @technologies = @portfolio.technologies.all
   end
 
   def set_new_record
-    @portfolio = Portfolio.find(params[:portfolio_id])
     @technology = Technology.new
     @technologies = @portfolio.technologies.all
   end
