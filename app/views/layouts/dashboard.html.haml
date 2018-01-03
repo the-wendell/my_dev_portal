@@ -23,13 +23,18 @@
             = link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item'
             = link_to 'Account Settings', edit_user_registration_path, class: 'dropdown-item'
       .sidebar
-        .sidebar-menu
+        .sidebar-menu.top
           .menu-item{ class: controller_name == 'dashboard' ? 'active' : '', 'data-placement' => 'right',
                      type: 'button', title: 'Your dashboard home page (under construction)' }
             = link_to 'Home', dashboard_index_path
-        .sidebar-heading
-          %p Portfolio
-        .sidebar-menu
+        .sidebar-heading.portfolio
+          %p
+            Portfolio
+          .add-portfolio-button
+            = link_to new_user_portfolio_path(current_user) do
+              .add-portfolio-icon{ 'data-placement' => 'right', title: 'Create a new Portfolio' }
+        .sidebar-menu.portfolio
+          = render partial: 'dashboard/select_active_portfolio'
           .menu-item{ class: controller_name == 'portfolios' ? 'active' : '', 'data-placement' => 'right',
                       type: 'button', title: 'Customize your portfolio settings' }
             = link_to 'Portfolio Settings', edit_portfolio_path(@portfolio)
@@ -47,7 +52,7 @@
             = link_to 'Portfolio Header', portfolio_portfolio_headers_path(@portfolio)
         .sidebar-heading
           %p Job Tracking
-        .sidebar-menu
+        .sidebar-menu.jobs
           .menu-item{ class: controller_name == 'job_applications' ? 'active' : '', 'data-placement' => 'right', type: 'button', title: 'Manage your job applications' }
             = link_to 'Job Applications', user_job_applications_path(current_user)
           .menu-item

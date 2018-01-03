@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'dashboard/index'
-  get 'dashboard/index/:menu_action' => 'dashboard#index'
+
+  patch 'select_active_portfolio' => 'users#update'
 
   get ':portfolio' => 'portfolios#show'
   get 'portfolios/:id' => 'portfolios#edit'
@@ -14,8 +15,9 @@ Rails.application.routes.draw do
     resources :abouts
   end
 
-  resources :users, only: %i[] do
+  resources :users, only: %i[update] do
     resources :job_applications
+    resources :portfolios, only: %i[create update destroy edit new]
   end
 
   devise_for :users, controllers: { sessions: 'users/sessions',

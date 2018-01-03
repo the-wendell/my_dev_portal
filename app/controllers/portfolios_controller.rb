@@ -1,32 +1,29 @@
 class PortfoliosController < ApplicationController
   layout 'dashboard', except: %i[show]
-  before_action :set_portfolio, only: %i[update]
+  before_action :set_portfolio, only: %i[new edit update]
   before_action :authenticate_user!, only: %i[update create new destroy]
   before_action :confirm_owner, only: %i[update]
 
+  def new
+  end
+
   def edit
-    @portfolio = Portfolio.find(params[:id])
-    @themes = Themes.array
   end
 
   def create
-    @portfolio = current_user.portfolios.new(portfolio_params)
-    if current_user.portfolios.count > 0
-      flash[:alert] = 'Only one portfolio allowed per user at this time'
-      render 'new'
-    elsif @portfolio.save
+    new_params = default_params
+    new_params[:url] = portfolio_params[:url]
+    @portfolio = current_user.portfolios.new(new_params)
+    if @portfolio.save
       flash[:notice] = 'New Portfolio Created'
       redirect_to dashboard_index_path
     else
       flash[:alert] = helpers.display_errors(@portfolio)
-      render 'new'
+      redirect_to new_user_portfolio_path(current_user)
     end
   end
 
   def update
-    @portfolio = Portfolio.find(params[:id])
-    @themes = Themes.array
-
     if @portfolio.update(portfolio_params)
       redirect_to edit_portfolio_path(@portfolio)
       flash[:notice] = 'Portfolio updated successfully'
@@ -37,7 +34,7 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @portfolio = Portfolio.find_by(url: params[:portfolio]) || raise('not found')
+    @portfolio = Portfolio.find_by(url: params[:portfolio]) rescue raise('not found')
     @portfolio_header = @portfolio.portfolio_header || filler_header
     @projects = @portfolio.projects.all.order(:order)
     @technologies = @portfolio.technologies.all
@@ -92,7 +89,9 @@ class PortfoliosController < ApplicationController
   end
 
   def set_portfolio
-    @portfolio = current_user.portfolios.first
+    @portfolio = helpers.active_portfolio
+    @portfolios = current_user.portfolios.all
+    @themes = Themes.array
   end
 
   def portfolio_params
@@ -101,5 +100,14 @@ class PortfoliosController < ApplicationController
                                       :font_color_one, :font_color_two,
                                       :show_cover_image, :show_avatar_image,
                                       :show_years_exp, :show_proficiency)
+  end
+
+  def default_params
+    { theme: 'default',
+      color_one: '#0a0d72', color_two: '#83c9f4',
+      color_three: '#2196f3', color_four: '#00a6fb',
+      font_color_one: '#ffffff', font_color_two: '#ffffff',
+      show_cover_image: false, show_avatar_image: true,
+      show_years_exp: true, show_proficiency: true }
   end
 end

@@ -95,6 +95,37 @@ p {
   box-shadow: 1px 1px 1px 1px #1F2047;
 }
 
+.sidebar-heading.portfolio {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.sidebar-heading.portfolio p {
+  justify-self: end;
+  align-self: center;
+}
+
+.sidebar-menu.portfolio {
+  grid-template-rows: 50px;
+}
+
+.form-set-portfolio .field {
+  display: grid;
+  grid-template-columns: 200px;
+  grid-template-rows: 20px;
+  justify-content: center;
+}
+
+.add-portfolio-icon {
+  height: 45px;
+  width: 45px;
+  background-image: image-url('add_large.svg');
+}
+
+.add-portfolio-button {
+  align-self: center;
+}
+
 .sidebar-menu:first-child {
   margin-top: 20px;
 }
@@ -102,6 +133,10 @@ p {
 .sidebar-heading {
   text-align: center;
   font-size: 26px;
+}
+
+.select-portfolio-container {
+
 }
 
 .menu-item {

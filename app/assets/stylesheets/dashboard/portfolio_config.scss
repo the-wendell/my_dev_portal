@@ -24,6 +24,25 @@
   text-align: center;
 }
 
+.new-portfolio {
+  margin-top: 10vh;
+  display: grid;
+  grid-template-columns: 300px;
+}
+
+.new-portfolio .field {
+  margin-top: 10px;
+}
+
+.new-portfolio-container {
+  display: grid;
+  justify-content: center;
+}
+
+.input-new-portfolio-url {
+  width: 290px;
+}
+
 .change-url-form-container {
   display: grid;
   grid-template-rows: 50px 75px 100px;

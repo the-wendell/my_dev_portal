@@ -1,0 +1,6 @@
+.set-portfolio-container
+  = form_for current_user do |f|
+    .form-set-portfolio
+      .field
+        = f.label :active_portfolio
+        = f.select :options, @portfolios.map { |portfolio| [ portfolio.url, portfolio.id]}, selected: [ @portfolio.url, @portfolio.id ]

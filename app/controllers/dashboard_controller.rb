@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_action :authenticate_user!, :set_portfolio
+  before_action :authenticate_user!, :set_portfolios
 
   def index
     @portfolio_header = @portfolio.portfolio_header || PortfolioHeader.new
@@ -15,7 +15,8 @@ class DashboardController < ApplicationController
   end
   private
 
-  def set_portfolio
+  def set_portfolios
     @portfolio = helpers.active_portfolio
+    @portfolios = current_user.portfolios.all
   end
 end
