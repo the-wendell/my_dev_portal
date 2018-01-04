@@ -1,5 +1,4 @@
-class JobApplicationsController < DashboardController
-  layout 'dashboard'
+class Dashboard::JobApplicationsController < Dashboard::DashboardController
   before_action :set_job_application, only: [:show, :edit, :update, :destroy]
 
   # GET /job_applications

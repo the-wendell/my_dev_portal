@@ -1,5 +1,4 @@
-class ProjectsController < DashboardController
-  layout 'dashboard'
+class Dashboard::ProjectsController < Dashboard::DashboardController
   before_action :set_record, only: %i[update destroy edit create show]
   before_action :set_new_record, only: %i[index new]
   before_action :confirm_owner, only: %i[create update destroy]
@@ -46,7 +45,7 @@ class ProjectsController < DashboardController
   private
 
   def confirm_owner
-    unless current_user == Portfolio.find(params[:portfolio_id]).user
+    unless current_user == @project.portfolio.user
       flash[:alert] = 'You are not the owner of that or portfolio'
       redirect_to root
     end

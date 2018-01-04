@@ -1,14 +1,14 @@
 .default{ style: "color: #{@portfolio.font_color_one}"}
   .theme-container
-    = render partial: 'portfolios/components/default_header'
+    = render partial: 'front_end/portfolios/components/default_header'
     .portfolio{ style: "background-color: #{@portfolio.color_two}" }
       %h2 Portfolio
-      = render partial: 'portfolios/components/portfolio_slider'
+      = render partial: 'front_end/portfolios/components/portfolio_slider'
     .technical-skill{ style: "background-color: #{@portfolio.color_one}" }
       %h2 Technical Skills
-      = render partial: 'portfolios/components/default_technologies'
+      = render partial: 'front_end/portfolios/components/default_technologies'
     .about-me{ style: "background-color: #{@portfolio.color_two}" }
       %h2 About Me
       %p.about{ style: "color: #{@portfolio.font_color_two}"}
         = @about.about_me
-    = render partial: 'portfolios/components/default_footer'
+    = render partial: 'front_end/portfolios/components/default_footer'

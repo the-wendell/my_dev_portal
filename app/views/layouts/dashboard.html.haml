@@ -26,7 +26,7 @@
         .sidebar-menu.top
           .menu-item{ class: controller_name == 'dashboard' ? 'active' : '', 'data-placement' => 'right',
                      type: 'button', title: 'Your dashboard home page (under construction)' }
-            = link_to 'Home', dashboard_index_path
+            = link_to 'Home', user_dashboard_index_path(current_user)
         .sidebar-heading.portfolio
           %p
             Portfolio
@@ -34,7 +34,7 @@
             = link_to new_user_portfolio_path(current_user) do
               .add-portfolio-icon{ 'data-placement' => 'right', title: 'Create a new Portfolio' }
         .sidebar-menu.portfolio
-          = render partial: 'dashboard/select_active_portfolio'
+          = render partial: 'dashboard/dashboard/select_active_portfolio'
           .menu-item{ class: controller_name == 'portfolios' ? 'active' : '', 'data-placement' => 'right',
                       type: 'button', title: 'Customize your portfolio settings' }
             = link_to 'Portfolio Settings', edit_portfolio_path(@portfolio)

@@ -1,7 +1,7 @@
 .main-project
   .form-container-project
     %h4 Add a New Project
-    = render partial: 'projects/form'
+    = render partial: 'form'
 .view-projects-main
   - @projects && @projects.each do |project|
-    = render partial: 'projects/show', locals: { project: project }
+    = render partial: 'show', locals: { project: project }

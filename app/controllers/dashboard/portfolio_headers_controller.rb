@@ -1,5 +1,4 @@
-class PortfolioHeadersController < DashboardController
-  layout 'dashboard'
+class Dashboard::PortfolioHeadersController < Dashboard::DashboardController
   before_action :set_record, only: %i[update edit create show]
   before_action :set_new_record, only: %i[index new]
   before_action :confirm_owner, only: %i[update]

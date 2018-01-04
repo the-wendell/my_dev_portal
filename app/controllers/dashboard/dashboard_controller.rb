@@ -1,4 +1,5 @@
-class DashboardController < ApplicationController
+class Dashboard::DashboardController < ApplicationController
+  layout 'dashboard'
   before_action :authenticate_user!, :set_portfolios
 
   def index
