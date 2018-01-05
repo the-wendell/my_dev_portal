@@ -9,6 +9,9 @@
         .search-filter
           Sorted By
           = f.select(:sorted_by, @filterrific.select_options[:sorted_by])
+        .search-filter
+          Ascending/Descending
+          = f.select(:asc_desc, @filterrific.select_options[:asc_desc])
         .reset-filter
           = link_to 'Reset Filters', reset_filterrific_url
           = render_filterrific_spinner
