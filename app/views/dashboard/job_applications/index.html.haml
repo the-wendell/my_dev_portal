@@ -7,11 +7,24 @@
     .filter-search-box
       = form_for_filterrific @filterrific, remote: true do |f|
         .search-filter
+          Search
+          = f.text_field :search_query,
+                         class: 'filterrific-periodically-observed form-control'
+        .search-filter
           Sorted By
           = f.select(:sorted_by, @filterrific.select_options[:sorted_by])
         .search-filter
           Ascending/Descending
           = f.select(:asc_desc, @filterrific.select_options[:asc_desc])
+        .search-filter
+          Enthusiasm
+          = f.select(:enthusiasm, @filterrific.select_options[:enthusiasm])
+        .search-filter
+          Referral Type
+          = f.select(:referral_type, @filterrific.select_options[:referral_type])
+        .search-filter
+          Application Status
+          = f.select(:status, @filterrific.select_options[:status])
         .reset-filter
           = link_to 'Reset Filters', reset_filterrific_url
           = render_filterrific_spinner

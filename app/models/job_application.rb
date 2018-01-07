@@ -8,8 +8,52 @@ class JobApplication < ApplicationRecord
       asc_desc
       sorted_by
       search_query
+      enthusiasm
+      referral_type
+      status
     ]
   )
+
+  scope :status, lambda { |param|
+    where('job_applications.status = ?', param)
+  }
+
+  scope :enthusiasm, lambda { |param|
+    where('job_applications.enthusiasm = ?', param)
+  }
+
+  scope :referral_type, lambda { |param|
+    where('job_applications.referral_type = ?', param)
+  }
+
+  scope :search_query, lambda { |query|
+    return nil  if query.blank?
+    # condition query, parse into individual keywords
+    terms = query.downcase.split(/\s+/)
+    # replace "*" with "%" for wildcard searches,
+    # append '%', remove duplicate '%'s
+    terms = terms.map { |e|
+      (e.gsub('*', '%') + '%').gsub(/%+/, '%')
+    }
+    # configure number of OR conditions for provision
+    # of interpolation arguments. Adjust this if you
+    # change the number of OR conditions.
+    num_or_conditions = 6
+    where(
+      terms.map {
+        or_clauses = [
+          'LOWER(job_applications.company_name) LIKE ?',
+          'LOWER(job_applications.company_website) LIKE ?',
+          'LOWER(job_applications.job_location) LIKE ?',
+          'LOWER(job_applications.job_title) LIKE ?',
+          'LOWER(job_applications.referral) LIKE ?',
+          'LOWER(job_applications.industry) LIKE ?'
+        ].join(' OR ')
+        "(#{ or_clauses })"
+      }.join(' AND '),
+      *terms.map { |e| [e] * num_or_conditions }.flatten
+    )
+  }
 
   scope :sorted_by, lambda { |sort_option|
     direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
@@ -53,9 +97,39 @@ class JobApplication < ApplicationRecord
 
   def self.options_for_asc_desc
     [
-      ['Ascending', 'asc'],
-      ['Descending', 'desc']
+      %w[Ascending asc],
+      %w[Descending desc]
     ]
   end
 
+  def self.options_for_enthusiasm
+    [
+      ['- Any -', ''],
+      %w[High high],
+      %w[Medium medium],
+      %w[Low low']
+    ]
+  end
+
+  def self.options_for_referral_type
+    [
+      ['- Any -', ''],
+      ['Cold Outreach', 'cold outreach'],
+      ['Mentor', 'mentor'],
+      ['Personal Connection', 'personal connection'],
+      ['New Connection', 'new connection'],
+      ['Career Website', 'career website']
+    ]
+  end
+
+  def self.options_for_status
+    [
+      ['- Any -', ''],
+      %w[Researching researching],
+      %w[Applied applied],
+      %w[Interviewing interviewing],
+      %w[Rejected rejected],
+      %w[Offer offer]
+    ]
+  end
 end

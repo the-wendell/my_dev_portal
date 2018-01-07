@@ -9,9 +9,12 @@ class Dashboard::JobApplicationsController < Dashboard::DashboardController
       @filter_params,
       select_options: {
         sorted_by: JobApplication.options_for_sorted_by,
-        asc_desc: JobApplication.options_for_asc_desc
+        asc_desc: JobApplication.options_for_asc_desc,
+        enthusiasm: JobApplication.options_for_enthusiasm,
+        referral_type: JobApplication.options_for_referral_type,
+        status: JobApplication.options_for_status
       },
-      available_filters: %i[sorted_by]
+      available_filters: %i[sorted_by search_query enthusiasm referral_type status]
     ) || return
     @job_applications = current_user.job_applications.filterrific_find(@filterrific)
 
@@ -66,9 +69,9 @@ class Dashboard::JobApplicationsController < Dashboard::DashboardController
 
     def combine_params
       @filter_params = params[:filterrific]
-      
+
       if @filter_params
-        @filter_params[:sorted_by] << @filter_params[:asc_desc]
+        @filter_params[:sorted_by] << @filter_params[:asc_desc] rescue 'asc'
       end
     end
 
