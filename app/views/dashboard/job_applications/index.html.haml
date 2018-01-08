@@ -8,26 +8,28 @@
       = form_for_filterrific @filterrific, remote: true do |f|
         .search-filter
           Search
+          %br
           = f.text_field :search_query,
-                         class: 'filterrific-periodically-observed form-control'
+                         class: 'filterrific-periodically-observed job-application-search'
         .search-filter
           Sorted By
-          = f.select(:sorted_by, @filterrific.select_options[:sorted_by])
-        .search-filter
-          Ascending/Descending
-          = f.select(:asc_desc, @filterrific.select_options[:asc_desc])
-        .search-filter
-          Enthusiasm
-          = f.select(:enthusiasm, @filterrific.select_options[:enthusiasm])
+          %br
+          = f.select :sorted_by, @filterrific.select_options[:sorted_by]
+          = f.select :asc_desc, @filterrific.select_options[:asc_desc]
         .search-filter
           Referral Type
-          = f.select(:referral_type, @filterrific.select_options[:referral_type])
+          %br
+          = f.select :referral_type, @filterrific.select_options[:referral_type]
         .search-filter
           Application Status
-          = f.select(:status, @filterrific.select_options[:status])
+          %br
+          = f.select :status, @filterrific.select_options[:status]
+        .search-filter
+          Enthusiasm
+          %br
+          = f.select :enthusiasm, @filterrific.select_options[:enthusiasm]
         .reset-filter
-          = link_to 'Reset Filters', reset_filterrific_url
+          = link_to 'Reset Filters', reset_filterrific_url, type: 'button', class: 'reset-button'
           = render_filterrific_spinner
-    %h1 Your Job Applications
     #application-list-table
       = render partial: 'applications_list', locals: { job_applications: @job_applications }

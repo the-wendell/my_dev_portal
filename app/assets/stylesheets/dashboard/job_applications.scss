@@ -1,5 +1,5 @@
 .show-main {
-  margin-top: 100px;
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 100%;
 }
@@ -25,9 +25,40 @@
   border-collapse: collapse;
 }
 
+.filter-search-box form {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 180px);
+  justify-content: center;
+  grid-row-gap: 5px;
+}
+
+#filterrific_asc_desc {
+  width: 151px;
+}
+
+.reset-button {
+  background-color: #323472;
+  color: white;
+  padding: 5px;
+  align-self: center;
+  width: 100px;
+}
+
+.reset-filter {
+  display: grid;
+}
+
+.job-application-search {
+  width: 95%;
+}
+
 .table-container {
   overflow-x: auto;
   width: 100%;
+}
+
+.table-responsive {
+  max-height: 65vh;
 }
 
 .table-item-options {
@@ -36,6 +67,10 @@
   grid-auto-rows: 30px;
   justify-content: center;
   align-items: center;
+}
+
+#application-list-table {
+  margin-top: 15px;
 }
 
 .add-application-icon {
