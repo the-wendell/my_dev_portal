@@ -42,6 +42,8 @@ FactoryGirl.define do
     color_two '#ffffff'
     color_three '#ffffff'
     color_four '#ffffff'
+    font_color_one '#ffffff'
+    font_color_two '#ffffff'
     theme 'default'
     user 1
     id 1

@@ -9,6 +9,6 @@ class Dashboard::UsersController < ApplicationController
     else
       flash[:alert] = "Doh! Something went wrong..."
     end
-    redirect_to dashboard_index_path
+    redirect_to user_dashboard_index_path(current_user)
   end
 end

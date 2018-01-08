@@ -14,7 +14,7 @@ RSpec.describe Portfolio, type: :model do
   describe 'Create Portfolio' do
     it 'creates a new portfolio' do
       user.portfolios.create(attributes)
-      expect(Portfolio.first.url).to eq('testing')
+      expect(user.portfolios.first.url).to eq('testing')
     end
   end
 

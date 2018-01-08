@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PortfoliosController, type: :controller do
+RSpec.describe Dashboard::PortfoliosController, type: :controller do
   login_user
   let(:attributes) do
     { url: 'testing',
@@ -8,7 +8,10 @@ RSpec.describe PortfoliosController, type: :controller do
       color_two: '#ffffff',
       color_three: '#ffffff',
       color_four: '#ffffff',
-      theme: 'default'}
+      font_color_one: '#ffffff',
+      font_color_two: '#ffffff',
+      theme: 'default',
+      id: 1 }
   end
   let(:attributes2) do
     { url: 'portfolio',
@@ -16,7 +19,8 @@ RSpec.describe PortfoliosController, type: :controller do
       color_two: '#ffffff',
       color_three: '#ffffff',
       color_four: '#ffffff',
-      theme: 'default' }
+      theme: 'default',
+      id: 2 }
   end
 
   describe 'portfolio#create' do
@@ -24,34 +28,26 @@ RSpec.describe PortfoliosController, type: :controller do
       post :create, params: { portfolio: attributes }
       expect(subject.current_user.portfolios.first.url).to eq('testing')
     end
-    it 'Prevents user from creating more than one portfolio' do
-      post :create, params: { portfolio: attributes }
-      post :create, params: { portfolio: attributes2 }
-      expect(subject.current_user.portfolios.all.count).to eq(1)
-    end
     it 'Redirects to dashboard#index' do
       post :create, params: { portfolio: attributes }
-      expect(response).to redirect_to(dashboard_index_path)
+      expect(response).to redirect_to(user_dashboard_index_path(subject.current_user))
     end
   end
 
   describe 'portfolio#update' do
     let(:portfolio) { subject.current_user.portfolios.create(attributes) }
     it 'Lets user edit portfolio URL' do
-      patch :update, params: { id: portfolio.id, portfolio: { url: 'test' } }
+      patch :update, params: { id: portfolio.id,
+                               portfolio: { url: 'test' },
+                               user: subject.current_user }
       expect(subject.current_user.portfolios.first.url).to eq('test')
     end
     it 'on success it reloads the same page' do
-      patch :update, params: { id: portfolio.id, portfolio: { url: 'test' } }
+      patch :update, params: { id: portfolio.id,
+                               portfolio: { url: 'test' },
+                               user: subject.current_user }
+      puts portfolio.errors.full_messages
       expect(response).to redirect_to(edit_portfolio_path(portfolio))
-    end
-  end
-
-  describe 'portfolio#show' do
-    it 'renders the show template' do
-      post :create, params: { portfolio: attributes }
-      get :show, params: { portfolio: 'testing' }
-      expect(response).to render_template('show')
     end
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ProjectsController, type: :controller do
+RSpec.describe Dashboard::ProjectsController, type: :controller do
   login_user
   let(:portfolio) { FactoryGirl.create(:portfolio, user: subject.current_user) }
 

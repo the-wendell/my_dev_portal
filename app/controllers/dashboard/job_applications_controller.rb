@@ -3,7 +3,6 @@ class Dashboard::JobApplicationsController < Dashboard::DashboardController
   before_action :combine_params, only: %i[index]
 
   def index
-
     @filterrific = initialize_filterrific(
       JobApplication,
       @filter_params,

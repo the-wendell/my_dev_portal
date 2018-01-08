@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PortfolioHeadersController, type: :controller do
+RSpec.describe Dashboard::PortfolioHeadersController, type: :controller do
   login_user
   let(:portfolio) { FactoryGirl.create(:portfolio, user: subject.current_user) }
 

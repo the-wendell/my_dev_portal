@@ -1,4 +1,5 @@
 class Dashboard::PortfoliosController < Dashboard::DashboardController
+  skip_before_action :confirm_portfolio_owner, only: %i[create]
   before_action :set_portfolio, only: %i[new edit update]
   before_action :confirm_owner, only: %i[update]
 
@@ -14,7 +15,7 @@ class Dashboard::PortfoliosController < Dashboard::DashboardController
     @portfolio = current_user.portfolios.new(new_params)
     if @portfolio.save
       flash[:notice] = 'New Portfolio Created'
-      redirect_to dashboard_index_path
+      redirect_to user_dashboard_index_path(current_user)
     else
       flash[:alert] = helpers.display_errors(@portfolio)
       redirect_to new_user_portfolio_path(current_user)

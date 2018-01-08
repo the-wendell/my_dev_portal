@@ -1,6 +1,6 @@
 class Dashboard::DashboardController < ApplicationController
   layout 'dashboard'
-  before_action :authenticate_user!, :set_portfolios
+  before_action :authenticate_user!, :set_portfolios, :confirm_portfolio_owner
 
   def index
     @portfolio_header = @portfolio.portfolio_header || PortfolioHeader.new
@@ -19,5 +19,12 @@ class Dashboard::DashboardController < ApplicationController
   def set_portfolios
     @portfolio = helpers.active_portfolio
     @portfolios = current_user.portfolios.all
+  end
+
+  def confirm_portfolio_owner
+    unless current_user == @portfolio.user
+      flash[:alert] = 'You are not the owner of that or portfolio'
+      redirect_to root
+    end
   end
 end
