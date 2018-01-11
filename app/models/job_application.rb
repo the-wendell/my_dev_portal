@@ -1,6 +1,8 @@
 class JobApplication < ApplicationRecord
   belongs_to :user
-  attr_accessor :direction
+  validates :enthusiasm, inclusion: { in: %w[high medium low] }
+  validates :status, inclusion: { in: %w[researching applied interviewing rejected offer] }
+  validates :referral_type, inclusion: { in: ['cold outreach', 'mentor', 'personal connection', 'new connection', 'career website'] }
 
   filterrific(
     default_filter_params: { sorted_by: 'first_contact_date_asc', asc_desc: 'asc' },

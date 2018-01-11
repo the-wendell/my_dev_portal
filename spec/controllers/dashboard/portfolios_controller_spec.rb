@@ -13,15 +13,6 @@ RSpec.describe Dashboard::PortfoliosController, type: :controller do
       theme: 'default',
       id: 1 }
   end
-  let(:attributes2) do
-    { url: 'portfolio',
-      color_one: '#ffffff',
-      color_two: '#ffffff',
-      color_three: '#ffffff',
-      color_four: '#ffffff',
-      theme: 'default',
-      id: 2 }
-  end
 
   describe 'portfolio#create' do
     it 'Lets new user create a portfolio' do
