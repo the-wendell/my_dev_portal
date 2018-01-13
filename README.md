@@ -6,10 +6,10 @@ Aside from functioning as portfolio and a job hunt managment tool for new develo
 
 ## Table of Contents
 
-[Current State](#state)
-[Want to Contribute?](#contribute)
-[Setting up the Dev Eninvironemnt](#setup)
-[Adding a new Theme](#addtheme)
+* [Current State](#state)
+* [Want to Contribute?](#contribute)
+* [Setting up the Dev Environment](#setup)
+* [Adding a new Theme](#addtheme)
 
 <a name="state" />
 
