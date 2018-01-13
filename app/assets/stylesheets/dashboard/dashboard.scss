@@ -11,6 +11,7 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 p {
@@ -161,6 +162,7 @@ p {
 .main-content {
   background-color: #f7fbff;
   box-shadow: inset 1px 2px 1px 1px grey;
+  min-height: 100vh;
 }
 
 .delete-button {

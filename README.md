@@ -1,35 +1,55 @@
 # My Dev Portal
 
-Create a portfolio and manage your job applications.  My Dev Portal is an app that will help you manage your job hunt and show off your work.
+My Dev Portal is made with new developers in mind.  It allows you to quickly and easily set up a public front facing portfolio to showcase your projects and skills.  As well, you will be able to track and log your job applications.
 
+Aside from functioning as portfolio and a job hunt managment tool for new developers My Dev Portal is also a great place to dive into the world of open source.  As the public front facing portfolios rely on themes for their layout My Dev Portal allows for an unlimited number of new devlopers to add meanginfull contributions, in the form of new themes, while putting a pull-request or two under their belt.  For detailed instructions on how to contribute see bellow.
+
+## Table of Contents
+
+[Current State](#state)
+
+<a name="state"/>
 ## Current State
 
-My Dev Portal is roughly half-way to a full release.  The 'build your own portfolio' portion of the app is mostly complete and is fully functional.  It can be found at http://mydevportal.io.  Users are able to sign up and create a portfolio that will be publicly visible at http://mydevportal.io/your-custom-name.
+My Dev Portal is up and running at http://mydevportal.io. Users are able to jump right in and create a public facing portfolio that will be hosted at http://mydevportal.io/portfolio_name.  Users can also use their dashboard to track and log all of their current and past job applicaitons.
 
-My Dev Portal consists of two main features:
-  1. A Portfolio to show off your work
-  2. A system to help you track your job applications and interviews
+mydevportal.io is a permanent web app so you need not worry about losing your portfolio or job tracking data.
 
-Feature 1 is complete and functioning.  Feature 2 is under development.
+*mydevportal.io is being reliably hosted on a premium Heroku server*
 
 ## Want to Contribute?
 
-Currently I am only accepting contributions towards adding more portfolio themes.  If you would like to add a portfolio theme that would be awesome!
+As "My Dev Portal" is being built with new devlopers in mind it is also being built to allow for entry level contributions in the form of themes/templates.  One can never have too many themes!  Below you will find *very* detailed instructions on how to create a new Portfolio theme.  Do not let the longwinded instructions fool you as adding a theme is quite simple!  The majority of the instructions are simply tables depicting the available user data.
+
+The standards for contribution are simple and minmal.
+* If what you have written is a function then please add an Rspec test for it (tests are not necessary for private/protected functions)
+* Portfolio themes should be responsive (tests are not necessary for themes)
+* Portfolio themes must support the available user preferences (listed bellow)
+* If you are adding a larger feature please do your best to consider edge cases
+* This is for fun and experiences so please have fun and learn!
+
+If there is a feature that you would like to add then please send me a quick email at scottwlivingstone@gmail.com to tell me a little bit about it - I am more than happy to have additional features added.  As well, feel free to start working on the laundry list of features to be added which can be found listed under Projects.
+
+Also, if you fancy your self a CSS wizard and a master of style please feel free to update the look of any elements that you wish.
+
+p.s. Pull requests to correct my spelling will also be accepted ;p
 
 ### Getting the Development Environment Started
 
   **Requirments:**
-    * Rails 5
+    * Rails 5.1.4
+    * Ruby 2.3.5
     * Postgres
     * Bundler -v 1.15.2 (This is the version Heroku is currently using)
 
-  1. Run `bundle install`
-  2. Run `rails db:migrate`
-  3. Run `rails server`
+  1. Run `bundle install` to install dependencies
+  2. Run `rails db:setup` to set up the Postgres database
+  3. Run `rails db:migrate` to migrate the databse
+  4. Run `rails server` to start the server at localhost:3000
 
 ### Instructions for Adding a New Theme
 
-  1. Create a new template file in app/views/portfolios/themes
+  1. Create a new template file in app/views/front_end/portfolios/themes
     * The file name will be the theme name
     * The file extension must be html.haml  If you don't already know Haml it will take you less than 20 minutes to learn and save you hours in the long run. http://http://haml.info/tutorial.html
   2. Create a new stylesheet in app/assets/stylesheets/themes
@@ -41,34 +61,45 @@ Currently I am only accepting contributions towards adding more portfolio themes
 
   **AVAILABLE RESOURCES**
 
-  * `@portfolio_header` **hash**
-    * `.header_one` **string** = User's name
-    * `.header_two` **string** = Subheading
-    * `.cover_image` **string** = User's cover image.  Suffix with `.url` for original upload size, `.full.url` for an image 800px high, and `.preview.url` for an image 230px high.
-    * `.avatar_image` **string** = User's avatar image.  Suffix with `.url` for original upload size, `.full.url` for an image 225px by 300px, and `.preview.url` for an image 66px by 88px.
-  * `@projects` **array** = The users projects (loop through this to get individual projects)
-    * `.title` **string** = Title of the project
-    * `.link` **string** = Link to project webpage
-    * `.description` text = Description of the project
-    * `.image` **string** = Project image. Suffix with `.url` for original upload size, `.large.url` for an image 600px high, and `.small.url` for an image 150px high.
-    * `.tech` **string** = list of technologies used on the project
-    * `.role` **string** = User's role on the project
-    * `.order` **int** = User given order.  `@projects` will already be sorted by `.order`
-  * `@technologies` **array** = List of technologies/skills known by the user (loop through this to get individual technologies)
-    * `.name` **string** = The name of the technology
-    * `.years_exp` **int** = Number of years experience
-    * `.proficiency` **int** = Number from 1 to 10 of the users proficiency with a given technology
-  * `@about` **hash** = Contains contact info and "About Me"
-    * `.about_me` **text** = About me paragraph
-    * `.about_me_brief` **string** = Abrieviated about me
-    * `.location` **string** = User's location
-    * `.email` **string**
-    * `.github` **string**
-    * `.linkedin` **string**
-    * `.twitter` **string**
-    * `.facebook` **string**
-    * `.website` **string**
-  * `@first_name` **string** User's first name
+**`@portfolio_header` hash** Header images and text
+
+Attribute Accessor | Type | Description
+-------------------|------|------------
+`.header_one` | **string** | User's name
+`.header_two` | **string** | Subheading
+`.cover_image` | **string** | User's cover image.  Suffix with `.url` for original upload size, `.full.url` for an image 800px high, and `.preview.url` for an image 230px high.
+`.avatar_image` | **string** | User's avatar image.  Suffix with `.url` for original upload size, `.full.url` for an image 225px by 300px, and `.preview.url` for an image 66px by 88px.
+
+`@projects` **array** The users projects (loop through this to get individual project hashes)
+
+Attribute Accessor | Type | Description
+-------------------|------|------------
+`.title` | **string** | Title of the project
+`.link` | **string** | Link to project webpage
+`.description` | **text** | Description of the project
+`.image` | **string** | Project image. Suffix with `.url` for original upload size, `.large.url` for an image 600px high, and `.small.url` for an image 150px high.
+`.tech` | **string** | list of technologies used on the project
+`.role` | **string** | User's role on the project
+`.order` | **int** | User given order.  `@projects` will already be sorted by `.order`
+
+`@technologies` **array** List of technologies/skills known by the user (loop through this to get individual technology hashes)
+
+Attribute Accessor | Type | Description
+-------------------|------|------------
+`.name` | **string** | The name of the technology
+`.years_exp` | **int** | Number of years experience
+`.proficiency` | **int** | Number from 1 to 10 of the users proficiency with a given technology
+`@about` | **hash** | Contains contact info and "About Me"
+`.about_me` | **text** | About me paragraph
+`.about_me_brief` | **string** | Abrieviated about me
+`.location` | **string** | User's location
+`.email` | **string** | User's email
+`.github` | **string** | User's Github
+`.linkedin` | **string** | User's Linkedin
+`.twitter` | **string** | User's Twitter
+`.facebook` | **string** | User's Facebook
+`.website` | **string** | User's Website
+`@first_name` | **string** | User's first name
 
   **AVAILABLE USER PREFERENCES** (Your theme must support these options)
 
