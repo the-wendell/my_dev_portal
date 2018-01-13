@@ -7,8 +7,12 @@ Aside from functioning as portfolio and a job hunt managment tool for new develo
 ## Table of Contents
 
 [Current State](#state)
+[Want to Contribute?](#contribute)
+[Setting up the Dev Eninvironemnt](#setup)
+[Adding a new Theme](#addtheme)
 
-<a name="state"/>
+<a name="state" />
+
 ## Current State
 
 My Dev Portal is up and running at http://mydevportal.io. Users are able to jump right in and create a public facing portfolio that will be hosted at http://mydevportal.io/portfolio_name.  Users can also use their dashboard to track and log all of their current and past job applicaitons.
@@ -16,6 +20,8 @@ My Dev Portal is up and running at http://mydevportal.io. Users are able to jump
 mydevportal.io is a permanent web app so you need not worry about losing your portfolio or job tracking data.
 
 *mydevportal.io is being reliably hosted on a premium Heroku server*
+
+<a name="contribute" />
 
 ## Want to Contribute?
 
@@ -34,6 +40,8 @@ Also, if you fancy your self a CSS wizard and a master of style please feel free
 
 p.s. Pull requests to correct my spelling will also be accepted ;p
 
+<a name="setup" />
+
 ### Getting the Development Environment Started
 
   **Requirments:**
@@ -46,6 +54,8 @@ p.s. Pull requests to correct my spelling will also be accepted ;p
   2. Run `rails db:setup` to set up the Postgres database
   3. Run `rails db:migrate` to migrate the databse
   4. Run `rails server` to start the server at localhost:3000
+
+<a name="addtheme" />
 
 ### Instructions for Adding a New Theme
 
