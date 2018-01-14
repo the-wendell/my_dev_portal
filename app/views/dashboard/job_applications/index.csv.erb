@@ -1,0 +1,10 @@
+<%- headers = %w[first_contact_date company_name company_website job_location
+               enthusiasm job_title job_link referral referral_type status
+               industry notes] %>
+<%= CSV.generate_line headers %>
+<%- @job_applications.each do |entry| %>
+<%= CSV.generate_line([entry.first_contact_date, entry.company_name, entry.company_website,
+                     entry.job_location, entry.enthusiasm, entry.job_title,
+                     entry.job_link, entry.referral, entry.referral_type,
+                     entry.status, entry.industry, entry.notes]).html_safe %>
+<%- end %>

@@ -1,4 +1,5 @@
 class Dashboard::JobApplicationsController < Dashboard::DashboardController
+  require 'csv'
   before_action :set_job_application, only: %i[show edit update destroy]
   before_action :combine_params, only: %i[index]
 
@@ -20,6 +21,14 @@ class Dashboard::JobApplicationsController < Dashboard::DashboardController
     rescue ActiveRecord::RecordNotFound => e
       puts "Had to reset filterrific params: #{ e.message }"
       redirect_to(reset_filterrific_url(format: :html)) && return
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"job-applications-#{Date.today}\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
   end
 
   def show
@@ -58,10 +67,7 @@ class Dashboard::JobApplicationsController < Dashboard::DashboardController
 
   def destroy
     @job_application.destroy
-    respond_to do |format|
-      format.html { redirect_to user_job_applications_path(current_user), notice: 'Job application was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to user_job_applications_path(current_user), notice: 'Job application was successfully destroyed.'
   end
 
   private

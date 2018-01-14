@@ -31,5 +31,7 @@
         .reset-filter
           = link_to 'Reset Filters', reset_filterrific_url, type: 'button', class: 'reset-button'
           = render_filterrific_spinner
+        .export-csv
+          = link_to 'Export CSV', user_job_applications_path(current_user, format: :csv), type: 'button', class: 'reset-button'
     #application-list-table
       = render partial: 'applications_list', locals: { job_applications: @job_applications }
