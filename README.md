@@ -25,6 +25,9 @@ mydevportal.io is a permanent web app so you need not worry about losing your po
 
 ## Want to Contribute?
 
+First, check out the code of conduct [here](https://github.com/SWLivingstone/my_dev_portal/blob/master/code_of_conduct.md).
+Then, get crackin'!
+
 As "My Dev Portal" is being built with new devlopers in mind it is also being built to allow for entry level contributions in the form of themes/templates.  One can never have too many themes!  Below you will find *very* detailed instructions on how to create a new Portfolio theme.  Do not let the longwinded instructions fool you as adding a theme is quite simple!  The majority of the instructions are simply tables depicting the available user data.
 
 The standards for contribution are simple and minmal.
