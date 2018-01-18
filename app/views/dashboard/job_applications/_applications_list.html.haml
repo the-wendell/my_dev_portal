@@ -1,3 +1,11 @@
+.search-footer
+  .reset-filter
+    = link_to 'Reset Filters', reset_filterrific_url, type: 'button', class: 'reset-button'
+    = render_filterrific_spinner
+  .export-csv
+    = link_to 'Export CSV', user_job_applications_path(current_user, format: :csv), type: 'button', class: 'reset-button'
+  .application-count
+    = "Showing #{@job_applications.count} of #{current_user.job_applications.count} Job Applications"
 .table-container{ id: 'filterrific_results' }
   %table.table.table-striped.table-dark.table-responsive
     %thead

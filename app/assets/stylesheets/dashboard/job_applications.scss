@@ -27,13 +27,36 @@
 
 .filter-search-box form {
   display: grid;
-  grid-template-columns: 250px 200px 300px;
-  grid-template-rows: repeat(3, 50px);
+  grid-template-columns: repeat(auto-fill, 290px);
   justify-content: center;
   grid-row-gap: 5px;
   background-color: #83c9f4;
   padding: 10px;
-  max-width: 780px;
+}
+
+.enthusiasm-status {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.first-contact-date {
+  grid-column: span 2;
+}
+
+.filter-search-underline {
+  background-color: grey;
+  height: 2px;
+  width: 100%;
+  border-left: solid 20px #83c9f4;
+  border-right: solid 20px #83c9f4;
+}
+
+.search-footer {
+  display: grid;
+  grid-template-columns: 120px 120px auto;
+  background-color: #83c9f4;
+  padding: 10px;
 }
 
 .reset-button {
@@ -47,6 +70,11 @@
 
 .reset-filter {
   display: grid;
+}
+
+.application-count {
+  justify-self: end;
+  align-self: center;
 }
 
 .job-application-search {
@@ -225,4 +253,10 @@
   padding-top: 5px;
   display: grid;
   grid-template-columns: repeat(2, 30px);
+}
+
+@media only screen and (max-width: 800px ) {
+  .first-contact-date {
+    grid-column: span 1;
+  }
 }

@@ -70,22 +70,6 @@ p {
   min-height: 100vh;
 }
 
-.current-user-sidebar {
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: 75px 125px;
-}
-
-.sidebar-gravatar {
-  padding: 5px;
-}
-
-.sidebar-name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .sidebar-menu {
   margin-left: 10px;
   margin-right: 10px;
@@ -108,11 +92,12 @@ p {
 
 .sidebar-menu.portfolio {
   grid-template-rows: 50px;
+  grid-template-columns: repeat(auto-fill, 100%);
 }
 
 .form-set-portfolio .field {
   display: grid;
-  grid-template-columns: 200px;
+  grid-template-columns: 90%;
   grid-template-rows: 20px;
   justify-content: center;
 }
@@ -121,6 +106,7 @@ p {
   height: 45px;
   width: 45px;
   background-image: image-url('add_large.svg');
+  background-size: cover;
 }
 
 .add-portfolio-button {
@@ -136,22 +122,19 @@ p {
   font-size: 26px;
 }
 
-.select-portfolio-container {
-
-}
-
 .menu-item {
   display: flex;
   align-items: center;
   padding-left: 10px;
   background-color: #323472;
   -moz-appearance: button;
+  width: 100%;
 }
 
 .menu-item a {
   text-decoration: none;
   color: white;
-  width: 160px;
+  width: 100%;
   padding: 8px;
 }
 
@@ -216,5 +199,24 @@ p {
   .dashboard-container {
     grid-template: 50px auto
     / 10% 90%;
+  }
+}
+
+@media only screen and (max-width: 866px ) {
+  .sidebar {
+    font-size: 13px;
+  }
+  .sidebar-heading {
+    font-size: 18px;
+  }
+  .add-portfolio-icon {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+@media only screen and (max-width: 885px) {
+  .dev-portal-logo p {
+    font-size: 20px;
   }
 }
