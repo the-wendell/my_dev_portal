@@ -14,7 +14,7 @@ class Dashboard::JobApplicationsController < Dashboard::DashboardController
         referral_type: JobApplication.options_for_referral_type,
         status: JobApplication.options_for_status
       },
-      available_filters: %i[sorted_by search_query enthusiasm referral_type status]
+      available_filters: %i[sorted_by search_query enthusiasm referral_type status time_period]
     ) || return
     @job_applications = current_user.job_applications.filterrific_find(@filterrific)
 
@@ -77,7 +77,15 @@ class Dashboard::JobApplicationsController < Dashboard::DashboardController
 
       if @filter_params
         @filter_params[:sorted_by] << @filter_params[:asc_desc] rescue 'asc'
+        @filter_params[:time_period] = before_and_after
       end
+    end
+
+    def before_and_after
+      fp = @filter_params
+      before = "#{fp['before(1i)']}-#{fp['before(2i)']}-#{fp['before(3i)']}"
+      after = "#{fp['after(1i)']}-#{fp['after(2i)']}-#{fp['after(3i)']}"
+      before_and_after = "#{before},#{after}"
     end
 
     def set_job_application

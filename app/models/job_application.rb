@@ -13,6 +13,9 @@ class JobApplication < ApplicationRecord
       enthusiasm
       referral_type
       status
+      time_period
+      before
+      after
     ]
   )
 
@@ -26,6 +29,14 @@ class JobApplication < ApplicationRecord
 
   scope :referral_type, lambda { |param|
     where('job_applications.referral_type = ?', param)
+  }
+
+  scope :time_period, lambda { |dates|
+    before_and_after = dates.split(',')
+    before = before_and_after.first
+    after = before_and_after.last
+    where('job_applications.first_contact_date >= ? AND
+           job_applications.first_contact_date <= ?', after, before)
   }
 
   scope :search_query, lambda { |query|

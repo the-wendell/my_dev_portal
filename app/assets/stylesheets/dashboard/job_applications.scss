@@ -27,13 +27,13 @@
 
 .filter-search-box form {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 180px);
+  grid-template-columns: 250px 200px 300px;
+  grid-template-rows: repeat(3, 50px);
   justify-content: center;
   grid-row-gap: 5px;
-}
-
-#filterrific_asc_desc {
-  width: 151px;
+  background-color: #83c9f4;
+  padding: 10px;
+  max-width: 780px;
 }
 
 .reset-button {
@@ -51,6 +51,7 @@
 
 .job-application-search {
   width: 95%;
+  height: 24px;
 }
 
 .table-container {
@@ -71,7 +72,6 @@
 }
 
 #application-list-table {
-  margin-top: 15px;
 }
 
 .add-application-icon {

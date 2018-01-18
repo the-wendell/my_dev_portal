@@ -12,6 +12,10 @@
           = f.text_field :search_query,
                          class: 'filterrific-periodically-observed job-application-search'
         .search-filter
+          Enthusiasm
+          %br
+          = f.select :enthusiasm, @filterrific.select_options[:enthusiasm]
+        .search-filter
           Sorted By
           %br
           = f.select :sorted_by, @filterrific.select_options[:sorted_by]
@@ -25,9 +29,12 @@
           %br
           = f.select :status, @filterrific.select_options[:status]
         .search-filter
-          Enthusiasm
+          First Contact Date
           %br
-          = f.select :enthusiasm, @filterrific.select_options[:enthusiasm]
+          Before
+          = f.date_select :before, { selected: Date.today }
+          After
+          = f.date_select :after, { selected: 1.years.ago }
         .reset-filter
           = link_to 'Reset Filters', reset_filterrific_url, type: 'button', class: 'reset-button'
           = render_filterrific_spinner
