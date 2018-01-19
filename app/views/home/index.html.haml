@@ -1,16 +1,70 @@
+.nav-bar
+  .title
+    %h4 My Dev Portal
+  .nav-links
+    = link_to 'Sign Up', new_user_registration_path
+    = link_to 'Login', new_user_session_path
 .homepage
-  .home_page_container
-    .header
-      %h1 My Dev Portal
-      %h2 Build your portfolio and track your job applications all in one place
-    .main
-      .sign-up-button
-        = link_to 'Sign Up', new_user_registration_path, class: 'sign-up btn'
-      = link_to 'Login', new_user_session_path, class: 'login'
-    .main-text
-      %p
-        Any features that you think we are missing?  Got a great idea for a new portfolio theme?  The power to create change is in your hands - contribute!
-      %p
-        Find the Github repositroy
-        %strong
-          = link_to 'here.', 'https://github.com/SWLivingstone/my_dev_portal'
+  .header
+    .logo
+    .sub-heading
+      %h2 BUILT BY DEVELOPERS FOR DEVELOPERS
+  .feature-container
+    .features
+      .feature
+        %h4
+          Build a Custom
+          %br
+          Portfolio
+        .feature-icon.portfolio
+      .feature
+        %h4
+          Contribute to
+          %br
+          Open Source
+        .feature-icon.github
+      .feature
+        %h4
+          Track Your
+          %br
+          Job Applications
+        .feature-icon.track
+      .feature
+        %h4
+          Write a Dev
+          %br
+          Blog
+        .feature-icon.blog
+  .footer-container
+    .footer
+      .about
+        %h4
+          My Dev Portal
+        %p
+          My Dev Portal exists as both an opportunity and a tool.  It is an
+          opportunity for new and experienced developers to contribute to a
+          growing open source project.  It is a tool for developers to build and
+          host their portfolio, track their job applications, and keep a blog.
+      .terms
+        %h4
+          Term of use
+        %p
+          We, the Operators of this Website, provide it as a public service to
+          our users.  My Dev Portal is fully open source and the code repository
+          is hosted on GitHub.
+          %br
+          While My Dev Portal is built and maintained to a high standard the
+          Operators make no claims as to the protection of any private information
+          or data that is uploaded to this Website.
+      .contact
+        %h4
+          Contact
+        %p
+          Project Manager:
+          %br
+          scottwlivingstone@gmail.com
+          %br
+          %br
+          GitHub Repo:
+          %br
+          https://github.com/SWLivingstone/my_dev_portal
