@@ -55,8 +55,7 @@ p.s. Pull requests to correct my spelling will also be accepted ;p
 
   1. Run `bundle install` to install dependencies
   2. Run `rails db:setup` to set up the Postgres database
-  3. Run `rails db:migrate` to migrate the databse
-  4. Run `rails server` to start the server at localhost:3000
+  3. Run `rails server` to start the server at localhost:3000
 
 <a name="addtheme" />
 
