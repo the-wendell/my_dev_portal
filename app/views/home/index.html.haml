@@ -2,7 +2,7 @@
   .title
     %h4 My Dev Portal
   .nav-links
-    = link_to 'Sign Up', new_user_registration_path
+    = link_to 'Sign Up', new_user_registration_path, class: 'sign-up-link'
     = link_to 'Login', new_user_session_path
 .homepage
   .header
@@ -11,30 +11,64 @@
       %h2 BUILT BY DEVELOPERS FOR DEVELOPERS
   .feature-container
     .features
-      .feature
+      .feature#portfolio
         %h4
           Build a Custom
           %br
           Portfolio
         .feature-icon.portfolio
-      .feature
+      .feature#github
         %h4
           Contribute to
           %br
           Open Source
         .feature-icon.github
-      .feature
+      .feature#track
         %h4
           Track Your
           %br
           Job Applications
         .feature-icon.track
-      .feature
+      .feature#blog
         %h4
           Write a Dev
           %br
           Blog
         .feature-icon.blog
+    .feature-detail-container
+      .detail#portfolio-detail.hidden
+        %ul
+          %li
+            Build a custom portfolio that will be hosted at
+            %strong
+              "mydevportal.io/your-portfolio-name".
+          %li Add your projects with details and photos
+          %li Show off languages and frameworks that you know
+          %li Tell the world a little bit about your self
+          %li Customize with your choice of colors and images
+      .detail#github-detail.hidden
+        My Dev Portal is an open source project and we are always looking for contributors.
+        If there is a template or a feature that we don't have then contribute it!
+        Either build it yourself or submit the design, or desired feature, under
+        = link_to 'Issues', 'https://github.com/SWLivingstone/my_dev_portal/issues'
+        and someone will build it for you.
+        %br
+        Find the repo on GitHub
+        = link_to 'here', 'https://github.com/SWLivingstone/my_dev_portal'
+      .detail#track-detail.hidden
+        On the war path to employment?  Ease the chaos of it all with our job application
+        tracker.  It keeps track of the who, what, where, and when of your job search.
+        %br
+        %br
+        New features are on the way! (feel free to work on them yourself)
+        %ul
+          %li Job tracking metrics
+          %li Weekly job hunt reports
+          %li Follow up reminders
+      .detail#blog-detail.hidden
+        This feature still needs to be added.  Check out the repository on GitHub
+        = link_to 'here', 'https://github.com/SWLivingstone/my_dev_portal'
+        to see the current status of the feature or, better yet, to help build it!
   .footer-container
     .footer
       .about
@@ -44,27 +78,17 @@
           My Dev Portal exists as both an opportunity and a tool.  It is an
           opportunity for new and experienced developers to contribute to a
           growing open source project.  It is a tool for developers to build and
-          host their portfolio, track their job applications, and keep a blog.
-      .terms
-        %h4
-          Term of use
-        %p
-          We, the Operators of this Website, provide it as a public service to
-          our users.  My Dev Portal is fully open source and the code repository
-          is hosted on GitHub.
-          %br
-          While My Dev Portal is built and maintained to a high standard the
-          Operators make no claims as to the protection of any private information
-          or data that is uploaded to this Website.
+          host their portfolio, track their job applications, and keep a developer blog.
       .contact
         %h4
           Contact
         %p
-          Project Manager:
+          If you would like to contact the project creator/maintainer directly
+          please email Scott Livingstone at scottwlivingstone@gmail.com
           %br
-          scottwlivingstone@gmail.com
           %br
+          Alternativly you can check out the git repo
+          = link_to 'here', "https://github.com/SWLivingstone/my_dev_portal"
           %br
-          GitHub Repo:
-          %br
-          https://github.com/SWLivingstone/my_dev_portal
+          My Dev Portal logo create by
+          = link_to 'Lotta Seither', "http://lottaseither.com"

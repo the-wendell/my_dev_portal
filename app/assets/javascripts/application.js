@@ -16,4 +16,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require ./homepage.js
 //= require ./cable.js
