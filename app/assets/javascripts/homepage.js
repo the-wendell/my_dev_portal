@@ -4,19 +4,20 @@ On click hides/unhides the div that matches the element id.
 
 $(document).ready(function(){
   $(".feature").click(function () {
-      const id = this.id
-      if ($(`#${id}-detail`).hasClass("hidden")) {
+      var id = this.id
+      var element = id.concat('-detail')
+      if ($('#' + element).hasClass("hidden")) {
         $(".detail").addClass("hidden");
         $(".feature").removeClass("active-feature");
-        $(`#${id}-detail`).removeClass("hidden");
+        $('#' + element).removeClass("hidden");
         $(this).addClass("active-feature");
 
         $('html, body').animate({
-            scrollTop: $(`#${id}-detail`).offset().top
+            scrollTop: $('#' + element).offset().top
         }, 300);
       }
       else {
-        $(`#${id}-detail`).addClass("hidden");
+        $('#' + element).addClass("hidden");
         $(".feature").removeClass("active-feature");
       }
   });
