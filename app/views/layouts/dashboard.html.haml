@@ -17,19 +17,45 @@
           = link_to 'Log Out', destroy_user_session_path, method: :delete
       .bottom-nav
         .home-link
-          .nav-item{ class: controller_name == 'dashboard' ? 'active' : '', 'data-placement' => 'right',
-                     title: 'Your dashboard home page (under construction)' }
-            = link_to 'Home', user_dashboard_index_path(current_user)
+          = link_to user_dashboard_index_path(current_user) do
+            .nav-item{ class: @dashboard == 'home' ? 'active' : '', 'data-placement' => 'right',
+                       title: 'Your dashboard home page (under construction)' }
+              Home
         .dashboard-links
           %small Manage Your...
-          .nav-item{ class: controller_name == 'portfolios' ? 'active' : '', 'data-placement' => 'right',
+          = link_to edit_portfolio_path(@portfolio) do
+            .nav-item{ class: @dashboard == 'portfolios' ? 'active' : '', 'data-placement' => 'right',
+                     title: 'Build and customise your portfolios' }
+              Portfolios
+          = link_to user_job_applications_path(current_user) do
+            .nav-item{ class: @dashboard == 'job_applications' ? 'active' : '', 'data-placement' => 'right',
+                       title: 'Manage your job applications' }
+              Job Applications
+          = link_to user_dashboard_index_path(current_user) do
+            .nav-item{ 'data-placement' => 'right',
+                       title: 'Your dashboard home page (under construction)' }
+              Dev Blog
+      - if @dashboard == 'portfolios'
+        .portfolios-nav
+          = link_to edit_portfolio_path(@portfolio) do
+            .portfolio-nav-item{ class: controller_name == 'portfolios' ? 'active-portfolio-menue' : '', 'data-placement' => 'right',
                      title: 'Customize your portfolio settings' }
-            = link_to 'Portfolios', edit_portfolio_path(@portfolio)
-          .nav-item{ class: controller_name == 'job_applications' ? 'active' : '', 'data-placement' => 'right',
-                     title: 'Manage your job applications' }
-            = link_to 'Job Applications', user_job_applications_path(current_user)
-          .nav-item{ class: controller_name == 'dashboard' ? 'active' : '', 'data-placement' => 'right',
-                     title: 'Your dashboard home page (under construction)' }
-            = link_to 'Dev Blog', user_dashboard_index_path(current_user)
+              Settings
+          = link_to portfolio_abouts_path(@portfolio) do
+            .portfolio-nav-item{ class: controller_name == 'abouts' ? 'active-portfolio-menue' : '', 'data-placement' => 'right',
+                       title: 'Manage your job applications' }
+              About Me
+          = link_to portfolio_projects_path(@portfolio) do
+            .portfolio-nav-item{ class: controller_name == 'projects' ? 'active-portfolio-menue' : '', 'data-placement' => 'right',
+                       title: 'Add projects to be displayed on your portfolio' }
+              Projects
+          = link_to portfolio_technologies_path(@portfolio) do
+            .portfolio-nav-item{ class: controller_name == 'technologies' ? 'active-portfolio-menue' : '', 'data-placement' => 'right',
+                       title: 'Add skills and known technologies to be displayed on your portfolio' }
+              Skills
+          = link_to portfolio_technologies_path(@portfolio) do
+            .portfolio-nav-item{ 'data-placement' => 'right',
+                       title: 'Add skills and known technologies to be displayed on your portfolio' }
+              Preview
       .main-content
         = yield

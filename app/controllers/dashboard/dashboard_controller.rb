@@ -3,6 +3,7 @@ class Dashboard::DashboardController < ApplicationController
   before_action :authenticate_user!, :set_portfolios, :confirm_portfolio_owner
 
   def index
+    @dashboard = 'home'
     @portfolio_header = @portfolio.portfolio_header || PortfolioHeader.new
     @about = @portfolio.about || About.new
     @projects = @portfolio.projects.all.order(:order)

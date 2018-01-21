@@ -1,4 +1,4 @@
-class Dashboard::ProjectsController < Dashboard::DashboardController
+class Dashboard::ProjectsController < Dashboard::PortfoliosController
   before_action :set_record, only: %i[update destroy edit create show]
   before_action :set_new_record, only: %i[index new]
   before_action :confirm_owner, only: %i[create update destroy]

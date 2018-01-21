@@ -38,14 +38,14 @@ a:hover{
 .top-nav .links {
   display: flex;
   justify-content: space-around;
-  padding-right: 30px;
+  margin-right: 40px;
   font-size: 24px;
 }
 
 .account-settings {
   border-right: 2px solid white;
-  margin-right: 10px;
-  padding-right: 10px;
+  margin-right: 12px;
+  padding-right: 15px;
 }
 
 .logo {
@@ -54,7 +54,7 @@ a:hover{
   background-position: center;
   height: 64px;
   width: 97px;
-  margin-left: 30px;
+  margin-left: 40px;
 }
 
 .bottom-nav {
@@ -65,7 +65,7 @@ a:hover{
 }
 
 .home-link {
-  border-right: 2px solid white;
+  border-right: 3px solid white;
   padding-right: 30px;
   margin-right: 30px;
   height: 75px;
@@ -81,22 +81,24 @@ a:hover{
 
 .dashboard-links {
   display: grid;
-  grid-template-columns: repeat(3, 140px);
-  grid-template-rows: 20px auto;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: 15px auto;
   grid-gap: 10px;
-  margin-bottom: 30px;
+  grid-column-gap: 15px;
+  margin-bottom: 12px;
 }
 
 .dashboard-links small {
   grid-column: span 3;
   color: white;
   align-self: start;
-  font-size: 16px;
+  font-size: 14px;
+  margin-left: 3px;
 }
 
 .dashboard-links .nav-item {
-  height: 40px;
-  font-size: 16px;
+  height: 45px;
+  font-size: 18px;
 }
 
 .nav-item {
@@ -105,6 +107,38 @@ a:hover{
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+}
+
+.active {
+  background-color: #81181a
+}
+
+.portfolios-nav {
+  display: grid;
+  grid-template-columns: repeat(5, 125px);
+  grid-template-rows: 65px;
+  grid-column-gap: 15px;
+  background-color: #1c1c1c;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #242424;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.active-portfolio-menue {
+  position: relative;
+  z-index: 2;
+  background-color: #33566f;
+  margin-bottom: -25px;
+  padding-bottom: 40px;
+  padding-top: 20px;
 }
 
 .main-content {

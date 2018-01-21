@@ -2,6 +2,7 @@ class Dashboard::PortfoliosController < Dashboard::DashboardController
   skip_before_action :confirm_portfolio_owner, only: %i[create]
   before_action :set_portfolio, only: %i[new edit update]
   before_action :confirm_owner, only: %i[update]
+  before_action :set_dashboard
 
   def new
   end
@@ -38,6 +39,10 @@ class Dashboard::PortfoliosController < Dashboard::DashboardController
   end
 
   private
+
+  def set_dashboard
+    @dashboard = 'portfolios'
+  end
 
   def confirm_owner
     unless current_user == @portfolio.user

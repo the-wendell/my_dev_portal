@@ -2,6 +2,7 @@ class Dashboard::JobApplicationsController < Dashboard::DashboardController
   require 'csv'
   before_action :set_job_application, only: %i[show edit update destroy]
   before_action :combine_params, only: %i[index]
+  before_action :set_dashboard
 
   def index
     @filterrific = initialize_filterrific(
@@ -71,6 +72,10 @@ class Dashboard::JobApplicationsController < Dashboard::DashboardController
   end
 
   private
+
+    def set_dashboard
+      @dashboard = 'job_applications'
+    end
 
     def combine_params
       @filter_params = params[:filterrific]
