@@ -30,6 +30,9 @@ Then, get crackin'!
 
 As "My Dev Portal" is being built with new devlopers in mind it is also being built to allow for entry level contributions in the form of themes/templates.  One can never have too many themes!  Below you will find *very* detailed instructions on how to create a new Portfolio theme.  Do not let the longwinded instructions fool you as adding a theme is quite simple!  The majority of the instructions are simply tables depicting the available user data.
 
+**Designers Welcome**
+If you have a great design for My Dev Portal that you would like made submit it as an issue with a mock-up and someone will build it!
+
 The standards for contribution are simple and minmal.
 * If what you have written is a function then please add an Rspec test for it (tests are not necessary for private/protected functions)
 * Portfolio themes should be responsive (tests are not necessary for themes)
