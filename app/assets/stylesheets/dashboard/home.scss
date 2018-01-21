@@ -11,14 +11,10 @@
 }
 
 .go-to-portfolio {
-  background-color: #323472;
+  background-color: #24a3b7;
   font-size: 28px;
-  box-shadow: 1px 1px 1px grey;
+  box-shadow: 3px 3px 1px black;
   padding: 10px;
-}
-
-.go-to-portfolio:hover {
-  background-color: #1F2047;
 }
 
 .go-to-portfolio a {
@@ -30,11 +26,12 @@
 .new-user-box {
   display: grid;
   grid-template-columns: 350px;
-  background-color: #00A6FB;
+  background-color: #1c1c1c;
   padding: 20px;
-  border-radius: 25px;
+  border-radius: 5px;
   color: white;
   grid-gap: 10px;
+  box-shadow: 3px 3px 2px black;
 }
 
 .new-user-box a {

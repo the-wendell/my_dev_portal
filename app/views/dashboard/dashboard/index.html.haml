@@ -1,6 +1,6 @@
 .home-container
   .welcome-box
-    .go-to-portfolio{type: 'button'}
+    .go-to-portfolio
       = link_to 'View Your Portfolio', "/#{@portfolio.url}"
     - if @new_user
       .new-user-box
