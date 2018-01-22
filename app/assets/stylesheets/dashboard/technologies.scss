@@ -5,19 +5,38 @@
   grid-template-columns: auto 550px auto;
   margin-top: 75px;
   grid-gap: 20px;
+  background: linear-gradient(to bottom, #33566f 0%, #33566f 5%, #70acd1 5%, #70acd1 95%, #33566f 95%, #33566f 0% );
 }
 
 .technologies-form-container {
   color: white;
-  background-color: #83c9f4;
-  border-radius: 10px;
-  padding: 20px;
+  background-color: #1c1c1c;
+  box-shadow: 3px 3px 1px 0px black;
+  border-radius: 5px;
+  padding: 30px 35px 20px 35px;
   grid-column: 2 / 3;
   justify-self: center;
+  display: grid;
+}
+
+.technologies-form-container h4 {
+  justify-self: center;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid white;
+  width: 400px;
 }
 
 .technologies-form-container p {
   margin-bottom: 5px;
+}
+
+.technolgies-form-sub-container {
+  background-color: #606060;
+  box-shadow: 3px 3px 1px 0px black;
+  padding: 15px;
+  border-radius: 5px;
 }
 
 .technologies-explained {
@@ -27,15 +46,7 @@
 .form-technology {
   display: grid;
   grid-template-columns: 230px 230px;
-  grid-template-rows: 40px 40px 20px;
-}
-
-.form-technology .field input {
-  box-shadow: 0px 0px 0px 0px;
-}
-
-.form-technology .actions input {
-  box-shadow: 0px 0px 0px 0px;
+  grid-template-rows: 40px 40px 50px;
 }
 
 .form-technology div:nth-child(1) {
@@ -48,37 +59,40 @@
   grid-template-rows: 25px;
 }
 
-.years-exp-field {
-  width: 30px;
-}
-
 .exp-input {
   display: grid;
   grid-template-columns: 150px 50px;
-  grid-template-rows: 25px;
+  grid-template-rows: 30px;
+  justify-self: end;
 }
 
 .form-technology .actions {
-  justify-self: center;
+  justify-self: end;
+  align-self: end;
   grid-column: 2 / 3;
+}
+
+.form-technology .cancel {
+  margin-right: 10px;
 }
 
 // show technology index
 
 .technologies-show-main-container {
-  color: white;
-  background-color: #00A6FB;
-  box-shadow: 3px 4px 3px 0px grey;
-  border-radius: 25px;
-  padding: 20px;
-  grid-column: 2 / 3;
-  display: grid;
-  grid-template-columns: 150px 100px 175px 100px;
-  justify-content: center;
+  grid-column: span 3;
+  justify-self: center;
+  padding: 30px 35px 20px 35px;
+  background-color: #1c1c1c;
+  box-shadow: 3px 3px 1px 0px black;
+  border-radius: 5px;
+  width: 800px;
 }
 
-.edit-delete-header {
-  justify-self: center;
+.technologies-show-main-container .table {
+  background-color: #606060;
+  box-shadow: 3px 3px 1px 0px black;
+  border-radius: 5px;
+  width: 100%;
 }
 
 .edit-delete-technology {
@@ -92,7 +106,6 @@
   background-position: center;
   background-repeat: no-repeat;
   height: 24px;
-  margin-right: 5px;
 }
 
 .technology-delete-icon {
@@ -100,13 +113,30 @@
   background-position: center;
   background-repeat: no-repeat;
   height: 24px;
-  margin-left: 5px;
 }
 
-.show-proficiency {
-  margin-top: 4px;
-}
+// .technologies-show-main-container {
+//   color: white;
+//   background-color: #00A6FB;
+//   box-shadow: 3px 4px 3px 0px grey;
+//   border-radius: 25px;
+//   padding: 20px;
+//   grid-column: 2 / 3;
+//   display: grid;
+//   grid-template-columns: 150px 100px 175px 100px;
+//   justify-content: center;
+// }
+//
+// .edit-delete-header {
+//   justify-self: center;
+// }
+//
 
-.progress {
-  box-shadow: 1px 1px grey;
-}
+//
+// .show-proficiency {
+//   margin-top: 4px;
+// }
+//
+// .progress {
+//   box-shadow: 1px 1px grey;
+// }

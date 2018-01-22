@@ -1,6 +1,6 @@
 .about-main {
   display: grid;
-  grid-template-columns: auto 580px auto;
+  grid-template-columns: auto 615px auto;
   grid-template-rows: auto;
   margin-top: 75px;
   grid-gap: 20px;
@@ -21,7 +21,7 @@
   background-color: #1c1c1c;
   box-shadow: 3px 3px 1px 0px black;
   border-radius: 5px;
-  padding: 20px;
+  padding: 30px 35px 20px 35px;
   grid-column: 2 / 3;
   display: grid;
 }
@@ -66,7 +66,7 @@
   }
 
   .about-main {
-    grid-template-columns: auto 1125px auto;
+    grid-template-columns: auto 1160px auto;
   }
 
   .field.about-me {

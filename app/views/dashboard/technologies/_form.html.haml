@@ -11,6 +11,6 @@
       = f.label :proficiency
       = f.select :proficiency, ((0..10).map { |i| [i, i] }), selected: 10
     .actions
-      = f.submit "Submit #{@technology.persisted? ? 'Edit' : 'New'}"
       - if @technology.persisted?
-        = link_to 'Cancel', portfolio_technologies_path(@portfolio), class: 'delete-button'
+        = link_to 'Cancel', portfolio_technologies_path(@portfolio), class: 'cancel'
+      = f.submit "#{@technology.persisted? ? 'Update' : 'Add New'}", class: 'update-button'
