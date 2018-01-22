@@ -51,7 +51,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     user_email = current_user.email.split('@').first
-    url = "#{user_email}#{rand(10**10).to_s.rjust(10, '0')}"
+    url = generate_unique_url(user_email)
     default = { url: url, theme: 'default',
                 color_one: '#0a0d72', color_two: '#83c9f4',
                 color_three: '#2196f3', color_four: '#00a6fb',
@@ -68,4 +68,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  def generate_unique_url(user_email)
+    url = "#{user_email}#{rand(10**10).to_s.rjust(10, '0')}"
+    Portfolio.exists?(url: url) ? generate_unique_url(user_email) : url
+  end
 end
