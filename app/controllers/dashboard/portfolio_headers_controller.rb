@@ -1,4 +1,4 @@
-class Dashboard::PortfolioHeadersController < Dashboard::DashboardController
+class Dashboard::PortfolioHeadersController < Dashboard::PortfoliosController
   before_action :set_record, only: %i[update edit create show]
   before_action :set_new_record, only: %i[index new]
   before_action :confirm_owner, only: %i[update]
@@ -21,21 +21,21 @@ class Dashboard::PortfolioHeadersController < Dashboard::DashboardController
     @portfolio_header.portfolio = @portfolio
 
     if @portfolio_header.save
-      redirect_to portfolio_portfolio_headers_path(@portfolio)
+      redirect_to edit_portfolio_path(@portfolio)
       flash[:notice] = 'Portfolio Header successfully created!'
     else
       flash[:alert] = helpers.display_errors(@portfolio_header)
-      render 'new'
+      render 'dashboard/portfolios/edit'
     end
   end
 
   def update
     if @portfolio_header.update(portfolio_header_params)
-      redirect_to portfolio_portfolio_headers_path(@portfolio)
+      redirect_to edit_portfolio_path(@portfolio)
       flash[:notice] = 'Portfolio Header successfully updated'
     else
       flash[:alert] = helpers.display_errors(@portfolio_header)
-      render 'edit'
+      render 'dashboard/portfolios/edit'
     end
   end
 

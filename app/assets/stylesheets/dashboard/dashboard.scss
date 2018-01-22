@@ -14,12 +14,53 @@ a:hover{
   text-decoration: none;
 }
 
+select {
+  background-color: white;
+  border: 0px;
+  padding: 5px;
+}
+
+.minicolors-theme-default .minicolors-input {
+  height: 28px;
+}
+
+.alert {
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+
 .dashboard-container a {
   color: white;
 }
 
 .field_with_errors input {
   background-color: red;
+}
+
+.set-portfolio-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-set-portfolio {
+  padding: 10px;
+  background-color: #24a3b7;
+  width: 200px;
+  height: 90px;
+  margin-top: 40px;
+  border-radius: 5px 0px 0px 5px;
+  box-shadow: -2px 3px 1px black;
+  color: white;
+}
+
+.form-set-portfolio label {
+  font-size: 20px;
+}
+
+.form-set-portfolio select {
+  font-size: 14px;
+  height: 30px;
+  width: 175px;
 }
 
 .dashboard-container {

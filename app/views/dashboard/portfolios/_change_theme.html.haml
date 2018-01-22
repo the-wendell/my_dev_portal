@@ -1,13 +1,14 @@
-.change-portfolio-theme.config-container
+.config-container
   %h4 Change Portfolio Theme
-  %p Pick a theme for your portfolio.  More themes coming soon!
-  %small Your current theme is
-  %h5
-    = @portfolio.theme
-  = form_for @portfolio do |f|
-    .form-portfolio-theme
-      .field
-        = f.label :theme
-        = f.select :theme, @themes.map { |theme| [ theme, theme]}, selected: @portfolio.theme
-      .actions
-        = submit_tag 'Update'
+  .settings-form-container#change-portfolio-theme
+    %p Pick a theme for your portfolio.  More themes coming soon!
+    %small Your current theme is
+    %h5
+      = @portfolio.theme
+    = form_for @portfolio do |f|
+      .form-portfolio-theme
+        .field
+          = f.label :theme
+          = f.select :theme, @themes.map { |theme| [ theme, theme]}, selected: @portfolio.theme
+        .actions
+          = submit_tag 'Update', class: 'update-button'

@@ -1,0 +1,10 @@
+.config-container
+  %h4 Cover Image Preview
+  .settings-form-container.preview-image
+    - if @portfolio_header.cover_image.full.url
+      - if @portfolio.show_cover_image
+        %img{ src: "#{@portfolio_header.cover_image.preview.url}"}
+      - else
+        %h5 You have chosen not to display an Cover image
+    - else
+      %h5 You have not uploaded a Cover image yet

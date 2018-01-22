@@ -1,13 +1,14 @@
-.change-image-display.config-container
+.config-container
   %h4 Display Images
-  %p Select which images will be displayed on your portfolio.  What replaces the image will depend on your chosen theme.
-  = form_for @portfolio do |f|
-    .form-image-display
-      .field
-        = f.label :show_avatar_image
-        = f.select :show_avatar_image, [['Yes', true], ['No', false]], selected: @portfolio.show_avatar_image
-      .field
-        = f.label :show_cover_image
-        = f.select :show_cover_image, [['Yes', true], ['No', false]], selected: @portfolio.show_cover_image
-      .actions
-        = submit_tag 'Update'
+  .settings-form-container#change-image-display
+    %p Select which images will be displayed on your portfolio.  What replaces the image will depend on your chosen theme.
+    = form_for @portfolio do |f|
+      .form-image-display
+        .field
+          = f.label :show_avatar_image
+          = f.select :show_avatar_image, [['Yes', true], ['No', false]], selected: @portfolio.show_avatar_image
+        .field
+          = f.label :show_cover_image
+          = f.select :show_cover_image, [['Yes', true], ['No', false]], selected: @portfolio.show_cover_image
+        .actions
+          = submit_tag 'Update', class: 'update-button'

@@ -1,0 +1,10 @@
+.config-container
+  %h4 Avatar Image Preview
+  .settings-form-container.preview-image
+    - if @portfolio_header.avatar_image.full.url
+      - if @portfolio.show_avatar_image
+        %img{ src: "#{@portfolio_header.avatar_image.full.url}"}
+      - else
+        %h5 You have chosen not to display an Avatar image
+    - else
+      %h5 You have not uploaded an Avatar image yet

@@ -1,7 +1,8 @@
 !!!
 %html
   %head
-    %title MyDevPortalDashboard
+    %title
+      = @portfolio.url
     = stylesheet_link_tag 'application-themes', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag 'portfolio', 'data-turbolinks-track' => true

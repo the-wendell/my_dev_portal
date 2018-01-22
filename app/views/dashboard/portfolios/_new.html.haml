@@ -1,0 +1,13 @@
+.config-container
+  %h4 Create a New Portfolio
+  .settings-form-container#new-portfolio
+    %p
+      Want a portfolio that showcases a slightly different set of skills?
+      Create a new portfolio with its own URL, projects, skills, etc...
+    = form_for Portfolio.new do |f|
+      .form-new-portfolio
+        .field
+          = f.label :url, 'New Portfolio URL'
+          = f.text_field :url, class: 'input-new-portfolio-url'
+        .actions
+          = submit_tag 'Create', class: 'update-button'

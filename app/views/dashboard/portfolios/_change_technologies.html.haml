@@ -1,13 +1,14 @@
-.change-image-display.config-container
+.config-container
   %h4 Display Technical Skills
-  %p Chose how you would like to display your proficiency in tehnical skills - by years of experience, scale of 1 to 10, both, or none.
-  = form_for @portfolio do |f|
-    .form-image-display
-      .field
-        = f.label :show_years_exp
-        = f.select :show_years_exp, [['Yes', true], ['No', false]], selected: @portfolio.show_years_exp
-      .field
-        = f.label :show_on_scale
-        = f.select :show_proficiency, [['Yes', true], ['No', false]], selected: @portfolio.show_proficiency
-      .actions
-        = submit_tag 'Update'
+  .settings-form-container#technolgies-display
+    %p Chose how you would like to display your proficiency in tehnical skills - by years of experience, scale of 1 to 10, both, or none.
+    = form_for @portfolio do |f|
+      .form-technologies-display
+        .field
+          = f.label :show_years_exp
+          = f.select :show_years_exp, [['Yes', true], ['No', false]], selected: @portfolio.show_years_exp
+        .field
+          = f.label :show_on_scale
+          = f.select :show_proficiency, [['Yes', true], ['No', false]], selected: @portfolio.show_proficiency
+        .actions
+          = submit_tag 'Update', class: 'update-button'

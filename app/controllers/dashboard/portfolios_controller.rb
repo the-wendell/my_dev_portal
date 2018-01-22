@@ -1,6 +1,6 @@
 class Dashboard::PortfoliosController < Dashboard::DashboardController
   skip_before_action :confirm_portfolio_owner, only: %i[create]
-  before_action :set_portfolio, only: %i[new edit update]
+  before_action :set_portfolio, only: %i[new edit update create]
   before_action :confirm_owner, only: %i[update]
   before_action :set_dashboard
 
@@ -19,7 +19,7 @@ class Dashboard::PortfoliosController < Dashboard::DashboardController
       redirect_to user_dashboard_index_path(current_user)
     else
       flash[:alert] = helpers.display_errors(@portfolio)
-      redirect_to new_user_portfolio_path(current_user)
+      redirect_to edit_portfolio_path(helpers.active_portfolio)
     end
   end
 
@@ -54,6 +54,7 @@ class Dashboard::PortfoliosController < Dashboard::DashboardController
   def set_portfolio
     @portfolio = helpers.active_portfolio
     @portfolios = current_user.portfolios.all
+    @portfolio_header = @portfolio.portfolio_header || PortfolioHeader.new
     @themes = Themes.array
   end
 

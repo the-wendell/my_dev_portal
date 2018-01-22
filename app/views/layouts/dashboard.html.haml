@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title MyDevPortalDashboard
+    %title Your Dashboard
     = stylesheet_link_tag 'application-dashboard', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag 'dashboard', 'data-turbolinks-track' => true
@@ -58,4 +58,16 @@
                        title: 'Add skills and known technologies to be displayed on your portfolio' }
               Preview
       .main-content
+        - if flash[:alert]
+          .alert.alert-warning.alert-dismissible.fade.show{ role: 'alert' }
+            = alert
+            %button.close{ type: 'button', 'data-dismiss' => 'alert', 'aria-label' => 'close' }
+              %span{ 'aria-hidden' => 'true' }
+                &times;
+        - if flash[:notice]
+          .alert.alert-success.alert-dismissible.fade.show{ role: 'alert' }
+            = notice
+            %button.close{ type: 'button', 'data-dismiss' => 'alert', 'aria-label' => 'close' }
+              %span{ 'aria-hidden' => 'true' }
+                &times;
         = yield

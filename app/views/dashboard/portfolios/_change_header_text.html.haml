@@ -1,0 +1,15 @@
+.config-container
+  %h4 Header Text
+  .settings-form-container#change-header-text
+    = form_for [@portfolio, @portfolio_header] do |f|
+      .form-header-text
+        .field
+          = f.label :header_one_
+          %small (A good spot for your name)
+          = f.text_field :header_one
+        .field
+          = f.label :header_two
+          %br
+          = f.text_area :header_two
+        .actions
+          = f.submit 'Update', class: 'update-button'

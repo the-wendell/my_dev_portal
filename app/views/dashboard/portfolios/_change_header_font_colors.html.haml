@@ -1,0 +1,19 @@
+-# Inline script required to load minicolors() without refresh
+:javascript
+  $('.color-picker').minicolors()
+.config-container
+  %h4 Header Font Colors
+  .settings-form-container#change-font-colors
+    %p
+      Pick the font colors to be used for your header text.
+      *note* these are seperate from your theme colors
+    = form_for [@portfolio, @portfolio_header] do |f|
+      .form-portfolio-font-colors
+        .field
+          = f.label :header_one
+          = f.text_field :header_one_color, as: :minicolors, class: 'color-picker'
+        .field
+          = f.label :header_two
+          = f.text_field :header_two_color, as: :minicolors, class: 'color-picker'
+        .actions
+          = f.submit 'Update', class: 'update-button'

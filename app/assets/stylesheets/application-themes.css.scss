@@ -1,0 +1,26 @@
+/*
+ *= require_self
+ *= require_tree ./themes
+ */
+
+@import 'bootstrap';
+
+body {
+   font-family: 'Roboto', sans-serif;
+ }
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.alert {
+  margin-bottom: 0px;
+}

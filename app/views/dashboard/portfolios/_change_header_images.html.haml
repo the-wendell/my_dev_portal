@@ -1,0 +1,19 @@
+.config-container
+  %h4 Upload Header Images
+  .settings-form-container#change-header-images
+    = form_for [@portfolio, @portfolio_header] do |f|
+      .form-header-images
+        .field.upload-image
+          = f.label :cover_image
+          %br
+          %small Prefered 1290x800 (12:5 aspect ratio)
+          %br
+          = f.file_field :cover_image, class: 'form-project-image'
+        .field.upload-image
+          = f.label :avatar_image
+          %br
+          %small Prefered 225x300 (3:4 aspect ratio)
+          %br
+          = f.file_field :avatar_image, class: 'form-project-image'
+        .actions
+          = f.submit 'Update', class: 'update-button'

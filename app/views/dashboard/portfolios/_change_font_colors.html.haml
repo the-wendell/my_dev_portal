@@ -1,16 +1,17 @@
 -# Inline script required to load minicolors() without refresh
 :javascript
   $('.color-picker').minicolors()
-.change-color-theme.config-container
+.config-container
   %h4 Change Font Colors
-  %p Pick the main font colors to be used for your portfolio.  Note: These font colors are seperate from your header font colors
-  = form_for @portfolio do |f|
-    .form-portfolio-colors
-      .field
-        = f.label :font_color_one
-        = f.text_field :font_color_one, as: :minicolors, class: 'color-picker'
-      .field
-        = f.label :font_color_two
-        = f.text_field :font_color_two, as: :minicolors, class: 'color-picker'
-      .actions
-        = submit_tag 'Update'
+  .settings-form-container#change-font-colors
+    %p Pick the main font colors to be used for your portfolio.  Note: These font colors are seperate from your header font colors
+    = form_for @portfolio do |f|
+      .form-portfolio-font-colors
+        .field
+          = f.label :font_color_one
+          = f.text_field :font_color_one, as: :minicolors, class: 'color-picker'
+        .field
+          = f.label :font_color_two
+          = f.text_field :font_color_two, as: :minicolors, class: 'color-picker'
+        .actions
+          = submit_tag 'Update', class: 'update-button'

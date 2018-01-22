@@ -1,7 +1,20 @@
-.portfolio-config-main
-  = render partial: 'change_url'
-  = render partial: 'change_theme'
-  = render partial: 'change_colors'
-  = render partial: 'change_font_colors'
-  = render partial: 'change_display_image'
-  = render partial: 'change_technologies'
+.portfolio-config-container
+  .heading
+    %h1 Main Settings
+    = render partial: 'dashboard/dashboard/select_active_portfolio'
+  .portfolio-config-main
+    = render partial: 'change_url'
+    = render partial: 'change_theme'
+    = render partial: 'change_colors'
+    = render partial: 'change_font_colors'
+    = render partial: 'change_technologies'
+    = render partial: 'new'
+  .heading
+    %h1 Header Settings
+  .portfolio-config-main
+    = render partial: 'change_header_text'
+    = render partial: 'change_header_font_colors'
+    = render partial: 'change_display_image'
+    = render partial: 'change_header_images'
+    = render partial: 'current_avatar_image'
+    = render partial: 'current_cover_image'
