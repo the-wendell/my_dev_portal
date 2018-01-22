@@ -2,6 +2,8 @@
 %html
   %head
     %title Your Dashboard
+    - if controller_name == 'portfolio'
+      = stylesheet_link_tag 'application-themes', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag 'application-dashboard', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag 'dashboard', 'data-turbolinks-track' => true
@@ -53,9 +55,9 @@
             .portfolio-nav-item{ class: controller_name == 'technologies' ? 'active-portfolio-menue' : '', 'data-placement' => 'right',
                        title: 'Add skills and known technologies to be displayed on your portfolio' }
               Skills
-          = link_to portfolio_technologies_path(@portfolio) do
-            .portfolio-nav-item{ 'data-placement' => 'right',
-                       title: 'Add skills and known technologies to be displayed on your portfolio' }
+          = link_to "/preview/#{@portfolio.url}" do
+            .portfolio-nav-item{ class: controller_name == 'front_end_portfolios' ? 'active-portfolio-menue' : '', 'data-placement' => 'right',
+                       title: 'Preview your portfolio' }
               Preview
       .main-content
         - if flash[:alert]

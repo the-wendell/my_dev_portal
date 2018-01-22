@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: auto 615px auto;
   grid-template-rows: auto;
-  margin-top: 75px;
+  margin-top: 20px;
   grid-gap: 20px;
   background: linear-gradient(to bottom, #33566f 0%, #33566f 5%, #70acd1 5%, #70acd1 95%, #33566f 95%, #33566f 0% );
 }
@@ -30,14 +30,17 @@
   justify-self: end;
 }
 
-.form-about {
-  display: grid;
-  grid-template-columns: 510px;
-  grid-template-rows: repeat(7, 70px) 100px 350px;
+.about-form-container {
   background-color: #606060;
   box-shadow: 3px 3px 1px 0px black;
   padding: 15px;
   border-radius: 5px;
+}
+
+.form-about {
+  display: grid;
+  grid-template-columns: 510px;
+  grid-template-rows: repeat(7, 70px) 100px 350px;
 }
 
 .form-about .field input {

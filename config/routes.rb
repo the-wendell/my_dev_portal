@@ -1,18 +1,14 @@
 Rails.application.routes.draw do
   root 'home#index'
-
-  # get 'dashboard/index'
-
   patch 'select_active_portfolio' => 'dashboard/users#update'
-  #
-  get ':portfolio' => 'front_end/portfolios#show'
-  # get 'portfolios/:id' => 'portfolios#edit'
+  get ':portfolio' => 'front_end/portfolio#show'
+  get 'preview/:portfolio' => 'front_end/portfolio#preview'
 
   scope module: 'dashboard' do
     resources :portfolios, only: %i[create update destroy edit] do
       resources :projects
       resources :technologies
-      resources :portfolio_headers
+      resources :portfolio_headers, only: %i[create update edit]
       resources :abouts
     end
     resources :users, only: %i[update] do

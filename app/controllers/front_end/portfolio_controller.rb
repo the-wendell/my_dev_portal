@@ -1,7 +1,20 @@
-class FrontEnd::PortfoliosController < ApplicationController
-  layout 'portfolios'
+class FrontEnd::PortfolioController < ApplicationController
+  layout 'dashboard', only: [:preview]
 
   def show
+    render_portfolio
+  end
+
+  def preview
+    render_portfolio
+    @portfolios = current_user.portfolios.all
+    @dashboard = 'portfolios'
+    render 'dashboard/portfolios/preview'
+  end
+
+  private
+
+  def render_portfolio
     @portfolio = Portfolio.find_by(url: params[:portfolio]) rescue raise('not found')
     @portfolio_header = @portfolio.portfolio_header || filler_header
     @projects = @portfolio.projects.all.order(:order)
@@ -19,8 +32,6 @@ class FrontEnd::PortfoliosController < ApplicationController
       @show_technology = 'none'
     end
   end
-
-  private
 
   def filler_about
     About.new(

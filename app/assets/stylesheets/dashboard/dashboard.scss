@@ -61,6 +61,10 @@ select {
   font-size: 14px;
   height: 30px;
   width: 175px;
+  background-color: white;
+  color: black;
+  -webkit-appearance: menulist;
+  -moz-appearance: menulist;
 }
 
 .dashboard-container {
