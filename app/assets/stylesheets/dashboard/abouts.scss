@@ -1,31 +1,46 @@
 .about-main {
   display: grid;
-  grid-template-columns: auto 550px auto;
+  grid-template-columns: auto 580px auto;
   grid-template-rows: auto;
   margin-top: 75px;
   grid-gap: 20px;
+  background: linear-gradient(to bottom, #33566f 0%, #33566f 5%, #70acd1 5%, #70acd1 95%, #33566f 95%, #33566f 0% );
 }
 
-.about-main h4 {
+.about-form h4 {
+  justify-self: center;
   text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid white;
+  width: 400px;
 }
 
 .about-form {
   color: white;
-  background-color: #00A6FB;
-  box-shadow: 3px 4px 3px 0px grey;
-  border-radius: 10px;
+  background-color: #1c1c1c;
+  box-shadow: 3px 3px 1px 0px black;
+  border-radius: 5px;
   padding: 20px;
   grid-column: 2 / 3;
+  display: grid;
+}
+
+.form-about .actions {
+  justify-self: end;
 }
 
 .form-about {
   display: grid;
   grid-template-columns: 510px;
   grid-template-rows: repeat(7, 70px) 100px 350px;
+  background-color: #606060;
+  box-shadow: 3px 3px 1px 0px black;
+  padding: 15px;
+  border-radius: 5px;
 }
 
-.form-about input {
+.form-about .field input {
   width: 510px;
 }
 
@@ -37,4 +52,30 @@
 .about-me-brief-input {
   height: 50px;
   width: 510px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .form-about {
+    grid-template-columns: 510px 510px;
+    grid-template-rows: repeat(7, 70px);
+    grid-column-gap: 40px;
+  }
+
+  .form-about .actions {
+    grid-column: span 2;
+  }
+
+  .about-main {
+    grid-template-columns: auto 1125px auto;
+  }
+
+  .field.about-me {
+    grid-column: span 2;
+    grid-row: span 3;
+  }
+
+  .about-me-input {
+    height: 150px;
+    width: 1060px;
+  }
 }
