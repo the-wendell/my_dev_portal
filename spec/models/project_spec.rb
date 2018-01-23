@@ -37,6 +37,14 @@ RSpec.describe Project, type: :model do
   end
 
   describe '#order' do
-    it { should validate_numericality_of(:order) }
+    it 'validates order as a number' do
+      record = portfolio.projects.new(project_input)
+      record.order = '2'
+      record.valid?
+      expect(record.errors[:order]).to eq([])
+      record.order = 'two'
+      record.valid?
+      expect(record.errors[:order]).to eq(['is not a number'])
+    end
   end
 end

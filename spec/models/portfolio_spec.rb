@@ -39,11 +39,11 @@ RSpec.describe Portfolio, type: :model do
     end
     it 'should only containe lowercase alphanumeric characters' do
       record = Portfolio.new
-      invalid_characters = %w[! @ A B # $ % ^ & * ( ) _ - = + / \ { } [ ] < > ' " ` ~]
+      invalid_characters = %w[! @ A B # $ % ^ & * ( ) = + / \ { } [ ] < > ' " ` ~]
       invalid_characters.each do |char|
         record.url = "test#{char}"
         record.valid?
-        expect(record.errors[:url]).to eq(['must only contain lowercase alphanumeric characters'])
+        expect(record.errors[:url]).to eq(['must only contain lowercase alphanumeric characters, hyphens, or underscores'])
       end
       record.url = 'myurl'
       record.valid?
