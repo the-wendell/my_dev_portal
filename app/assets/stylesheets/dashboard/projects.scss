@@ -1,0 +1,134 @@
+.project-main {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 200px auto auto;
+}
+
+.project-side-bar {
+  color: white;
+  background-color: #1c1c1c;
+  box-shadow: 3px 3px 1px 0px black;
+  border-radius: 0px 10px 10px 0px;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 30px;
+  grid-gap: 10px;
+  margin-left: -5px;
+}
+
+.project-side-bar h4 {
+  text-align: center;
+  font-size: 26px;
+}
+
+.project-link {
+  background-color: #242424;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.active-project {
+  background-color: #33566f;
+  margin-right: -24px;
+  box-shadow: -1px -1px 1px black;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.form-container-project {
+  justify-self: center;
+  display: grid;
+  color: white;
+  grid-column: 2 / 3;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  padding: 30px 35px 20px 35px;
+}
+
+
+.form-container-project h4 {
+  justify-self: center;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid white;
+  width: 400px;
+}
+
+.project-form-sub-container {
+  background-color: #606060;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.form-project {
+  display: grid;
+  grid-template-columns: 280px 280px;
+  grid-template-rows: 70px 70px;
+  justify-items: start;
+}
+
+.form-project .field input {
+  width: 270px;
+}
+
+.form-project .tech-used {
+  grid-column: 1 / span 2;
+}
+
+.form-project .actions {
+  justify-self: end;
+  align-self: end;
+  padding-top: 20px;
+}
+
+.form-project .cancel-button {
+  margin-right: 10px;
+}
+
+.display_order {
+  align-self: end;
+}
+
+.display-order-input {
+  width: 40px;
+}
+
+.form-project-description {
+  width: 550px;
+  height: 100px;
+}
+
+.form-project-tech {
+  width: 550px;
+  height: 60px;
+}
+
+.form-project-image {
+  background-color: #24a3b7;
+}
+
+.project-preview {
+  grid-column: span 2;
+  justify-self: center;
+  align-self: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.project-preview img {
+  width: 400px;
+  object-fit: contain;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+@media only screen and (max-width: 910px ) {
+  .form-container-project {
+    grid-row: 2 / 3;
+    grid-column: 1 / 4;
+    margin-top: 20px;
+  }
+}

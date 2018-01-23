@@ -56,7 +56,7 @@
                        title: 'Add skills and known technologies to be displayed on your portfolio' }
               Skills
           = link_to "/preview/#{@portfolio.url}" do
-            .portfolio-nav-item{ class: controller_name == 'front_end_portfolios' ? 'active-portfolio-menue' : '', 'data-placement' => 'right',
+            .portfolio-nav-item{ class: controller_name == 'portfolio' ? 'active-portfolio-menue' : '', 'data-placement' => 'right',
                        title: 'Preview your portfolio' }
               Preview
       .main-content

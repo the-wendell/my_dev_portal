@@ -1,7 +1,7 @@
-.main-project
+= render partial: 'dashboard/dashboard/select_active_portfolio'
+.project-main
+  = render partial: 'project_sidebar'
   .form-container-project
     %h4 Add a New Project
-    = render partial: 'form'
-.view-projects-main
-  - @projects && @projects.each do |project|
-    = render partial: 'show', locals: { project: project }
+    .project-form-sub-container
+      = render partial: 'form'

@@ -16,18 +16,25 @@
       = f.label :image
       %br
       = f.file_field :image, class: 'form-project-image'
+    - if @project.persisted?
+      - if @project.image.url
+        .field.project-preview
+          %img{ src: "#{@project.image.url}" }
+      - else
+        .field.project-preview
+          %h5 You have not uploaded an image for this project yet
     .field
       = f.label :description
       %br
       = f.text_area :description, class: 'form-project-description'
-    .field
+    .field.tech-used
       = f.label :tech
       %br
       = f.text_area :tech, class: 'form-project-tech'
-    .field
+    .display_order
       = f.label :display_order
       = f.text_field :order, class: 'display-order-input'
     .actions
-      = f.submit "Submit #{@project.persisted? ? 'Edit' : 'New'}"
       - if @project.persisted?
-        = link_to 'Cancel', portfolio_projects_path(@portfolio), class: 'delete-button'
+        = link_to 'Cancel', portfolio_projects_path(@portfolio), class: 'cancel-button'
+      = f.submit "Submit #{@project.persisted? ? 'Edit' : 'New'}", class: 'update-button'

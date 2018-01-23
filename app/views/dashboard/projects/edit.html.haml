@@ -1,4 +1,7 @@
-.main-project
+= render partial: 'dashboard/dashboard/select_active_portfolio'
+.project-main
+  = render partial: 'project_sidebar'
   .form-container-project
     %h4 Edit Project
-    = render partial: 'form'
+    .project-form-sub-container
+      = render partial: 'form'

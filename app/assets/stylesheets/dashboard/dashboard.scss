@@ -10,8 +10,9 @@ p {
   border: 0;
 }
 
-a:hover{
+.dashboard-container a:hover{
   text-decoration: none;
+  color: white;
 }
 
 select {
@@ -181,9 +182,11 @@ select {
   position: relative;
   z-index: 2;
   background-color: #33566f;
-  margin-bottom: -25px;
-  padding-bottom: 40px;
+  margin-bottom: -23px;
+  padding-bottom: 35px;
   padding-top: 20px;
+  box-shadow: 2px -2px 1px black;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .main-content {
