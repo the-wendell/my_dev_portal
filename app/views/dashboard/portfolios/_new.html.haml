@@ -4,7 +4,7 @@
     %p
       Want a portfolio that showcases a slightly different set of skills?
       Create a new portfolio with its own URL, projects, skills, etc...
-    = form_for Portfolio.new do |f|
+    = form_for [current_user, Portfolio.new] do |f|
       .form-new-portfolio
         .field
           = f.label :url, 'New Portfolio URL'

@@ -5,7 +5,7 @@
       Your current portfolio URL is
       %b
         = "mydevportal.io/#{current_user.portfolios.first.url}"
-    = form_for @portfolio do |f|
+    = form_for [current_user, @portfolio] do |f|
       .form-portfolio-url
         .field
           = f.label :url, 'Portfolio URL'

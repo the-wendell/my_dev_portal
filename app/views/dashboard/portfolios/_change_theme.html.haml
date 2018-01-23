@@ -5,7 +5,7 @@
     %small Your current theme is
     %h5
       = @portfolio.theme
-    = form_for @portfolio do |f|
+    = form_for [current_user, @portfolio] do |f|
       .form-portfolio-theme
         .field
           = f.label :theme

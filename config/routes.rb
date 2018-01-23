@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'preview/:portfolio' => 'front_end/portfolio#preview'
 
   scope module: 'dashboard' do
-    resources :portfolios, only: %i[create update destroy edit] do
+    resources :portfolios, only: %i[] do
       resources :projects
       resources :technologies
       resources :portfolio_headers, only: %i[create update edit]

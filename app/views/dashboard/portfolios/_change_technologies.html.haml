@@ -2,7 +2,7 @@
   %h4 Display Technical Skills
   .settings-form-container#technolgies-display
     %p Chose how you would like to display your proficiency in tehnical skills - by years of experience, scale of 1 to 10, both, or none.
-    = form_for @portfolio do |f|
+    = form_for [current_user, @portfolio] do |f|
       .form-technologies-display
         .field
           = f.label :show_years_exp

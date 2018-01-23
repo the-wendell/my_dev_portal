@@ -4,11 +4,17 @@ class Dashboard::UsersController < ApplicationController
   def update
     @user = current_user
     @user.options[:active_portfolio_id] = params[:id]
+    @active_portfolio_url = Portfolio.find(@user.options[:active_portfolio_id]).url
     if @user.save
-      flash[:notice] = "Active portfolio changed to #{Portfolio.find(@user.options[:active_portfolio_id]).url}"
+      flash[:notice] = "Active portfolio changed to #{@active_portfolio_url}"
     else
-      flash[:alert] = "Doh! Something went wrong..."
+      flash[:alert] = 'Doh! Something went wrong...'
     end
-    redirect_to request.referrer # user_dashboard_index_path(current_user)
+
+    if request.referrer.split('/')[3] == 'preview'
+      redirect_to "/preview/#{@active_portfolio_url}"
+    else
+      redirect_to request.referrer
+    end
   end
 end

@@ -5,7 +5,7 @@
   %h4 Change Font Colors
   .settings-form-container#change-font-colors
     %p Pick the main font colors to be used for your portfolio.  Note: These font colors are seperate from your header font colors
-    = form_for @portfolio do |f|
+    = form_for [current_user, @portfolio] do |f|
       .form-portfolio-font-colors
         .field
           = f.label :font_color_one

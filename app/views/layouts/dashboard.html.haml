@@ -25,7 +25,7 @@
               Home
         .dashboard-links
           %small Manage Your...
-          = link_to edit_portfolio_path(@portfolio) do
+          = link_to edit_user_portfolio_path(current_user, @portfolio) do
             .nav-item{ class: @dashboard == 'portfolios' ? 'active' : '', 'data-placement' => 'right',
                      title: 'Build and customise your portfolios' }
               Portfolios
@@ -39,7 +39,7 @@
               Dev Blog
       - if @dashboard == 'portfolios'
         .portfolios-nav
-          = link_to edit_portfolio_path(@portfolio) do
+          = link_to edit_user_portfolio_path(current_user, @portfolio) do
             .portfolio-nav-item{ class: controller_name == 'portfolios' ? 'active-portfolio-menue' : '', 'data-placement' => 'right',
                      title: 'Customize your portfolio settings' }
               Settings

@@ -4,7 +4,7 @@
 .config-container
   %h4 Change Theme Colors
   .settings-form-container#change-theme-color
-    = form_for @portfolio do |f|
+    = form_for [current_user, @portfolio] do |f|
       .form-portfolio-colors
         .field
           = f.label :color_one
