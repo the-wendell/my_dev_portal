@@ -21,7 +21,7 @@ class Dashboard::PortfolioHeadersController < Dashboard::PortfoliosController
     @portfolio_header.portfolio = @portfolio
 
     if @portfolio_header.save
-      redirect_to edit_portfolio_path(@portfolio)
+      redirect_to edit_user_portfolio_path(current_user, @portfolio)
       flash[:notice] = 'Portfolio Header successfully created!'
     else
       flash[:alert] = helpers.display_errors(@portfolio_header)
@@ -31,7 +31,7 @@ class Dashboard::PortfolioHeadersController < Dashboard::PortfoliosController
 
   def update
     if @portfolio_header.update(portfolio_header_params)
-      redirect_to edit_portfolio_path(@portfolio)
+      redirect_to edit_user_portfolio_path(current_user, @portfolio)
       flash[:notice] = 'Portfolio Header successfully updated'
     else
       flash[:alert] = helpers.display_errors(@portfolio_header)
