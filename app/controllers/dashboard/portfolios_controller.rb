@@ -19,13 +19,13 @@ class Dashboard::PortfoliosController < Dashboard::DashboardController
       redirect_to user_dashboard_index_path(current_user)
     else
       flash[:alert] = helpers.display_errors(@portfolio)
-      redirect_to edit_portfolio_path(helpers.active_portfolio)
+      redirect_to edit_user_portfolio_path(current_user, helpers.active_portfolio)
     end
   end
 
   def update
     if @portfolio.update(portfolio_params)
-      redirect_to edit_portfolio_path(@portfolio)
+      redirect_to edit_user_portfolio_path(current_user, @portfolio)
       flash[:notice] = 'Portfolio updated successfully'
     else
       flash[:alert] = helpers.display_errors(@portfolio)
