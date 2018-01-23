@@ -25,6 +25,8 @@ gem 'haml-lint'
 # Use carrierwave and mini magik for managing image uploads
 gem 'carrierwave'
 gem 'mini_magick'
+# Use fog-aws for carrierwave cloud storage
+gem 'fog-aws'
 # Filterrifc for filtering ActiveRecord
 gem 'filterrific'
 # Bootstrap 4 for rails
