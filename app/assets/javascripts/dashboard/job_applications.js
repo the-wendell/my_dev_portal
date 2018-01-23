@@ -1,4 +1,4 @@
-$(document).ready(function(){
+ready = function() {
   $("#filter-collapse-button").click(function () {
         $(".filter-search-box").addClass("hidden");
         $(".show-main").css("grid-template-columns", "auto");
@@ -10,4 +10,7 @@ $(document).ready(function(){
         $(".show-main").css("grid-template-columns", "265px auto minmax(0px, 265px)");
         $(".filter-search-box").removeClass("hidden")
   });
-});
+}
+
+$(document).ready(ready)
+$(document).on('turbolinks:load', ready)
