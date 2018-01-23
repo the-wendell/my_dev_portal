@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :job_applications
       resources :portfolios, only: %i[create update destroy edit new]
       resources :dashboard, only: %i[index]
+      resources :blogs, only: %i[show]
     end
   end
 

@@ -23,13 +23,20 @@
   padding: 12px;
 }
 
+.new-user-box-container {
+  background-color: #1c1c1c;
+  padding: 30px 35px 20px 35px;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 3px 3px 2px black;
+}
+
 .new-user-box {
   display: grid;
   grid-template-columns: 350px;
-  background-color: #1c1c1c;
+  background-color: #606060;
   padding: 20px;
   border-radius: 5px;
-  color: white;
   grid-gap: 10px;
   box-shadow: 3px 3px 2px black;
 }

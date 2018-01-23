@@ -1,7 +1,4 @@
-.search-footer
-  .reset-filter
-    = link_to 'Reset Filters', reset_filterrific_url, type: 'button', class: 'reset-button'
-    = render_filterrific_spinner
+.grid-header
   .export-csv
     = link_to 'Export CSV', user_job_applications_path(current_user, format: :csv), type: 'button', class: 'reset-button'
   .application-count
@@ -19,7 +16,7 @@
         %th{ scope: 'col' } Referral
         %th{ scope: 'col' } Referral type
         %th{ scope: 'col' } Status
-        %th{ scope: 'col' } Industry
+        %th.last-col{ scope: 'col' } Industry
       %tbody
         - job_applications.each do |job_application|
           %tr
@@ -39,4 +36,4 @@
             %td= job_application.referral
             %td= job_application.referral_type
             %td= job_application.status
-            %td= job_application.industry
+            %td.last-col= job_application.industry

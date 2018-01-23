@@ -36,7 +36,9 @@ class JobApplication < ApplicationRecord
     before = before_and_after.first
     after = before_and_after.last
     where('job_applications.first_contact_date >= ? AND
-           job_applications.first_contact_date <= ?', after, before)
+           job_applications.first_contact_date <= ? OR
+           job_applications.first_contact_date <= ? AND
+           job_applications.first_contact_date >= ?', after, before, after, before)
   }
 
   scope :search_query, lambda { |query|
@@ -77,16 +79,10 @@ class JobApplication < ApplicationRecord
       order("job_applications.company_name #{direction}")
     when /^job_location_/
       order("job_applications.job_location #{direction}")
-    when /^enthusiasm_/
-      order("job_applications.enthusiasm #{direction}")
     when /^job_title_/
       order("job_applications.job_title #{direction}")
     when /^referral_/
       order("job_applications.referral #{direction}")
-    when /^referral_type_/
-      order("job_applications.referral_type #{direction}")
-    when /^status_/
-      order("job_applications.status #{direction}")
     when /^industry_/
       order("job_applications.industry #{direction}")
     else
@@ -99,11 +95,8 @@ class JobApplication < ApplicationRecord
       ['First Contact Date', 'first_contact_date_'],
       ['Company Name', 'company_name_'],
       ['Job Location', 'job_location_'],
-      ['Enthusiasm', 'enthusiasm_'],
       ['Job Title', 'job_title_'],
       ['Referral', 'referral_'],
-      ['Referral Type', 'referral_type_'],
-      ['Status', 'status_'],
       ['industry', 'industry_']
     ]
   end

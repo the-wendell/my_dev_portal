@@ -1,41 +1,49 @@
 .show-main
-  .add-application-button
-    = link_to new_user_job_application_path(current_user) do
-      .add-application-icon{ 'data-placement' => 'right', title: 'Add New Application' }
-        Add New
-  .job-application-container
-    .filter-search-box
-      = form_for_filterrific @filterrific, remote: true do |f|
-        .search-filter
+  #filter-expand-button.hidden
+    .arrow-icon.right
+  .filter-search-box
+    #filter-collapse-button
+      %h3 Filters
+      .arrow-icon.left
+    = form_for_filterrific @filterrific, remote: true do |f|
+      .search-filter.search
+        .label
           Search
-          %br
-          = f.text_field :search_query,
-                         class: 'filterrific-periodically-observed job-application-search'
-        .search-filter.enthusiasm-status
-          #enthusiasm
-            Enthusiasm
-            %br
-            = f.select :enthusiasm, @filterrific.select_options[:enthusiasm]
-          #status
-            Application Status
-            %br
-            = f.select :status, @filterrific.select_options[:status]
-        .search-filter
+        = f.text_field :search_query,
+                       class: 'filterrific-periodically-observed job-application-search'
+      .search-filter.sorted-by
+        .label
           Sorted By
-          %br
-          = f.select :sorted_by, @filterrific.select_options[:sorted_by]
-          = f.select :asc_desc, @filterrific.select_options[:asc_desc]
-        .search-filter
+        = f.select :asc_desc, @filterrific.select_options[:asc_desc]
+        = f.select :sorted_by, @filterrific.select_options[:sorted_by]
+      %h5 Filtered by:
+      .search-filter.filter-by
+        .label
+          Enthusiasm
+        = f.select :enthusiasm, @filterrific.select_options[:enthusiasm]
+      .search-filter.filter-by
+        .label
+          Application Status
+        = f.select :status, @filterrific.select_options[:status]
+      .search-filter.filter-by
+        .label
           Referral Type
-          %br
-          = f.select :referral_type, @filterrific.select_options[:referral_type]
-        .search-filter.first-contact-date
+        = f.select :referral_type, @filterrific.select_options[:referral_type]
+      .search-filter.first-contact-date
+        .label
           First Contact Date
-          %br
-          Between
-          = f.date_select :before, { selected: Date.today }
-          and
-          = f.date_select :after, { selected: 1.years.ago }
-      .filter-search-underline
-    #application-list-table
-      = render partial: 'applications_list', locals: { job_applications: @job_applications }
+        %h6 Between
+        = f.date_select :before, { selected: 1.days.from_now }
+        %h6 and
+        = f.date_select :after, { selected: 1.years.ago }
+      .reset-filter
+        = link_to 'Reset Filters', reset_filterrific_url, type: 'button', class: 'reset-button'
+        = render_filterrific_spinner
+  .application-grid-container
+    .add-application-button
+      = link_to new_user_job_application_path(current_user) do
+        .add-application-icon{ 'data-placement' => 'right', title: 'Add New Application' }
+          Add New
+    .job-application-container
+      #application-list-table
+        = render partial: 'applications_list', locals: { job_applications: @job_applications }

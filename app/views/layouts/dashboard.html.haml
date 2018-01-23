@@ -33,9 +33,9 @@
             .nav-item{ class: @dashboard == 'job_applications' ? 'active' : '', 'data-placement' => 'right',
                        title: 'Manage your job applications' }
               Job Applications
-          = link_to user_dashboard_index_path(current_user) do
-            .nav-item{ 'data-placement' => 'right',
-                       title: 'Your dashboard home page (under construction)' }
+          = link_to user_blog_path(current_user, 1) do
+            .nav-item{ class: controller_name == 'blogs' ? 'active' : '', 'data-placement' => 'right',
+                       title: 'Manage your Developer Blog (under construction)' }
               Dev Blog
       - if @dashboard == 'portfolios'
         .portfolios-nav

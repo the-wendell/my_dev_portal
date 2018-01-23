@@ -7,48 +7,49 @@
     = link_to user_job_application_path(current_user, @job_application), method: :delete, data: { confirm: 'Are you sure that you would like to delete this Application?' } do
       .job-application-icon.delete{ 'data-placement' => 'right', title: 'Delete Application' }
   .show-application-container
-    %p
-      %b First contact date:
-      %br
-      = @job_application.first_contact_date
-    %p
-      %b Enthusiasm:
-      = @job_application.enthusiasm
-      %br
-      %b Status:
-      = @job_application.status
-    %p
-      %b Company name:
-      %br
-      = @job_application.company_name
-    %p
-      %b Job location:
-      %br
-      = @job_application.job_location
-    %p
-      %b Job title:
-      %br
-      = @job_application.job_title
-    %p
-      %b Referral:
-      %br
-      = @job_application.referral
-    %p
-      %b Referral type:
-      %br
-      = @job_application.referral_type
-    %p
-      %b Industry:
-      %br
-      = @job_application.industry
-    %p.link
-      %b Job link:
-      %br
-      = @job_application.job_link
-    %p.link
-      %b Company website:
-      %br
-      = @job_application.company_website
-    %p.notes
-      %b Notes:
-      = @job_application.notes
+    .show-application
+      %p
+        %b First contact date:
+        %br
+        = @job_application.first_contact_date
+      %p
+        %b Enthusiasm:
+        = @job_application.enthusiasm
+        %br
+        %b Status:
+        = @job_application.status
+      %p
+        %b Company name:
+        %br
+        = @job_application.company_name
+      %p
+        %b Job location:
+        %br
+        = @job_application.job_location
+      %p
+        %b Job title:
+        %br
+        = @job_application.job_title
+      %p
+        %b Referral:
+        %br
+        = @job_application.referral
+      %p
+        %b Referral type:
+        %br
+        = @job_application.referral_type
+      %p
+        %b Industry:
+        %br
+        = @job_application.industry
+      %p.link
+        %b Job link:
+        %br
+        = @job_application.job_link
+      %p.link
+        %b Company website:
+        %br
+        = @job_application.company_website
+      %p.notes
+        %b Notes:
+        = @job_application.notes
