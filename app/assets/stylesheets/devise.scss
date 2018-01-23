@@ -1,6 +1,6 @@
 .devise {
   min-height: 100vh;
-  background-color: #00a6fb;
+  background-color: #1c1c1c;
   display: grid;
   justify-content: center;
   padding-top: 10vh;
@@ -13,14 +13,30 @@
   color: white;
 }
 
+.devise h2 {
+  background-color: #e12831;
+  box-shadow: 3px 3px 1px 0px black;
+  border-radius: 5px 5px 0px 0px;
+  margin: 0px;
+  padding: 15px;
+  font-size: 28px;
+}
+
 .devise form {
   margin-top: 10px;
   display: grid;
   grid-row-gap: 10px;
 }
 
+.devise-form-container {
+  background-color: #606060;
+  box-shadow: 3px 3px 1px 0px black;
+  padding: 15px;
+  border-radius: 0px 0px 5px 5px;
+}
+
 .devise .actions input {
-  background-color: #0a0d72;
+  background-color: #24a3b7;
   border: 0px;
   border-radius: 5px;
   color: white;
@@ -33,6 +49,14 @@
 
 .devise .cancel-account {
   margin-top: 40px;
+}
+
+.devise .cancel-button {
+  background-color: #ba2226;
+  border: 0px;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 10px 5px 10px;
 }
 
 .devise .current-password {
