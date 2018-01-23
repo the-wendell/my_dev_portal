@@ -37,5 +37,5 @@
     .actions
       - if @project.persisted?
         = link_to 'Cancel', portfolio_projects_path(@portfolio), class: 'cancel-button'
-        = link_to 'Delete', portfolio_project_path(@portfolio, @project),  method: :delete, data: { confirm: 'Are you sure that you would like to delete this Application?' }
+        = link_to 'Delete', portfolio_project_path(@portfolio, @project), class: 'delete-button', method: :delete, data: { confirm: 'Are you sure that you would like to delete this Application?' }
       = f.submit "Submit #{@project.persisted? ? 'Edit' : 'New'}", class: 'update-button'

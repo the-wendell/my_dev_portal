@@ -125,6 +125,13 @@
   display: inline;
 }
 
+.delete-button {
+  background-color: #ba2226;
+  margin-right: 40px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 @media only screen and (max-width: 910px ) {
   .form-container-project {
     grid-row: 2 / 3;
