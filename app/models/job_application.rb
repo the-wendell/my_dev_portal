@@ -1,5 +1,10 @@
 class JobApplication < ApplicationRecord
   belongs_to :user
+  validates :company_name, :company_website, :job_location, :enthusiasm,
+            :job_title, :referral, :referral_type, :status, :industry,
+            length: { maximum: 100 }
+  validates :notes, length: { maximum: 1000 }
+  validates :job_link, length: { maximum: 250 }
   validates :enthusiasm, inclusion: { in: %w[high medium low] }
   validates :status, inclusion: { in: %w[researching applied interviewing rejected offer] }
   validates :referral_type, inclusion: { in: ['cold outreach', 'mentor', 'personal connection', 'new connection', 'career website'] }

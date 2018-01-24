@@ -1,5 +1,6 @@
 class FrontEnd::PortfolioController < ApplicationController
   layout 'dashboard', only: [:preview]
+  rescue_from Exception, :with => :render_404
 
   def show
     render_portfolio
@@ -15,12 +16,12 @@ class FrontEnd::PortfolioController < ApplicationController
   private
 
   def render_portfolio
-    @portfolio = Portfolio.find_by(url: params[:portfolio]) rescue raise('not found')
+    @portfolio = Portfolio.find_by(url: params[:portfolio])
     @portfolio_header = @portfolio.portfolio_header || filler_header
     @projects = @portfolio.projects.all.order(:order)
     @technologies = @portfolio.technologies.all
     @about = @portfolio.about || filler_about
-    @first_name = @portfolio_header.header_one.split(' ').first
+    @first_name = @portfolio_header.header_one.split(' ').first rescue ''
 
     if @portfolio.show_years_exp && @portfolio.show_proficiency
       @show_technology = 'all'
@@ -31,6 +32,11 @@ class FrontEnd::PortfolioController < ApplicationController
     else
       @show_technology = 'none'
     end
+  end
+
+  def render_404
+    flash[:alert] = 'This Portfolio does not exist'
+    redirect_to root_path
   end
 
   def filler_about
