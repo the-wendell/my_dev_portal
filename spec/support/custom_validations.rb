@@ -30,4 +30,37 @@ module CustomValidationsSpec
       expect(record.errors[attribute]).to eq([])
     end
   end
+
+  def project_attribute_has_maximum_length_of(length, attribute)
+    let(:user) { FactoryGirl.create(:user) }
+    let(:portfolio) { FactoryGirl.create(:portfolio, user: user) }
+    let(:attribute) do
+      { header_one: 'testing title',
+        header_two: 'exiting stuff',
+        header_two_color: '#ffffff',
+        header_one_color: '#ffffff',
+        portfolio_id: portfolio.id }
+    end
+
+    short_string = build_string(length)
+    long_string = build_string(length + 1)
+
+    it "has a maximum length of #{length}" do
+      record = portfolio.projects.new(project_input)
+      record.send("#{attribute}=", short_string)
+      record.valid?
+      expect(record.errors[attribute]).to eq([])
+      record.send("#{attribute}=", long_string)
+      record.valid?
+      expect(record.errors[attribute].length).to eq(1)
+    end
+  end
+
+  def build_string(length)
+    string = ''
+    length.times do
+      string << 'a'
+    end
+    string
+  end
 end

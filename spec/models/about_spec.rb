@@ -49,7 +49,43 @@ RSpec.describe About, type: :model do
     it { should belong_to(:portfolio) }
   end
 
+  describe '#linkedin' do
+    is_valid_url(:linkedin, About.new)
+    it do
+      should validate_length_of(:linkedin)
+        .is_at_most(100)
+    end
+  end
+
   describe '#github' do
     is_valid_url(:github, About.new)
+    it do
+      should validate_length_of(:github)
+        .is_at_most(100)
+    end
+  end
+
+  describe '#twitter' do
+    is_valid_url(:twitter, About.new)
+    it do
+      should validate_length_of(:twitter)
+        .is_at_most(100)
+    end
+  end
+
+  describe '#facebook' do
+    is_valid_url(:facebook, About.new)
+    it do
+      should validate_length_of(:facebook)
+        .is_at_most(100)
+    end
+  end
+
+  describe '#website' do
+    is_valid_url(:website, About.new)
+    it do
+      should validate_length_of(:website)
+        .is_at_most(100)
+    end
   end
 end

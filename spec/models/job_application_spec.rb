@@ -53,4 +53,60 @@ RSpec.describe JobApplication, type: :model do
         .in_array(['cold outreach', 'mentor', 'personal connection', 'new connection', 'career website'])
     end
   end
+
+  describe '#company_name' do
+    it do
+      should validate_length_of(:company_name)
+        .is_at_most(100)
+    end
+  end
+
+  describe '#company_website' do
+    it do
+      should validate_length_of(:company_website)
+        .is_at_most(100)
+    end
+  end
+
+  describe '#job_location' do
+    it do
+      should validate_length_of(:job_location)
+        .is_at_most(100)
+    end
+  end
+
+  describe '#job_title' do
+    it do
+      should validate_length_of(:job_title)
+        .is_at_most(100)
+    end
+  end
+
+  describe '#referral' do
+    it do
+      should validate_length_of(:referral)
+        .is_at_most(100)
+    end
+  end
+
+  describe '#industry' do
+    it do
+      should validate_length_of(:industry)
+        .is_at_most(100)
+    end
+  end
+
+  describe '#notes' do
+    it do
+      should validate_length_of(:notes)
+        .is_at_most(1000)
+    end
+  end
+
+  describe '#job_link' do
+    it do
+      should validate_length_of(:job_link)
+        .is_at_most(250)
+    end
+  end
 end

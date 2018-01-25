@@ -2,8 +2,9 @@
   .project-side-bar
     %h4 Select Project
     = link_to new_portfolio_project_path(@portfolio) do
-      .project-link{ class: @project.persisted? ? '' : 'active-project' }
-        Add Project
+      .project-link.add-project{ class: @project.persisted? ? '' : 'active-project' }
+        .add-project-icon
+        %strong Add Project
     - @projects.each do |project|
       = link_to edit_portfolio_project_path(@portfolio, project.id) do
         .project-link{ class: project == @project ? 'active-project' : '' }
