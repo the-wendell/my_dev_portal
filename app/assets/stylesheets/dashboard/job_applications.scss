@@ -150,10 +150,24 @@
   box-shadow: 3px 3px 1px 0px black;
 }
 
+.export-button {
+  background-color: #24a3b7;
+  color: white;
+  align-self: center;
+  border-radius: 4px;
+  padding: 8px;
+  width: 105px;
+  height: 40px;
+  text-align: center;
+  font-weight: bold;
+  -moz-apperance: button;
+}
+
 .reset-button {
   background-color: #24a3b7;
   color: white;
   align-self: center;
+  border-radius: 4px;
   padding-top: 8px;
   width: 105px;
   height: 40px;
