@@ -1,8 +1,8 @@
 # My Dev Portal
 
-My Dev Portal is made with new developers in mind.  It allows you to quickly and easily set up a public front facing portfolio to showcase your projects and skills.  As well, you will be able to track and log your job applications.
+My Dev Portal is made with new developers in mind. It allows you to quickly and easily set up a public front facing portfolio to showcase your projects and skills. As well, you will be able to track and log your job applications.
 
-Aside from functioning as portfolio and a job hunt managment tool for new developers My Dev Portal is also a great place to dive into the world of open source.  As the public front facing portfolios rely on themes for their layout My Dev Portal allows for an unlimited number of new devlopers to add meanginfull contributions, in the form of new themes, while putting a pull-request or two under their belt.  For detailed instructions on how to contribute see bellow.
+Aside from functioning as a portfolio and a job hunt management tool for new developers My Dev Portal is also a great place to dive into the world of open source. As the public front facing portfolios rely on themes for their layout My Dev Portal allows for an unlimited number of new developers to add meaningful contributions, in the form of new themes, while putting a pull-request or two under their belt. 
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ Aside from functioning as portfolio and a job hunt managment tool for new develo
 
 ## Current State
 
-My Dev Portal is up and running at http://mydevportal.io. Users are able to jump right in and create a public facing portfolio that will be hosted at http://mydevportal.io/portfolio_name.  Users can also use their dashboard to track and log all of their current and past job applicaitons.
+My Dev Portal is up and running at http://mydevportal.io. Users are able to jump right in and create a public facing portfolio that will be hosted at http://mydevportal.io/portfolio_name.  Users can also use their dashboard to track and log all of their current and past job applications.
 
 mydevportal.io is a permanent web app so you need not worry about losing your portfolio or job tracking data.
 
@@ -28,12 +28,12 @@ mydevportal.io is a permanent web app so you need not worry about losing your po
 First, check out the code of conduct [here](https://github.com/SWLivingstone/my_dev_portal/blob/master/code_of_conduct.md).
 Then, get crackin'!
 
-As "My Dev Portal" is being built with new devlopers in mind it is also being built to allow for entry level contributions in the form of themes/templates.  One can never have too many themes!  Below you will find *very* detailed instructions on how to create a new Portfolio theme.  Do not let the longwinded instructions fool you as adding a theme is quite simple!  The majority of the instructions are simply tables depicting the available user data.
+As "My Dev Portal" is being built with new developers in mind it is also being built to allow for entry level contributions in the form of themes/templates.  One can never have too many themes!  Below you will find *very* detailed instructions on how to create a new Portfolio theme.  Do not let the long winded instructions fool you as adding a theme is quite simple!  The majority of the instructions are simply tables depicting the available user data.
 
 **Designers Welcome**
 If you have a great design for My Dev Portal that you would like made submit it as an issue with a mock-up and someone will build it!
 
-The standards for contribution are simple and minmal.
+The standards for contribution are simple and minimal.
 * If what you have written is a function then please add an Rspec test for it (tests are not necessary for private/protected functions)
 * Portfolio themes should be responsive (tests are not necessary for themes)
 * Portfolio themes must support the available user preferences (listed bellow)
@@ -42,9 +42,10 @@ The standards for contribution are simple and minmal.
 
 If there is a feature that you would like to add then please send me a quick email at scottwlivingstone@gmail.com to tell me a little bit about it - I am more than happy to have additional features added.  As well, feel free to start working on the laundry list of features to be added which can be found listed under Projects.
 
-Also, if you fancy your self a CSS wizard and a master of style please feel free to update the look of any elements that you wish.
+Also, if you fancy yourself a CSS wizard and a master of style please feel free to update the look of any elements that you wish.
 
 p.s. Pull requests to correct my spelling will also be accepted ;p
+
 
 <a name="setup" />
 
@@ -70,7 +71,7 @@ p.s. Pull requests to correct my spelling will also be accepted ;p
   2. Create a new stylesheet in app/assets/stylesheets/themes
     * Give it the same name as your theme
     * The file extension must be .scss
-  3.  Restart the server for the asset pipeline to pickup the new stylesheet and for the Themes initializer to pick up the template.
+  3.  Restart the server for the asset pipeline to pick up the new stylesheet and for the Themes initializer to pick up the template.
 
   The template is now selectable while logged into the My Dev Portal dashboard under the Portfolio Settings page.
 
