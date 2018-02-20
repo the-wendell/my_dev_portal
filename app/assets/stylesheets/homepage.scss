@@ -148,13 +148,15 @@
   width: 100%;
   color: white;
   display: flex;
+  flex-flow: row;
 }
 
 .contact {
   background-color: #6A8FA9;
   width: 40%;
   color: #CADDE8;
-  padding: 75px 20px 50px 20px;
+  padding: 2rem 2rem 1rem;
+  position:relative;
 }
 
 .contact h4 {
@@ -167,18 +169,17 @@
 
 .about {
   width: 60%;
-  padding: 50px 20px 30px 20px;
+  padding: 2rem 2rem 1rem;
   background-color: #24A3B7;
   display: grid;
   grid-template-rows: auto auto;
-  align-items: end;
+  align-items: start;
   position: relative;
   z-index: 1;
 }
 
 .about h4 {
   font-size: 40px;
-  margin: 0px;
 }
 
 @media only screen and (max-width: 1020px ) {
@@ -190,5 +191,14 @@
 @media only screen and (max-width: 500px ) {
   .features {
     grid-template-columns: 215px;
+  }
+}
+
+@media only screen and (max-width: 660px ) {
+  .about, .contact{
+    width: 100%;
+  }
+  .footer {
+    flex-flow: column;
   }
 }
