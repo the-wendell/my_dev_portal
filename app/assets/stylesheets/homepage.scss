@@ -148,6 +148,7 @@
   width: 100%;
   color: white;
   display: flex;
+  flex-flow: row;
 }
 
 .contact {
@@ -191,5 +192,11 @@
 @media only screen and (max-width: 500px ) {
   .features {
     grid-template-columns: 215px;
+  }
+  .about, .contact{
+    width: 100%;
+  }
+  .footer {
+    flex-flow: column;
   }
 }
