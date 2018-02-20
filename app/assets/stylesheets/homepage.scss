@@ -193,6 +193,9 @@
   .features {
     grid-template-columns: 215px;
   }
+}
+
+@media only screen and (max-width: 660px ) {
   .about, .contact{
     width: 100%;
   }
