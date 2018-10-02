@@ -45,10 +45,9 @@ class Dashboard::PortfoliosController < Dashboard::DashboardController
   end
 
   def confirm_owner
-    unless current_user == @portfolio.user
-      flash[:alert] = 'You are not the owner of that or portfolio'
-      redirect_to root
-    end
+    return if current_user == @portfolio.user
+    flash[:alert] = 'You are not the owner of that or portfolio'
+    redirect_to root
   end
 
   def set_portfolio

@@ -9,12 +9,14 @@ class Dashboard::DashboardController < ApplicationController
     @projects = @portfolio.projects.all.order(:order)
     @technologies = @portfolio.technologies.all
 
-    if @portfolio_header.header_one && @about.about_me && (@technologies.count > 0) && (@projects.count > 0)
+    if @portfolio_header.header_one && @about.about_me &&
+       @technologies.count.positive? && @projects.count.positive?
       @new_user = false
     else
       @new_user = true
     end
   end
+
   private
 
   def set_portfolios
@@ -23,9 +25,8 @@ class Dashboard::DashboardController < ApplicationController
   end
 
   def confirm_portfolio_owner
-    unless current_user == @portfolio.user
-      flash[:alert] = 'You are not the owner of that or portfolio'
-      redirect_to root
-    end
+    return if current_user == @portfolio.user
+    flash[:alert] = 'You are not the owner of that or portfolio'
+    redirect_to root
   end
 end

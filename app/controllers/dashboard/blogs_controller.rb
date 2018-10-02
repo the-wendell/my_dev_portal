@@ -1,4 +1,3 @@
 class Dashboard::BlogsController < Dashboard::DashboardController
-  def show
-  end
+  def show; end
 end
