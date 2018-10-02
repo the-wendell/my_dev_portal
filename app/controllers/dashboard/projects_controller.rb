@@ -11,11 +11,9 @@ class Dashboard::ProjectsController < Dashboard::PortfoliosController
     render 'edit'
   end
 
-  def new
-  end
+  def new; end
 
-  def edit
-  end
+  def edit; end
 
   def create
     if @project.save
@@ -45,10 +43,9 @@ class Dashboard::ProjectsController < Dashboard::PortfoliosController
   private
 
   def confirm_owner
-    unless current_user == @project.portfolio.user
-      flash[:alert] = 'You are not the owner of that or portfolio'
-      redirect_to root
-    end
+    return if current_user == @project.portfolio.user
+    flash[:alert] = 'You are not the owner of that or portfolio'
+    redirect_to root
   end
 
   def set_new_record
