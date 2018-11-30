@@ -11,11 +11,9 @@ class Dashboard::AboutsController < Dashboard::PortfoliosController
     render 'edit'
   end
 
-  def new
-  end
+  def new; end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @about.portfolio = @portfolio
@@ -42,10 +40,9 @@ class Dashboard::AboutsController < Dashboard::PortfoliosController
   private
 
   def confirm_owner
-    unless current_user == @about.portfolio.user
-      flash[:alert] = 'You are not the owner of that "About Me"'
-      redirect_to root
-    end
+    return if current_user == @about.portfolio.user
+    flash[:alert] = 'You are not the owner of that "About Me"'
+    redirect_to root
   end
 
   def set_new_record
@@ -53,7 +50,7 @@ class Dashboard::AboutsController < Dashboard::PortfoliosController
   end
 
   def set_record
-    @about = params[:id] ? About.find(params[:id]) : @about = About.new(about_params)
+    @about = params[:id] ? About.find(params[:id]) : About.new(about_params)
   end
 
   def about_params
