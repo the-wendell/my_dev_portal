@@ -6,12 +6,10 @@ Aside from functioning as a portfolio and a job hunt management tool for new dev
 
 ## Table of Contents
 
-* [Current State](#state)
-* [Want to Contribute?](#contribute)
-* [Setting up the Dev Environment](#setup)
-* [Adding a new Theme](#addtheme)
-
-<a name="state" />
+* [Current State](#current-state)
+* [Want to Contribute?](#want-to-contribute?)
+* [Setting up the Dev Environment](#setting-up-the-dev-environment)
+* [Adding a new Theme](#adding-a-new-theme)
 
 ## Current State
 
@@ -19,9 +17,7 @@ My Dev Portal is up and running at http://mydevportal.io. Users are able to jump
 
 mydevportal.io is a permanent web app so you need not worry about losing your portfolio or job tracking data.
 
-*mydevportal.io is being reliably hosted on a premium Heroku server*
-
-<a name="contribute" />
+*mydevportal.io is being reliably hosted on a premium Heroku server.*
 
 ## Want to Contribute?
 
@@ -36,7 +32,7 @@ If you have a great design for My Dev Portal that you would like made submit it 
 The standards for contribution are simple and minimal.
 * If what you have written is a function then please add an Rspec test for it (tests are not necessary for private/protected functions)
 * Portfolio themes should be responsive (tests are not necessary for themes)
-* Portfolio themes must support the available user preferences (listed bellow)
+* Portfolio themes must support the available user preferences (listed below)
 * If you are adding a larger feature please do your best to consider edge cases
 * This is for fun and experiences so please have fun and learn!
 
@@ -46,31 +42,27 @@ Also, if you fancy yourself a CSS wizard and a master of style please feel free 
 
 p.s. Pull requests to correct my spelling will also be accepted ;p
 
+## Setting Up the Dev Environment
 
-<a name="setup" />
-
-### Getting the Development Environment Started
-
-  **Requirments:**
-    * Rails 5.1.4
-    * Ruby 2.3.5
-    * Postgres
-    * Bundler -v 1.15.2 (This is the version Heroku is currently using)
+**Requirements:**
+  * Rails 5.1.4
+  * Ruby 2.3.5
+  * Postgres
+  * Bundler -v 1.15.2 (This is the version Heroku is currently using)
 
   1. Run `bundle install` to install dependencies
   2. Run `rails db:setup` to set up the Postgres database
   3. Run `rails server` to start the server at localhost:3000
 
-<a name="addtheme" />
+## Adding a New Theme
 
-### Instructions for Adding a New Theme
-
-  1. Create a new template file in app/views/front_end/portfolios/themes
-    * The file name will be the theme name
-    * The file extension must be html.haml  If you don't already know Haml it will take you less than 20 minutes to learn and save you hours in the long run. http://http://haml.info/tutorial.html
+  1. Create a new template file in 'app/views/front_end/portfolios/themes'
+  * The file name will be the theme name
+  * The file extension must be html.haml
+    * If you don't already know Haml it will take you less than 20 minutes to learn and save you hours in the long run. http://haml.info/tutorial.html
   2. Create a new stylesheet in app/assets/stylesheets/themes
-    * Give it the same name as your theme
-    * The file extension must be .scss
+  * Give it the same name as your theme
+  * The file extension must be .scss
   3.  Restart the server for the asset pipeline to pick up the new stylesheet and for the Themes initializer to pick up the template.
 
   The template is now selectable while logged into the My Dev Portal dashboard under the Portfolio Settings page.
@@ -86,7 +78,7 @@ Attribute Accessor | Type | Description
 `.cover_image` | **string** | User's cover image.  Suffix with `.url` for original upload size, `.full.url` for an image 800px high, and `.preview.url` for an image 230px high.
 `.avatar_image` | **string** | User's avatar image.  Suffix with `.url` for original upload size, `.full.url` for an image 225px by 300px, and `.preview.url` for an image 66px by 88px.
 
-`@projects` **array** The users projects (loop through this to get individual project hashes)
+**`@projects` array** The users projects (loop through this to get individual project hashes)
 
 Attribute Accessor | Type | Description
 -------------------|------|------------
@@ -98,7 +90,7 @@ Attribute Accessor | Type | Description
 `.role` | **string** | User's role on the project
 `.order` | **int** | User given order.  `@projects` will already be sorted by `.order`
 
-`@technologies` **array** List of technologies/skills known by the user (loop through this to get individual technology hashes)
+**`@technologies` array** List of technologies/skills known by the user (loop through this to get individual technology hashes)
 
 Attribute Accessor | Type | Description
 -------------------|------|------------
@@ -120,13 +112,13 @@ Attribute Accessor | Type | Description
   **AVAILABLE USER PREFERENCES** (Your theme must support these options)
 
   * Options for displaying technologies
-    * The user can chose how they would like to display their skills.  They can display their years of experience, their proficiency, both, or none at all simply electing to display only the name.
+    * The user can choose how they would like to display their skills.  They can display their years of experience, their proficiency, both, or none at all simply electing to display only the name.
     * `@show_technology` **string** Returns either 'all', 'years', 'proficiency', or 'none' indicating the user's preferences.
   * Options for displaying header
-    * The user can chose if they would like to display uploaded images or none at all.
+    * The user can choose if they would like to display uploaded images or none at all.
     * `@portfolio.show_cover_image` **boolean** if true then show
     * `@portfolio.show_avatar_image` **boolean** if true then show
-  * Options for custom colors. Use inline CSS to allow for custom user colors.  They are all data type **string** formated as hex colors (example: `#FFFFFF`)  
+  * Options for custom colors. Use inline CSS to allow for custom user colors.  They are all data type **string** formatted as hex colors (example: `#FFFFFF`)
     * There are 6 colors accessed through `@portfolio`
       * `.color_one`
       * `.color_two`
@@ -163,5 +155,6 @@ Attribute Accessor | Type | Description
     ```
 
   * Please make your theme mobile friendly
-  * Your shouldn't need to add any dependencies.  Bootstrap 4, Sass, and jQuery are supported and with the fantastic addition of CSS grid you should be able to manage without adding further dependencies
-  * Feel free to create reusable partials in app/views/portfolios/components.  As well, feel free to use any of the existing components that are in there.  You should be able to drop them straight into your theme with `= render partial: 'portfolios/components/some_component'`
+  * You shouldn't need to add any dependencies.  Bootstrap 4, Sass, and jQuery are supported and with the fantastic addition of CSS grid you should be able to manage without adding further dependencies
+  * Feel free to create reusable partials in app/views/portfolios/components.  As well, feel free to use any of the existing components that are in there.  You should be able to drop them straight into your theme with 
+  `= render partial: 'portfolios/components/some_component'`
