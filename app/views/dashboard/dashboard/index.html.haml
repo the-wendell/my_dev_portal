@@ -1,4 +1,5 @@
 .home-container
+  = render partial: 'recent_job_applications', locals: { job_applications: @job_applications }
   .welcome-box
     .go-to-portfolio
       = link_to 'View Your Portfolio', "/#{@portfolio.url}"

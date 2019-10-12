@@ -8,6 +8,7 @@ class Dashboard::DashboardController < ApplicationController
     @about = @portfolio.about || About.new
     @projects = @portfolio.projects.all.order(:order)
     @technologies = @portfolio.technologies.all
+    @job_applications = current_user.job_applications.where('created_at > ?', 1.week.ago)
 
     if @portfolio_header.header_one && @about.about_me &&
        @technologies.count.positive? && @projects.count.positive?

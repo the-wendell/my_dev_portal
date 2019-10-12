@@ -1,0 +1,29 @@
+.application-grid-container
+  .job-application-container
+    #application-list-table
+      %h2 Applications in the last week
+      .table-container
+        %table.table.table-striped.table-dark.table-responsive
+          %thead
+            %tr.table-heading
+              %th{ scope: 'col' } First contact date
+              %th{ scope: 'col' } Company name
+              %th{ scope: 'col' } Job location
+              %th{ scope: 'col' } Enthusiasm
+              %th{ scope: 'col' } Job title
+              %th{ scope: 'col' } Referral
+              %th{ scope: 'col' } Referral type
+              %th{ scope: 'col' } Status
+              %th.last-col{ scope: 'col' } Industry
+            %tbody
+              - job_applications.each do |job_application|
+                %tr
+                  %td= job_application.first_contact_date
+                  %td= job_application.company_name
+                  %td= job_application.job_location
+                  %td= job_application.enthusiasm
+                  %td= job_application.job_title
+                  %td= job_application.referral
+                  %td= job_application.referral_type
+                  %td= job_application.status
+                  %td.last-col= job_application.industry
