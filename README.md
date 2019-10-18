@@ -1,3 +1,5 @@
+# NO LONGER MAINTAINED
+
 # My Dev Portal
 
 My Dev Portal is made with new developers in mind. It allows you to quickly and easily set up a public front facing portfolio to showcase your projects and skills. As well, you will be able to track and log your job applications.
@@ -13,11 +15,7 @@ Aside from functioning as a portfolio and a job hunt management tool for new dev
 
 ## Current State
 
-My Dev Portal is up and running at http://mydevportal.io. Users are able to jump right in and create a public facing portfolio that will be hosted at http://mydevportal.io/portfolio_name.  Users can also use their dashboard to track and log all of their current and past job applications.
-
-mydevportal.io is a permanent web app so you need not worry about losing your portfolio or job tracking data.
-
-*mydevportal.io is being reliably hosted on a premium Heroku server.*
+Deprecated.  Feel free to fork it and do whatever you like with it.
 
 ## Want to Contribute?
 
